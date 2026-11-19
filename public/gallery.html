@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Inside the Club | Toronto Revolver Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: { DEFAULT: '#001489', deep: '#06125E', light: '#162EB8', tint: '#F0F4FF' },
+                        gold: { DEFAULT: '#D4AF37', bright: '#EAB308', warm: '#F59E0B', pale: '#FEFCE8' },
+                        slateink: '#0F172A',
+                        muted: '#475569'
+                    },
+                    fontFamily: {
+                        display: ['Oswald', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #0F172A; }
+        .architectural-bg {
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(circle at 82% 30%, rgba(212, 175, 55, 0.16) 0%, transparent 48%),
+                radial-gradient(circle at 12% 80%, rgba(0, 20, 137, 0.06) 0%, transparent 50%),
+                linear-gradient(to right, rgba(0, 20, 137, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 20, 137, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+        .trc-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 20, 137, 0.14);
+            border-top: 3px solid #001489;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .trc-card:hover {
+            border-top-color: #D4AF37;
+            transform: translateY(-3px);
+            box-shadow: 0 18px 34px -14px rgba(0, 20, 137, 0.16), 0 4px 12px -2px rgba(212, 175, 55, 0.16);
+        }
+
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease-out, transform .6s ease-out; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .gal { display: grid; gap: .75rem; grid-template-columns: repeat(12, minmax(0,1fr)); grid-auto-rows: 210px;
+            grid-template-areas: "a a a a a a a r r r r r" "a a a a a a a r r r r r" "l l l l l l f f f g g g"; }
+        .gal figure { position: relative; margin: 0; overflow: hidden; border-radius: .75rem; cursor: zoom-in; background: #06125E;
+            border: 1px solid rgba(0,20,137,.14); box-shadow: 0 10px 24px -14px rgba(0,20,137,.35); }
+        .gal img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.16,1,.3,1); display: block; }
+        .gal figure:hover img { transform: scale(1.05); }
+        .gal figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem .85rem .6rem; color: #fff;
+            background: linear-gradient(to top, rgba(6,18,94,.85), transparent); font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .1em; }
+        .gal figure::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 0 #D4AF37; transition: box-shadow .25s; pointer-events: none; }
+        .gal figure:hover::after { box-shadow: inset 0 0 0 3px #D4AF37; }
+        .g-a { grid-area: a; } .g-r { grid-area: r; } .g-l { grid-area: l; } .g-f { grid-area: f; } .g-g { grid-area: g; }
+        .g-a img { object-position: center 55%; } .g-l img { object-position: center 75%; }
+        @media (max-width: 767px) {
+            .gal { gap: .5rem; grid-template-columns: 1fr 1fr; grid-auto-rows: 120px;
+                grid-template-areas: "a a" "a a" "r r" "l l" "f g"; }
+            .gal figcaption { font-size: 10px; padding: 1.2rem .6rem .45rem; }
+        }
+        #lb { position: fixed; inset: 0; z-index: 70; background: rgba(6,18,94,.94); display: none; align-items: center; justify-content: center; padding: 1rem; }
+        #lb.on { display: flex; }
+        #lb img { max-width: 100%; max-height: 80vh; border-radius: .5rem; border: 2px solid #D4AF37; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+        #lb .cap { color: #fff; font: 700 12px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .12em; margin-top: .9rem; text-align: center; }
+        #lb button { position: absolute; width: 2.75rem; height: 2.75rem; border-radius: 9999px; border: 1px solid rgba(212,175,55,.7); color: #EAB308; background: rgba(255,255,255,.06); }
+        #lb button:hover { background: #D4AF37; color: #06125E; }
+        #lb .x { top: 1rem; right: 1rem; } #lb .pv { left: 1rem; top: 50%; transform: translateY(-50%); } #lb .nx { right: 1rem; top: 50%; transform: translateY(-50%); }
+    </style>
+    <link rel="stylesheet" href="mobile.css?v=20261119162915">
+</head>
+<body class="font-sans antialiased selection:bg-royal selection:text-white">
+
+    <!-- Reading progress -->
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-royal via-gold to-gold-warm z-[60] w-0 transition-[width] duration-150"></div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-royal/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0" aria-label="Toronto Revolver Club home">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
+                    <img src="trc-crest.svg?v=202611162231" alt="Toronto Revolver Club Crest" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <span class="font-display font-bold text-royal text-base sm:text-2xl tracking-wide sm:tracking-wider uppercase block leading-none whitespace-nowrap">Toronto Revolver Club</span>
+                    <span class="font-mono text-[10px] font-semibold tracking-[0.24em] text-amber-700 uppercase mt-1 block">Inside the Club</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-[0.14em] text-slate-700">
+                <a href="index.html#range" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">The Range</a>
+                <a href="index.html#heritage" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Heritage</a>
+                <a href="index.html#join" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Membership</a>
+                <a href="index.html#calendar" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Calendar</a>
+            </nav>
+            <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+                <a href="index.html#contact" class="hidden md:inline-flex items-center px-4 py-2.5 rounded border border-royal/25 hover:border-royal hover:bg-royal-tint text-royal font-display font-semibold text-sm uppercase tracking-wider transition">Contact</a>
+                <a href="members.html" aria-label="Member Portal" class="px-3 min-[420px]:px-4 sm:px-5 py-2.5 rounded bg-royal hover:bg-royal-light text-white border border-gold/60 font-display font-semibold text-sm uppercase tracking-wider transition shadow-md shadow-royal/20 inline-flex items-center">
+                    <i class="fa-solid fa-lock min-[420px]:mr-2 text-gold-bright text-xs"></i><span class="hidden sm:inline">Member&nbsp;</span><span class="hidden min-[420px]:inline">Portal</span>
+                </a>
+                <button id="mobileToggle" class="lg:hidden p-2.5 rounded border border-royal/20 text-royal hover:bg-royal-tint" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-royal/10 px-6 py-5 space-y-3 shadow-lg">
+            <a href="index.html#range" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">The Range</a>
+            <a href="index.html#heritage" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Heritage</a>
+            <a href="index.html#join" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Membership</a>
+            <a href="index.html#calendar" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-regular fa-calendar mr-2 text-gold-warm"></i> Calendar</a>
+            <a href="index.html#contact" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-solid fa-paper-plane mr-2 text-gold-warm"></i> Contact</a>
+            <div class="md:hidden pt-3 mt-2 border-t border-royal/10 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider">
+                <span class="text-muted">&copy; 2026 Toronto Revolver Club</span>
+                <a href="https://mail.google.com/a/torontorevolverclub.com" target="_blank" rel="noopener" class="text-amber-700 font-bold"><i class="fa-solid fa-envelope mr-1.5"></i>Board Email</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="architectural-bg border-b border-royal/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+            <h1 class="font-display font-bold text-[2.1rem] min-[400px]:text-4xl sm:text-5xl text-slateink uppercase tracking-tight leading-none">Inside the <span class="text-royal">Club</span></h1>
+            <span class="block h-1.5 w-32 bg-gradient-to-r from-gold to-royal rounded-full mt-3"></span>
+            <p class="text-muted text-sm sm:text-base leading-relaxed max-w-3xl mt-4">The range, the clubhouse and a few faces from more than a century of TRC. Tap any photo to enlarge.</p>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12">
+        <div class="gal reveal">
+            <figure class="g-a"><img src="gallery/at-the-line.jpg?v=2" alt="Members shooting at the firing line" loading="lazy"><figcaption>At the firing line</figcaption></figure>
+            <figure class="g-r"><img src="gallery/range.jpg?v=1" alt="The TRC range with targets on the carriers" loading="lazy"><figcaption>The range</figcaption></figure>
+            <figure class="g-l"><img src="gallery/lounge.jpg?v=1" alt="Clubhouse lounge with the TRC crest on the floor" loading="lazy"><figcaption>Clubhouse lounge</figcaption></figure>
+            <figure class="g-f"><img src="gallery/founder-1.jpg?v=1" alt="Framed archive portrait of the club founder" loading="lazy"><figcaption>Club founder</figcaption></figure>
+            <figure class="g-g"><img src="gallery/founder-2.jpg?v=1" alt="Framed archive portrait from the club's history" loading="lazy"><figcaption>From the archives</figcaption></figure>
+        </div>
+        <div class="pt-8 flex flex-wrap items-center justify-between gap-3 no-print">
+            <a href="index.html#range" class="inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-wider text-amber-700 hover:text-royal transition"><i class="fa-solid fa-arrow-left mr-1.5"></i>Back to The Range</a>
+            <a href="index.html#join" class="px-5 py-3 rounded bg-royal hover:bg-royal-light text-white font-display font-semibold uppercase tracking-wider border border-gold/50 inline-flex items-center">Join TRC <i class="fa-solid fa-arrow-right ml-2 text-gold-bright text-xs"></i></a>
+        </div>
+    </main>
+
+    <div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="x" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <button class="pv" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="text-center"><img alt=""><div class="cap"></div></div>
+        <button class="nx" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-royal text-white border-t-4 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-300 gap-3">
+            <p>&copy; 2026 TORONTO REVOLVER CLUB. ALL RIGHTS RESERVED.</p>
+            <a href="index.html" class="text-gold-bright hover:text-white transition uppercase tracking-wider"><i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Club Site</a>
+        </div>
+    </footer>
+
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('mobileToggle');
+            const menu = document.getElementById('mobileMenu');
+            if (!toggle || !menu) return;
+            const icon = toggle.querySelector('i');
+            const setOpen = (open) => {
+                menu.classList.toggle('hidden', !open);
+                toggle.setAttribute('aria-expanded', open);
+                if (icon) { icon.classList.toggle('fa-bars', !open); icon.classList.toggle('fa-xmark', open); }
+            };
+            toggle.addEventListener('click', (e) => { e.stopPropagation(); setOpen(menu.classList.contains('hidden')); });
+            menu.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => setOpen(false)));
+            document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !toggle.contains(e.target)) setOpen(false); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+        })();
+        window.addEventListener('scroll', () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            document.getElementById('progressBar').style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+        }, { passive: true });
+        const revObs = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+        // ---------- Lightbox ----------
+        (function () {
+            const figs = [...document.querySelectorAll('.gal figure')];
+            const lb = document.getElementById('lb'), img = lb.querySelector('img'), cap = lb.querySelector('.cap');
+            let i = 0;
+            const show = (k) => { i = (k + figs.length) % figs.length; const f = figs[i]; img.src = f.querySelector('img').src; img.alt = f.querySelector('img').alt; cap.textContent = f.querySelector('figcaption').textContent; };
+            const open = (k) => { show(k); lb.classList.add('on'); document.body.style.overflow = 'hidden'; };
+            const close = () => { lb.classList.remove('on'); document.body.style.overflow = ''; };
+            figs.forEach((f, k) => f.addEventListener('click', () => open(k)));
+            lb.querySelector('.x').addEventListener('click', close);
+            lb.querySelector('.pv').addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
+            lb.querySelector('.nx').addEventListener('click', (e) => { e.stopPropagation(); show(i + 1); });
+            lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+            document.addEventListener('keydown', (e) => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+            let x0 = null;
+            lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+        })();
+    </script>
+    <!-- Back to top -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-royal hover:bg-royal-light text-gold-bright border-2 border-gold shadow-xl shadow-royal/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-3 transition-all duration-300">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script>
+        (function () {
+            const b = document.getElementById('backToTop');
+            const onScroll = () => {
+                const show = window.scrollY > 600;
+                b.classList.toggle('opacity-0', !show);
+                b.classList.toggle('pointer-events-none', !show);
+                b.classList.toggle('translate-y-3', !show);
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+    <script src="mobile.js?v=20261119162915"></script>
+</body>
+</html>

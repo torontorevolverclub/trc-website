@@ -1,0 +1,556 @@
+/* =====================================================================
+   TRC phone experience
+   Applies only on small screens; desktop layout is unchanged.
+   ===================================================================== */
+
+/* Never let the page scroll sideways */
+html, body { max-width: 100%; overflow-x: clip; }
+/* Stop phones from enlarging text on their own (iOS does this when turned sideways) */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Elements created by mobile.js are hidden unless a rule below shows them */
+#mTabBar, #mPicker, .m-dots, .m-more-btn, .m-week-btn { display: none; }
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+
+    /* ---- Bottom tab bar ---- */
+    #mTabBar {
+        display: grid; grid-template-columns: repeat(5, 1fr);
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+        background: #001489; border-top: 2px solid #D4AF37;
+        padding: 7px 2px calc(7px + env(safe-area-inset-bottom));
+        box-shadow: 0 -8px 24px -12px rgba(0, 20, 137, 0.45);
+    }
+    #mTabBar a {
+        display: flex; flex-direction: column; align-items: center; gap: 3px;
+        color: #CBD5E1; text-decoration: none;
+        font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .06em;
+    }
+    #mTabBar a i { font-size: 18px; color: #EAB308; }
+    #mTabBar a.on { color: #FFFFFF; }
+    #mTabBar a.on i { transform: translateY(-1px); }
+
+    /* The Home tab scrolls to the top, so the floating button isn't needed on phones */
+    #backToTop { display: none !important; }
+    #toast { bottom: calc(140px + env(safe-area-inset-bottom)) !important; }
+
+    /* ---- Swipeable card rows ---- */
+    .m-swipe {
+        display: flex !important; overflow-x: auto; overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory; gap: 12px !important;
+        padding-bottom: 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .m-swipe::-webkit-scrollbar { display: none; }
+    .m-swipe > * { flex: 0 0 84%; scroll-snap-align: start; min-width: 0; }
+    .m-dots { display: flex; justify-content: center; gap: 6px; margin-top: 12px; }
+    .m-dots span { width: 7px; height: 7px; border-radius: 9999px; background: #CBD5E1; transition: all .2s ease; }
+    .m-dots span.on { width: 20px; background: #001489; }
+    .m-dots.on-dark span { background: rgba(255, 255, 255, .35); }
+    .m-dots.on-dark span.on { background: #EAB308; }
+
+    /* ---- "Show more" sections ---- */
+    .m-more.m-clamped {
+        max-height: var(--m-h, 420px); overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+                mask-image: linear-gradient(to bottom, #000 72%, transparent);
+    }
+    .m-more-btn, .m-week-btn {
+        display: flex; width: 100%; justify-content: center; align-items: center; gap: 6px;
+        margin-top: 10px; padding: 10px; border: 1px dashed #EAD27A; border-radius: 8px;
+        background: #FFFBEB; color: #B45309; cursor: pointer;
+        font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .08em;
+    }
+
+    /* ---- Range hours: today first ---- */
+    .m-week-collapsed .m-not-today { display: none !important; }
+
+    /* ---- Lighter hero on phones ---- */
+    .m-hero-crest { transform: scale(.82); transform-origin: center; }
+
+    /* ---- Tighter rhythm on phones ---- */
+    #experience, #range, #heritage, #join { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    #experience > div > .mb-10, #heritage > div > .mb-10 { margin-bottom: 1.5rem !important; }
+    #hours, #ways, #range-safety { margin-top: 2.5rem !important; }
+    #join .rounded-2xl { padding: 1.5rem !important; }
+    #join a.group.block { padding: 1.1rem 1.25rem !important; }
+    #join a.group.block .text-2xl { font-size: 1.25rem; }
+    #join a.group.block .mt-4 { margin-top: .6rem; }
+    #join { padding-bottom: 1.75rem !important; }
+    main.space-y-20 > :not([hidden]) ~ :not([hidden]) { margin-top: 3rem !important; }
+
+    /* ---- Swipe cards size to their content ---- */
+    .m-swipe { align-items: flex-start; }
+    .m-swipe > .trc-card { padding: 1.25rem !important; }
+    .m-swipe > .trc-card .mb-7 { margin-bottom: 1rem !important; }
+
+    /* ---- Calendar pop-up: one swipeable row of filters ---- */
+    #calFilters { flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+    #calFilters::-webkit-scrollbar { display: none; }
+    #calFilters button { white-space: nowrap; flex-shrink: 0; }
+
+    /* ---- Member portal ---- */
+    #dashboardView section.architectural-bg h1 { font-size: 2.25rem; }
+}
+
+
+/* ---- Safety page section picker (phones and small tablets) ---- */
+@media (max-width: 1023px) {
+    #mPicker { display: block; position: sticky; top: 80px; z-index: 40; }
+    main section[id], main > div[id^="part"] { scroll-margin-top: 140px; }
+}
+#mPicker .m-pick-btn {
+    width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    background: #F0F4FF; border-bottom: 2px solid #D4AF37; padding: 10px 16px; color: #001489;
+    font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .08em;
+}
+#mPicker .m-pick-btn b { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#mPicker .m-pick-list {
+    display: none; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;
+    max-height: 60vh; overflow-y: auto; box-shadow: 0 16px 24px -12px rgba(0, 20, 137, 0.25);
+}
+#mPicker.open .m-pick-list { display: block; }
+#mPicker .m-pick-list a {
+    display: flex; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #F1F5F9;
+    color: #475569; font-size: 14px; text-decoration: none;
+}
+#mPicker .m-pick-list a span { font: 700 11px 'JetBrains Mono', monospace; color: #94A3B8; min-width: 20px; padding-top: 2px; }
+#mPicker .m-pick-list a.on { background: #F0F4FF; color: #001489; border-left: 3px solid #D4AF37; font-weight: 600; }
+#mPicker .m-pick-list .m-pick-part {
+    padding: 8px 16px; background: #FFFBEB; color: #B45309;
+    font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .16em;
+}
+
+/* =====================================================================
+   Slim boxes, buttons and footer on phones
+   ===================================================================== */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Cards and boxes: one consistent, slimmer padding */
+    .p-8, .p-7, .p-6, .p-5, .sm\:p-7, .sm\:p-8, .sm\:p-10, .sm\:p-12 { padding: 1rem !important; }
+    .px-8, .sm\:px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .px-6.py-6 { padding: 1rem !important; }
+    .rounded-2xl > .px-5.pt-7, .rounded-2xl > .px-5.py-7 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+    /* Headings and big numbers */
+    section h2.text-3xl, main h2.text-3xl { font-size: 1.75rem !important; }
+    section .text-5xl:not(h1) { font-size: 2.25rem !important; }
+    section .text-4xl:not(h1), main .text-4xl:not(h1) { font-size: 1.75rem !important; }
+    section .text-2xl.font-display, main .text-2xl.font-display { font-size: 1.25rem !important; }
+    main .w-14.h-14 { width: 2.75rem !important; height: 2.75rem !important; font-size: 1.1rem !important; }
+
+    /* Buttons */
+    section a.px-7, section button.px-7, section a.px-6, section button.px-6,
+    section a.px-5.py-3, section button.px-5.py-3, #renew a.px-6, #renew button.px-4 {
+        padding: .55rem .9rem !important; font-size: .82rem !important;
+    }
+
+    /* Join the Club */
+    #join { padding-bottom: 1.25rem !important; }
+    #join .gap-8 { gap: 1rem !important; }
+    #join .mt-7 { margin-top: 1rem !important; }
+    #join .flex.flex-wrap.gap-3 { gap: .5rem !important; }
+    #join p.text-muted { font-size: .9rem !important; }
+
+    /* Renewal card becomes a slim strip */
+    #join a.group.block { padding: .8rem 1rem !important; border-width: 1px !important; }
+    #join a.group.block p { display: none; }
+    #join a.group.block .text-2xl { font-size: 1.1rem !important; margin-top: .2rem !important; }
+    #join a.group.block .mt-4 { margin-top: .35rem !important; font-size: 10px !important; }
+
+    /* Footer */
+    body { padding-bottom: 0 !important; }
+    footer { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+    footer > div { padding-top: .9rem !important; padding-bottom: .75rem !important; }
+    footer .pb-5 { padding-bottom: .6rem !important; }
+    footer .gap-4 { gap: .6rem !important; }
+    footer .pt-4 { padding-top: .55rem !important; }
+    footer .w-9 { width: 1.75rem !important; height: 1.75rem !important; }
+    footer .text-base { font-size: .85rem !important; }
+    footer .text-\[10px\] { font-size: 9px !important; margin-top: 2px !important; }
+    footer nav, footer .text-\[11px\] { font-size: 10px !important; }
+    footer .py-8, footer .py-6 { padding-top: .9rem !important; padding-bottom: .9rem !important; }
+
+    /* Slimmer tab bar */
+    #mTabBar { padding-top: 5px; padding-bottom: calc(5px + env(safe-area-inset-bottom)); }
+    #mTabBar a { font-size: 9px; gap: 2px; }
+    #mTabBar a i { font-size: 16px; }
+}
+
+/* =====================================================================
+   Compact phone layouts: essentials first, details on tap
+   ===================================================================== */
+.m-seg, .m-toggle-btn, .m-crest-cap, .m-read-more, .m-acc-num { display: none; }
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Hide small mono labels above headings */
+    .tracking-\[0\.22em\].text-amber-700.mb-2 { display: none !important; }
+    section p.text-muted, main p.text-muted { font-size: .88rem !important; line-height: 1.5 !important; }
+    section h2.text-3xl { margin-bottom: .5rem !important; }
+
+    /* ---- List rows (Club Experience, Ways to Shoot) ---- */
+    .m-list { display: flex !important; flex-direction: column; gap: 0 !important; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; background: #fff; }
+    .m-list > .trc-card {
+        border: 0 !important; border-bottom: 1px solid #F1F5F9 !important; border-radius: 0 !important;
+        box-shadow: none !important; transform: none !important; padding: .7rem .9rem !important;
+    }
+    .m-list > .trc-card:last-child { border-bottom: 0 !important; }
+    .m-list-ways > .trc-card { display: grid !important; grid-template-columns: 2.25rem 1fr; column-gap: .75rem; align-items: center; }
+    .m-list-ways > .trc-card > :first-child { grid-row: span 2; margin: 0 !important; }
+    .m-list-ways > .trc-card > :first-child > span:first-child { width: 2.25rem !important; height: 2.25rem !important; font-size: .9rem; }
+    .m-list-ways > .trc-card > :first-child > span:not(:first-child) { display: none; }
+    .m-list-ways h4 { font-size: 1rem !important; margin: 0 !important; line-height: 1.15; }
+    .m-list-ways p { margin: .1rem 0 0 !important; font-size: .78rem !important; line-height: 1.35 !important; }
+    .m-list-exp > .trc-card > div:first-child { display: grid; grid-template-columns: 2.25rem 1fr; column-gap: .75rem; align-items: center; }
+    .m-list-exp > .trc-card > div:first-child > div:first-child { grid-row: span 2; margin: 0 !important; }
+    .m-list-exp > .trc-card > div:first-child > div:first-child > span { display: none; }
+    .m-list-exp > .trc-card > div:first-child > div:first-child > div { width: 2.25rem !important; height: 2.25rem !important; }
+    .m-list-exp h3 { font-size: 1rem !important; margin: 0 !important; }
+    .m-list-exp p { margin: .1rem 0 0 !important; font-size: .78rem !important; line-height: 1.35 !important;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .m-list-exp > .trc-card > div:last-child { display: none !important; }
+
+    /* ---- The Range: fact chips + diagram on tap ---- */
+    .m-chips { display: flex !important; flex-wrap: wrap; gap: .4rem !important; margin-top: 1rem !important; }
+    .m-chips > div { display: inline-flex; align-items: baseline; gap: .35rem; padding: .35rem .7rem !important;
+        border-width: 1px !important; border-radius: 9999px !important; }
+    .m-chips > div > div:first-child { font-size: 1.05rem !important; line-height: 1 !important; }
+    .m-chips > div > div:first-child span { font-size: .7rem !important; }
+    .m-chips > div > div:last-child { margin: 0 !important; font-size: 10px !important; letter-spacing: .06em !important; }
+    .m-diagram:not(.m-open) > :not(.m-toggle-btn) { display: none !important; }
+    .m-toggle-btn { display: flex; width: 100%; justify-content: center; align-items: center; gap: 6px; padding: .55rem;
+        border: 1px solid #C7D2FE; border-radius: 8px; background: #F0F4FF; color: #001489; cursor: pointer;
+        font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+    #range .grid.lg\:grid-cols-12 { gap: 1rem !important; }
+
+    /* Range hours: three compact icon tiles */
+    .m-mini3 { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: .4rem !important; margin-top: .75rem !important; }
+    .m-mini3 > div { padding: .55rem .4rem !important; text-align: center; }
+    .m-mini3 > div i { font-size: 1rem !important; }
+    .m-mini3 > div h3 { font-size: .78rem !important; margin-top: .25rem !important; line-height: 1.1; }
+    .m-mini3 > div p { display: none; }
+
+    /* ---- Safety Essentials: one layer at a time ---- */
+    #range-safety .w-20.h-20, #range-safety h3 + p { display: none !important; }
+    #range-safety .grid.md\:grid-cols-\[auto_1fr\] { padding-top: .9rem !important; padding-bottom: 0 !important; }
+    #range-safety h3 { font-size: 1.4rem !important; text-align: left; }
+    #range-safety .text-center { text-align: left !important; }
+    .m-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: .75rem 1rem 0; padding: 3px;
+        background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 9px; }
+    .m-seg button { padding: .45rem .2rem; border-radius: 6px; color: #CBD5E1; cursor: pointer;
+        font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .06em; }
+    .m-seg button.on { background: #D4AF37; color: #06125E; }
+    .m-layers { display: block !important; padding: .75rem 1rem 1rem !important; }
+    .m-layers > div:not(.m-on) { display: none !important; }
+    .m-layers > div { padding: .85rem !important; }
+    .m-layers h4 { font-size: 1.15rem !important; }
+    .m-layers > div > span:first-child, .m-layers > div > p.text-sm { display: none; }
+    .m-layers .w-8.h-8 { width: 1.6rem !important; height: 1.6rem !important; font-size: .9rem !important; }
+    .m-layers ul { margin-bottom: 0 !important; }
+    .m-layers ul li { font-size: .82rem; }
+    #range-safety .bg-royal-deep { padding: .7rem 1rem !important; gap: .6rem !important; }
+    #range-safety .bg-royal-deep a[href="#hours"], #range-safety .bg-royal-deep a[href="safety.html#quiz"] {
+        padding: 0 !important; border: 0 !important; background: none !important; margin: 0 !important;
+        font: 700 10px 'JetBrains Mono', monospace !important; text-transform: uppercase; color: #EAB308 !important; }
+
+    /* ---- Heritage ---- */
+    .m-people { display: flex !important; flex-direction: column; gap: .5rem !important; margin-bottom: 1rem !important; }
+    .m-people > div { padding: .85rem 1rem !important; }
+    .m-people > div > .absolute { display: none; }
+    .m-people > div > .inline-flex { margin-bottom: .4rem !important; font-size: 10px !important; padding: .15rem .5rem !important; }
+    .m-people h3 { font-size: 1.15rem !important; margin-bottom: .2rem !important; }
+    .m-people p.font-mono { font-size: 10px !important; margin-bottom: .3rem !important; }
+    .m-people > div:not(.m-open) p.text-muted { display: none; }
+    .m-read-more { display: inline-flex; align-items: center; gap: 4px; margin-top: .2rem; color: #B45309; cursor: pointer;
+        font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .m-crests { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: .5rem !important; }
+    .m-crests > li { cursor: pointer; }
+    .m-crests > li > div:first-child { width: 3.6rem !important; height: 3.6rem !important; padding: 2px !important; }
+    .m-crests > li > span { margin-top: .4rem !important; font-size: 9px !important; padding: .1rem .35rem !important; }
+    .m-crests > li > h4, .m-crests > li > p { display: none; }
+    .m-crests > li.m-sel > div:first-child { box-shadow: 0 0 0 3px #D4AF37 !important; }
+    .m-crest-cap { display: block; margin-top: .75rem; padding: .7rem .85rem; border-radius: 8px; background: #F0F4FF; border: 1px solid #C7D2FE; }
+    .m-crest-cap b { display: block; font-family: Oswald, sans-serif; text-transform: uppercase; color: #0F172A; font-size: 1rem; }
+    .m-crest-cap span { font-size: .8rem; color: #475569; }
+    #heritage .relative.flex.flex-col.sm\:flex-row { margin-bottom: .9rem !important; }
+    #heritage .relative.flex.flex-col.sm\:flex-row > span { display: none; }
+
+    /* ---- Safety rules page: accordions ---- */
+    main.space-y-20 > section.m-acc { margin-top: .5rem !important; }
+    main.space-y-20 > div[id^="part"] { margin-top: 1.5rem !important; padding: .75rem 1rem !important; }
+    main > div[id^="part"] .text-3xl { font-size: 1.3rem !important; }
+    main > div[id^="part"] p { font-size: .78rem !important; }
+    .m-acc > h2 { display: flex !important; align-items: center; gap: .6rem; cursor: pointer; margin: 0 !important;
+        padding: .8rem 1rem; border: 1px solid #E2E8F0; border-radius: 10px; background: #fff; font-size: 1.1rem !important; }
+    .m-acc > h2::after { content: '\25BE'; margin-left: auto; color: #B45309; font-size: 1rem; transition: transform .2s; }
+    .m-acc.m-acc-open > h2::after { transform: rotate(180deg); }
+    .m-acc.m-acc-open > h2 { border-color: #D4AF37; background: #F0F4FF; margin-bottom: .75rem !important; }
+    .m-acc-num { display: inline; font: 700 11px 'JetBrains Mono', monospace; color: #94A3B8; }
+    .m-acc:not(.m-acc-open) > :not(h2) { display: none !important; }
+
+    /* ---- Member portal ---- */
+    .m-ptiles { display: flex !important; gap: .5rem !important; overflow-x: auto; scrollbar-width: none; }
+    .m-ptiles::-webkit-scrollbar { display: none; }
+    .m-ptiles > div { flex: 0 0 auto; min-width: 8.5rem; padding: .6rem .75rem !important; }
+    .m-ptiles > div > div:first-child { margin-bottom: .2rem !important; }
+    .m-ptiles .text-2xl { font-size: 1rem !important; }
+    .m-ptiles .text-xs { display: none; }
+    #dashboardView table { min-width: 0 !important; }
+    #dashboardView table tr > :nth-child(3) { display: none; }
+    #dashboardView tbody tr:nth-child(5) { display: none; }
+    #dashboardView tbody td { padding-top: .45rem !important; padding-bottom: .45rem !important; }
+    #dashboardView article { padding: .65rem .8rem !important; cursor: pointer; }
+    #dashboardView article:not(.m-open) p { display: none; }
+    #dashboardView article h3 { font-size: .95rem !important; }
+    #dashboardView .items-stretch { gap: .75rem !important; }
+    #dashboardView #roList li, #dashboardView #docList button { padding: .45rem .6rem !important; }
+}
+
+/* =====================================================================
+   Round 3 phone tweaks
+   ===================================================================== */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Crests: swipe row, no captions */
+    .m-crest-swipe > li { flex: 0 0 44% !important; }
+    .m-crest-swipe > li > div:first-child { width: 6.5rem !important; height: 6.5rem !important; }
+    .m-crest-swipe > li > span { margin-top: .6rem !important; }
+    .m-crest-swipe > li > h4 { font-size: .9rem !important; margin-top: .35rem !important; }
+    .m-crest-swipe > li > p { display: none !important; }
+    #heritage .m-dots { margin-top: .5rem; }
+
+    /* Join: two buttons on one line */
+    #join .flex.flex-wrap.gap-3 { flex-wrap: nowrap !important; }
+    #join .flex.flex-wrap.gap-3 > * { flex: 1 1 0; justify-content: center; white-space: nowrap; }
+
+    /* Renew card: one slim line */
+    #join a.group.block { display: flex !important; align-items: center; justify-content: space-between; gap: .75rem; padding: .7rem 1rem !important; }
+    #join a.group.block > div:first-child, #join a.group.block > p { display: none !important; }
+    #join a.group.block .text-2xl { margin: 0 !important; font-size: 1rem !important; }
+    #join a.group.block .text-2xl::before { content: '\f023'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #EAB308; margin-right: .5rem; font-size: .85rem; }
+    #join a.group.block .mt-4 { margin: 0 !important; font-size: 0 !important; }
+    #join a.group.block .mt-4 i { font-size: 14px !important; margin: 0 !important; }
+
+    /* Footer: links row + one small bottom row */
+    footer a.flex.items-center.space-x-3 { display: none !important; }
+    footer > div > div:first-child { padding-bottom: .5rem !important; gap: 0 !important; }
+    footer > div { padding-top: .7rem !important; padding-bottom: .55rem !important; }
+    footer .pt-4 { padding-top: .45rem !important; }
+}
+
+/* =====================================================================
+   Round 4 phone tweaks
+   ===================================================================== */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Facts: four small tiles in one row */
+    .m-chips { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: .35rem !important; }
+    .m-chips > div { display: flex !important; flex-direction: column; align-items: center; gap: .15rem !important;
+        padding: .4rem .2rem !important; border-radius: 8px !important; border-top-width: 2px !important; text-align: center; }
+    .m-chips > div > div:first-child { font-size: 1.1rem !important; }
+    .m-chips > div > div:last-child { font-size: 9px !important; letter-spacing: .04em !important; }
+    .m-toggle-btn { padding: .4rem !important; font-size: 10px !important; margin-top: .25rem; }
+
+    /* Daytime practice: one compact line */
+    .m-day { flex-direction: row !important; align-items: center !important; gap: .6rem !important; padding: .7rem .8rem !important; }
+    .m-day > span:first-child { display: none !important; }
+    .m-day p { font-size: .78rem !important; line-height: 1.4 !important; }
+    .m-day a { padding: .35rem .55rem !important; font-size: 9px !important; white-space: nowrap; }
+    .m-day > span:last-child:not(:first-child) { padding: .35rem .55rem !important; font-size: 9px !important; white-space: nowrap; }
+    /* Ways to Shoot rows are links: show a chevron, hide hover arrow */
+    .m-list-ways > a.trc-card { position: relative; padding-right: 2rem !important; }
+    .m-list-ways > a.trc-card::after { content: "\f054"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: .7rem;
+        color: #B45309; position: absolute; right: .9rem; top: 50%; transform: translateY(-50%); }
+    .m-list-ways .way-arrow { display: none; }
+
+    /* Safety Essentials strip: tighter */
+    #range-safety .bg-gold-bright { padding: .45rem .9rem !important; font-size: 10px !important; letter-spacing: .08em !important; gap: .15rem !important; }
+    #range-safety .bg-gold-bright span.text-xs { font-size: 9px !important; }
+
+    /* Footer sits right on the tab bar */
+    footer { padding-bottom: calc(46px + env(safe-area-inset-bottom)) !important; }
+}
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    #ways details > summary { padding: .6rem .9rem !important; font-size: .85rem; }
+    #ways details > summary::-webkit-details-marker { display: none; }
+    #ways details .m-list { margin-top: .5rem !important; }
+}
+#ways details > summary::-webkit-details-marker { display: none; }
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    footer { display: none !important; }
+    body { padding-bottom: calc(52px + env(safe-area-inset-bottom)) !important; }
+}
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-list-ways p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-list-exp p { display: block !important; -webkit-line-clamp: unset !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Slimmer preview banner on the portal */
+    body > div.bg-gold-pale:first-of-type > div { padding-top: .3rem !important; padding-bottom: .3rem !important; font-size: 9px !important; }
+    /* Safety page hero: smaller headline and fact tiles */
+    .architectural-bg h1.text-\[2\.6rem\] { margin-top: 0; }
+    .architectural-bg .inline-flex.mb-6 { margin-bottom: .75rem !important; }
+    .architectural-bg h1 + p, .architectural-bg h1 ~ p { margin-top: .75rem !important; }
+    .architectural-bg .mt-8.no-print { margin-top: 1rem !important; }
+}
+
+/* Pop-ups fill the visible phone screen, so nothing hides behind the browser bar */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    #calendarModal, #contactModal { padding: 0 !important; align-items: stretch !important; }
+    #calendarModal > div { width: 100%; max-width: none !important; height: 100dvh; max-height: 100dvh !important; border-radius: 0 !important; border-width: 0 !important; }
+    #contactModal > div { width: 100%; max-width: none !important; max-height: 100dvh !important; overflow-y: auto; border-radius: 0 !important; border-width: 0 !important; align-self: flex-start; }
+    #calendarModal > div > div:first-child { padding: .75rem 1rem !important; }
+    #calendarModal > div > div:first-child span.block { display: none; }
+    #calendarModal > div > div:first-child h3 { font-size: 1.25rem !important; }
+    #calendarModal > div > div:last-child { padding: .6rem 1rem !important; }
+    #calendarModal > div > div:last-child > span { display: none; }
+}
+
+/* =====================================================================
+   Round 5: hero watermark, Club Experience tiles, sideways phones
+   ===================================================================== */
+
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Club Experience: three tiles in one row */
+    #experience .mb-10 { margin-bottom: .75rem !important; }
+    .m-list.m-list-exp { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem !important;
+        border: 0; border-radius: 0; overflow: visible; background: transparent; }
+    .m-list-exp > .trc-card { border: 1px solid #E2E8F0 !important; border-top: 2px solid #001489 !important; border-radius: 10px !important;
+        padding: .6rem .3rem .55rem !important; text-align: center; cursor: pointer; justify-content: flex-start !important; }
+    .m-list-exp > .trc-card:last-child { border-bottom: 1px solid #E2E8F0 !important; }
+    .m-list-exp > .trc-card > div:first-child { display: flex !important; flex-direction: column; align-items: center; }
+    .m-list-exp > .trc-card > div:first-child > div:first-child { margin: 0 !important; justify-content: center !important; }
+    .m-list-exp > .trc-card > div:first-child > div:first-child > div { width: 2.1rem !important; height: 2.1rem !important; }
+    #experience .m-list-exp h3.font-display { margin-top: .35rem !important; font: 700 clamp(.7rem, 3.3vw, .8rem)/1.1 Oswald, "Arial Narrow", sans-serif !important; letter-spacing: .02em !important; color: #0F172A; white-space: nowrap; }
+    .m-list-exp > .trc-card > div:last-child { display: flex !important; justify-content: center !important;
+        border: 0 !important; padding: 0 !important; margin: .2rem 0 0 !important; }
+    .m-list-exp > .trc-card > div:last-child > * { font-size: 9px !important; letter-spacing: .04em !important; white-space: nowrap; }
+}
+
+/* Phone upright: fainter crest, up and right, behind the headline only */
+@media (max-width: 767px) and (orientation: portrait), (max-width: 767px) and (min-height: 501px) {
+    .m-hero-wm { opacity: .07 !important; top: 4.75rem !important; right: -4.5rem !important; width: 13rem !important; height: 13rem !important; }
+}
+
+/* Phone sideways: compact header, headline left, crest right, one screen */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    header > div:first-child { height: 3.25rem !important; }
+    header > div:first-child > a > div:first-child { width: 2.1rem !important; height: 2.1rem !important; }
+    header > div:first-child > a span.font-display { font-size: 1.05rem !important; }
+    header > div:first-child > a span.font-mono { display: none !important; }
+    header button[onclick="openModal('contactModal')"].hidden { display: none !important; }
+    header a[href="members.html"] { padding: .4rem .8rem !important; font-size: .8rem !important; }
+    header a[href="members.html"] span.sm\:inline { display: none !important; }
+    header a[href="members.html"] span.hidden:last-child { display: inline !important; }
+    #mobileToggle { padding: .4rem .6rem !important; }
+    #mobileMenu { max-height: calc(100dvh - 3.25rem); overflow-y: auto; }
+
+    section.architectural-hero-bg { padding-top: 3.25rem !important; }
+    .m-hero-wm { display: none !important; }
+    .m-hero-grid { grid-template-columns: minmax(0, 1fr) auto !important; gap: 1.5rem !important; max-width: 46rem; margin: 0 auto; }
+    .m-hero-grid > div { padding-top: 0 !important; }
+    section.architectural-hero-bg > div.relative { padding-top: .9rem !important; padding-bottom: .9rem !important; }
+    .m-hero-text > div:first-child, .m-hero-text > p, .m-renew { display: none !important; }
+    .m-hero-text h1 { font-size: 2.1rem !important; line-height: 1 !important; margin-bottom: .9rem !important; }
+    .m-hero-text h1 span.block { height: 4px !important; margin-top: .35rem !important; }
+    .m-hero-text a, .m-hero-text button { padding: .45rem .8rem !important; font-size: .8rem !important; }
+    .m-hero-side { display: flex !important; }
+    .m-hero-side > div:first-child { padding: .6rem !important; }
+    .m-hero-side > div:first-child > div.crest-frame-lg { width: 160px !important; height: 160px !important; }
+    .m-hero-side > div:last-child { display: none !important; }
+}
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .hidden.md\:flex.no-print { display: none !important; }
+}
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    header > div:first-child > div:last-child > .hidden.md\:inline-flex { display: none !important; }
+    #mPicker { top: 3.25rem; }
+    .architectural-bg > div:first-child { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+    .architectural-bg h1 { font-size: 2.4rem !important; }
+    .architectural-bg .inline-flex.mb-6 { margin-bottom: .6rem !important; }
+}
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Calendar footer: Inquire With Secretary on the right, like desktop */
+    #calendarModal > div > div:last-child { justify-content: flex-end !important; }
+}
+
+/* Safety page: nothing may push the column wider than the phone */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    main, main > section, main .grid > * { min-width: 0; }
+    main svg { max-width: 100%; }
+}
+.m-mag { display: none; }
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-mag-table { display: none !important; }
+    .m-mag { display: grid; gap: .45rem; }
+    .m-mag > div { display: grid; gap: .1rem; padding: .55rem .7rem; border: 1px solid #E2E8F0; border-left: 3px solid #001489; border-radius: 0 8px 8px 0; background: #F8FAFC; }
+    .m-mag b { font: 700 .85rem/1.2 Oswald, sans-serif; text-transform: uppercase; letter-spacing: .03em; color: #001489; }
+    .m-mag span { font-size: .8rem; color: #334155; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .m-mag em { font-style: normal; display: inline-block; width: 3.6rem; font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .05em; color: #B45309; }
+}
+
+/* Crest carousel: room for the rings and shadows, no hover lift on tap */
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-crest-swipe { padding: .75rem .35rem 1rem !important; }
+    .m-crest-swipe > li > div:first-child { transform: none !important; }
+    /* Form fields at 16px so iPhones don't zoom the page in when tapped */
+    input, select, textarea { font-size: 16px !important; }
+}
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-list-exp > .trc-card > div:first-child > div:first-child { flex-direction: column; gap: 0 !important; }
+}
+/* Club Experience: the whole card is clickable on every screen size */
+.m-list-exp > .trc-card { cursor: pointer; }
+
+/* Range layout buttons: one row on phones, short labels */
+.m-phone-txt { display: none; }
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-phone-txt { display: inline; }
+    .m-desk-txt { display: none; }
+    .m-range-btns { flex-wrap: nowrap !important; gap: .4rem !important; }
+    .m-range-btns > button { flex: 1 1 auto; padding: .45rem .35rem !important; letter-spacing: .03em !important; white-space: nowrap; text-align: center; }
+}
+
+/* =====================================================================
+   Round 7: compact TRC Safety Rules page
+   ===================================================================== */
+#rules > .m-part { margin-top: 2.5rem; }
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    #rules > * { margin-top: .4rem !important; }
+    #rules > :first-child { margin-top: 0 !important; }
+    #rules > .m-part { margin-top: 1.4rem !important; margin-bottom: .2rem; padding-bottom: .35rem !important; }
+    #rules > .m-part h2 { font-size: 1.15rem !important; margin: 0 !important; }
+    #rules > section:not(.m-acc) { margin-top: 1.4rem !important; }
+    #rules > section.m-acc > h2 { font-size: 1rem !important; padding: .6rem .85rem !important; letter-spacing: .02em; }
+    #rules > section.m-acc > h2 .m-acc-num { font-size: 10px; }
+    #rules > section.m-acc.m-acc-open { padding-bottom: .5rem; }
+}
+/* Printing: every topic open */
+@media print {
+    .m-acc > * { display: revert !important; }
+    .m-acc > h2::after { display: none !important; }
+    #mPicker, #mTabBar { display: none !important; }
+}
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    /* Rules page hero: the two buttons side by side */
+    .architectural-bg .mt-8.no-print { display: grid !important; grid-template-columns: 1fr 1fr; gap: .5rem !important; }
+    .architectural-bg .mt-8.no-print > a { padding: .7rem .4rem !important; font-size: .82rem !important; justify-content: center; white-space: nowrap; }
+}
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .architectural-bg .mt-8.no-print > a i { display: none !important; }
+    .architectural-bg .mt-8.no-print > a { font-size: .78rem !important; letter-spacing: .04em !important; }
+}
+@media (max-width: 767px), (max-height: 500px) and (orientation: landscape) and (max-width: 1023px) {
+    .m-src-notice { padding: .55rem .6rem !important; }
+    #docs .m-doc { padding: .5rem .65rem !important; }
+    #docs .m-doc .font-display { font-size: .82rem; }
+    .m-src-notice .m-doc { padding: .45rem .5rem !important; gap: .45rem !important; }
+    .m-src-notice .m-doc i { font-size: 1rem !important; }
+    .m-src-notice .m-doc .font-display { font-size: .78rem !important; }
+    #rules > .m-posted { padding: .65rem .8rem !important; }
+    #rules > .m-posted p { font-size: .8rem; }
+}
