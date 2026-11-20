@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: projects/588175356875/locations/global/workloadIdentityPools/github/providers/trc-repo
-          service_account: github-action-1464699479@trc-website-aa7ed.iam.gserviceaccount.com
+          workload_identity_provider: projects/320410494022/locations/global/workloadIdentityPools/github/providers/trc-repo
+          service_account: github-deploy@trc-website-106a9.iam.gserviceaccount.com
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npx -y firebase-tools@latest deploy --only hosting --project trc-website-aa7ed --non-interactive
+      - run: npx -y firebase-tools@latest deploy --only hosting --project trc-website-106a9 --non-interactive
