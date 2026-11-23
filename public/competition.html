@@ -90,11 +90,14 @@
             font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; color: #001489; }
         .comp-pdf:hover { border-color: #D4AF37; }
         .path-steps li { position: relative; }
-        .path-step { display: block; height: 100%; border-radius: .6rem; padding: .6rem .8rem; background: rgba(255,255,255,.07); border: 1px solid rgba(212,175,55,.55); color: #fff; transition: all .2s; }
-        .path-step:hover { background: rgba(255,255,255,.14); border-color: #EAB308; transform: translateY(-2px); }
+        .path-step { display: block; height: 100%; border-radius: .6rem; padding: .6rem .8rem; background: #fff; border: 1px solid #fff; color: #06125E; transition: all .2s; }
+        .path-step:hover { border-color: #EAB308; box-shadow: 0 0 0 2px #EAB308; transform: translateY(-2px); }
         .path-step.club { background: #D4AF37; color: #06125E; border-color: #D4AF37; }
         .path-step.club:hover { background: #EAB308; }
-        .path-step .lvl { font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .14em; color: #EAB308; }
+        .path-step .lvl { font: 700 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .14em; color: #B45309; }
+        .path-step .org { color: #001489; }
+        .path-step p { color: #475569; }
+        .path-step.club .org, .path-step.club p { color: #06125E; }
         .path-step.club .lvl { color: #06125E; }
         .path-step .org { font-family: Oswald, sans-serif; font-weight: 700; font-size: 1.25rem; line-height: 1.1; }
         .path-step .org i { font-size: .6em; vertical-align: middle; margin-left: .25rem; opacity: .75; }
