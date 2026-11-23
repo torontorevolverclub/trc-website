@@ -316,3 +316,11 @@ html,body{overflow-x:hidden}
  .mb-paths{gap:.5rem;margin-top:.8rem}.mb-path{padding:.6rem .8rem}.mb-path p{font-size:.84rem;margin-top:.35rem}
  .mb-mini{grid-template-columns:1fr;gap:.8rem;padding-top:1rem}.mb-mini p{font-size:.84rem}
 }
+.mb-top{margin:0 0 1.6rem;max-width:46rem}
+@media (min-width:1025px){
+ .mb-grid{align-items:stretch}
+ .mb-right{display:flex;flex-direction:column}
+ .mb-right .mb-paths{flex:1;justify-content:space-between}
+ .mb-right .mb-path{flex:1;display:flex;flex-direction:column;justify-content:center}
+}
+@media (max-width:640px){.mb-top{margin-bottom:1rem}}
