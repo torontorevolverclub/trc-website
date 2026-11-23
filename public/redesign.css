@@ -327,6 +327,6 @@ html,body{overflow-x:hidden}
 @media (min-width:1025px){
  .mb-right .mb-paths{flex:0 0 auto;justify-content:flex-start}
  .mb-right .mb-path{flex:0 0 auto;display:block}
- .mb-right .mb-cta{margin-top:auto}
+ .mb-right .mb-cta{margin-top:.4rem}
  .mb-right .mb-paths{margin-bottom:1rem}
 }
