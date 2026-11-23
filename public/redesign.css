@@ -377,3 +377,11 @@ html,body{overflow-x:hidden}
 .hg .era{padding:1rem .8rem .9rem}.hg .era img{width:6.5rem;height:6.5rem}
 .hg .era .tag{margin-top:.6rem}
 @media (max-width:640px){.hg .era img{width:4.5rem;height:4.5rem}.hg .founders,.hg .eras{gap:.6rem}}
+/* Membership compact (shares .rg spacing) */
+.mbp .mb-top{margin:.25rem 0 1rem}
+.mbp .mb-steps{margin-top:.7rem}.mbp .mb-steps li{padding:.4rem 0}
+.mbp .mb-paths{margin-top:.7rem}
+.mbp .mb-mini{padding-top:1rem}
+.mbp .blk.pb{padding-top:.5rem}
+/* Shared: tighter header-to-content on inner pages */
+.rg .ph .crumbs{font-size:.65rem}
