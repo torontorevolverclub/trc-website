@@ -444,3 +444,22 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
         window.addEventListener('hashchange', openFromHash);
 
         
+// Phone bottom tab bar (same as current site)
+(function () {
+    if (document.getElementById('mTabBar')) return;
+    const page = location.pathname.split('/').pop() || 'index.html';
+    const tabs = [
+        ['home', 'fa-house', 'Home', 'index.html'],
+        ['hours', 'fa-clock', 'Hours', 'range.html#hours'],
+        ['safety', 'fa-shield-halved', 'Safety', 'safety.html'],
+        ['events', 'fa-calendar-days', 'Events', '#calendar'],
+        ['portal', 'fa-lock', 'Portal', 'members.html']
+    ];
+    const active = page.startsWith('safety') ? 'safety' : page === 'range.html' ? 'hours' : page === 'index.html' ? 'home' : '';
+    const bar = document.createElement('nav');
+    bar.id = 'mTabBar';
+    bar.setAttribute('aria-label', 'Quick navigation');
+    bar.innerHTML = tabs.map(([id, ic, lab, href]) => '<a href="' + href + '" data-tab="' + id + '" class="' + (id === active ? 'on' : '') + '"><i class="fa-solid ' + ic + '"></i>' + lab + '</a>').join('');
+    document.body.appendChild(bar);
+    bar.querySelector('[data-tab="events"]').addEventListener('click', e => { e.preventDefault(); openCalendar(); });
+})();

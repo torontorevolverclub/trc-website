@@ -273,3 +273,12 @@ html,body{overflow-x:hidden}
 .exp{padding-top:0!important}.exp .cards{margin-top:0}.hero .in{padding-bottom:2.5rem}
 @media (max-width:640px){.hero .in{padding-bottom:1.5rem}}
 @media (max-width:640px){.hdr .join{display:none}.burger{margin-left:auto}}
+/* Phone bottom tab bar (same as current site) */
+#mTabBar{display:none}
+@media (max-width:640px){
+ body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
+ #mTabBar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:45;background:#001489;border-top:2px solid #D4AF37;padding:5px 2px calc(5px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px -12px rgba(0,20,137,.45)}
+ #mTabBar a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#CBD5E1;font:700 9px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+ #mTabBar a i{font-size:16px;color:#EAB308}
+ #mTabBar a.on{color:#fff}
+}

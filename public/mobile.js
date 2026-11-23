@@ -12,9 +12,9 @@
     // ---------- Bottom tab bar ----------
     const tabs = [
         { id: 'home',   icon: 'fa-house',        label: 'Home',   href: onHome ? '#' : 'index.html', top: onHome },
-        { id: 'hours',  icon: 'fa-clock',        label: 'Hours',  href: onHome ? '#hours' : 'index.html#hours' },
-        { id: 'safety', icon: 'fa-shield-halved', label: 'Safety', href: onHome ? '#range-safety' : 'index.html#range-safety' },
-        { id: 'events', icon: 'fa-calendar-days', label: 'Events', href: onHome ? '#calendar' : 'index.html#calendar', cal: onHome },
+        { id: 'hours',  icon: 'fa-clock',        label: 'Hours',  href: 'range.html#hours' },
+        { id: 'safety', icon: 'fa-shield-halved', label: 'Safety', href: 'safety.html' },
+        { id: 'events', icon: 'fa-calendar-days', label: 'Events', href: 'index.html#calendar' },
         { id: 'portal', icon: 'fa-lock',         label: 'Portal', href: 'members.html' }
     ];
     const active = isSafety ? 'safety' : isPortal ? 'portal' : 'home';
