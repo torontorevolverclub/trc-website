@@ -424,7 +424,7 @@ html,body{overflow-x:hidden}
 .qz-m{display:none}
 .docdd>summary{list-style:none;cursor:default}.docdd>summary::-webkit-details-marker{display:none}.dd-chev{display:none}
 @media (max-width:640px){
- .qz-m{display:flex;justify-content:center;width:100%;margin-top:1rem}
+ .qz-m{display:flex;justify-content:center;width:fit-content;margin:1.1rem auto 0;padding:.8rem 1.6rem;background:var(--royal);color:#fff;border:1px solid var(--gold);box-shadow:0 10px 22px -12px rgba(0,20,137,.6)}
  .sfp .quizbox{display:none}
  .docdd>summary{cursor:pointer;position:relative;padding-right:2rem}
  .dd-chev{display:block;position:absolute;right:.2rem;bottom:.35rem;color:var(--amber);font-size:1.1rem;transition:transform .2s}
