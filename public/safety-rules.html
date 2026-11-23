@@ -66,6 +66,11 @@ details>summary{list-style:none}details>summary::-webkit-details-marker{display:
 @media (max-width:640px){.rpick{display:none}.rsel{display:flex;flex-direction:column;gap:.3rem}.rsel span{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
 .rsel select{font-family:var(--display);font-size:1rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--royal);padding:.7rem .8rem;border:1px solid rgba(0,20,137,.25);border-radius:.4rem;background:#fff}
 .rstage{margin-top:1.1rem}.ess{padding:1.1rem}.ess h2{font-size:1.5rem}.ess ol{grid-template-columns:1fr}.rpager button{font-size:.8rem;padding:.6rem .8rem}}
+.hf{display:flex;gap:.8rem;align-items:flex-start;background:#FEF9E7;border:1px solid var(--gold);border-radius:.6rem;padding:.8rem 1rem;margin:1.75rem 0 0}
+.hf-b{flex-shrink:0;background:var(--royal);color:var(--gold-b);font-family:var(--mono);font-size:.78rem;font-weight:700;border-radius:.35rem;padding:.3rem .55rem;white-space:nowrap}
+.hf p{font-size:.9rem;color:#334155;line-height:1.5}.hf strong{color:var(--royal-deep)}
+.tq-h{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:1.75rem 0 .3rem}
+.tq{border-top:1px solid rgba(0,20,137,.12)}.tq details{border-bottom:1px solid rgba(0,20,137,.12)}
 </style>
 </head>
 <body>
@@ -212,28 +217,16 @@ details>summary{list-style:none}details>summary::-webkit-details-marker{display:
                     </div>
                 </div>
 
-                <div class="mt-8"></div>
-                <!-- Hangfire callout -->
-                <div class="rounded-xl bg-gradient-to-br from-royal-deep to-royal text-white p-7 sm:p-9 grid sm:grid-cols-[auto_1fr] gap-6 items-center border-l-4 border-gold mb-6">
-                    <div class="text-center">
-                        <div class="font-display text-7xl sm:text-8xl font-bold text-gold-bright leading-none">30</div>
-                        <div class="font-mono text-xs uppercase tracking-[0.3em] text-white/70 mt-1">Seconds</div>
-                    </div>
-                    <div>
-                        <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gold-bright">Hangfires</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mt-1">Hold It Down Range</h3>
-                        <p class="text-sm text-white/80 mt-2 leading-relaxed">If a round doesn’t fire, keep the pistol pointed down range for at least 30 seconds before opening the cylinder or breech. Modern ammunition rarely hangfires, but black-powder shooters still see them. Play it safe — it costs nothing.</p>
-                    </div>
-                </div>
+                <div class="hf"><span class="hf-b">30 sec</span><p><strong>Hangfire: hold it down range.</strong> If a round doesn’t fire, keep the pistol pointed down range for at least 30 seconds before opening the cylinder or breech.</p></div>
 
                 <!-- Expandable techniques -->
-                <div class="space-y-3">
-                    <details class="trc-card rounded-xl group">
-                        <summary class="cursor-pointer p-5 flex items-center justify-between">
-                            <span class="font-display font-bold text-lg uppercase tracking-wide"><svg viewBox="0 0 24 24" class="inline-block w-[1.1em] h-[1.1em] -mt-1 mr-2 text-royal" aria-hidden="true" fill="currentColor"><path fill-rule="evenodd" d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21Zm0 3.2a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2Zm6.3 3.65a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2Zm0 7.3a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm-6.3 3.65a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm-6.3-3.65a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm0-7.3a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM12 10.6a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8Z"/></svg>Loading a Revolver</span>
+                <div class="tq-h">Techniques</div><div class="tq">
+                    <details class="group">
+                        <summary class="cursor-pointer py-3.5 px-1 flex items-center justify-between">
+                            <span class="font-display font-semibold text-base uppercase tracking-wide text-slateink">Loading a Revolver</span>
                             <i class="fa-solid fa-chevron-down chev text-amber-700 transition"></i>
                         </summary>
-                        <div class="px-5 pb-6 text-sm text-muted leading-relaxed space-y-3">
+                        <div class="px-1 pb-5 text-sm text-muted leading-relaxed space-y-3">
                             <p>Right- and left-handed shooters load the same way, so the revolver is never passed hand to hand during loading.</p>
                             <ol class="list-decimal pl-5 space-y-1.5 text-slate-700">
                                 <li>Grasp the revolver by the butt with the right hand. Unlock the cylinder with the right thumb and swing it out with the left hand.</li>
@@ -244,12 +237,12 @@ details>summary{list-style:none}details>summary::-webkit-details-marker{display:
                             <p class="text-red-700 font-semibold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Never flick the cylinder shut with a snap of the wrist, as seen on TV. Close it gently by hand; flicking can bend the crane and make the revolver unsafe.</p>
                         </div>
                     </details>
-                    <details class="trc-card rounded-xl group">
-                        <summary class="cursor-pointer p-5 flex items-center justify-between">
-                            <span class="font-display font-bold text-lg uppercase tracking-wide"><i class="fa-solid fa-hand-pointer text-royal mr-2"></i>Cocking a Revolver for Single Action</span>
+                    <details class="group">
+                        <summary class="cursor-pointer py-3.5 px-1 flex items-center justify-between">
+                            <span class="font-display font-semibold text-base uppercase tracking-wide text-slateink">Cocking a Revolver for Single Action</span>
                             <i class="fa-solid fa-chevron-down chev text-amber-700 transition"></i>
                         </summary>
-                        <div class="px-5 pb-6 text-sm text-muted leading-relaxed space-y-3">
+                        <div class="px-1 pb-5 text-sm text-muted leading-relaxed space-y-3">
                             <p><strong class="text-slateink">Caution:</strong> a hammer can slip from under the thumb, and a finger can stray onto the trigger of a cocked revolver.</p>
                             <ol class="list-decimal pl-5 space-y-1.5 text-slate-700">
                                 <li>Hold the revolver in the shooting hand, trigger finger along the side of the trigger guard.</li>
@@ -261,12 +254,12 @@ details>summary{list-style:none}details>summary::-webkit-details-marker{display:
                             <p>Why reposition? Cocking a modern revolver moves the trigger back for the short single-action pull. <strong class="text-slateink">Watch the muzzle.</strong></p>
                         </div>
                     </details>
-                    <details class="trc-card rounded-xl group">
-                        <summary class="cursor-pointer p-5 flex items-center justify-between">
-                            <span class="font-display font-bold text-lg uppercase tracking-wide"><i class="fa-solid fa-flag-checkered text-royal mr-2"></i>Finishing with a Self-Loader</span>
+                    <details class="group">
+                        <summary class="cursor-pointer py-3.5 px-1 flex items-center justify-between">
+                            <span class="font-display font-semibold text-base uppercase tracking-wide text-slateink">Finishing with a Self-Loader</span>
                             <i class="fa-solid fa-chevron-down chev text-amber-700 transition"></i>
                         </summary>
-                        <div class="px-5 pb-6 text-sm text-muted leading-relaxed space-y-3">
+                        <div class="px-1 pb-5 text-sm text-muted leading-relaxed space-y-3">
                             <p>When you’ve finished, or the RO calls “Remove your equipment from the line!”:</p>
                             <ol class="list-decimal pl-5 space-y-1.5 text-slate-700">
                                 <li>Make sure there is no round in the breech, keeping the pistol pointed down range.</li>
