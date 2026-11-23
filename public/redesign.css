@@ -215,3 +215,5 @@
 .hdr .in{position:relative}
 .open.shut{color:#475569;background:#F1F5F9;border-color:#CBD5E1}
 @media (min-width:641px){.mnav{display:none!important}}
+/* Header: avoid name/menu collision at mid widths */
+@media (max-width:1180px) and (min-width:641px){.wm{display:none}.est{display:none}}
