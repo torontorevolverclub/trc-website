@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow, noarchive">
-    <title>TRC Safety Rules | Toronto Revolver Club</title>
+    <title>Safety Rules | Toronto Revolver Club</title>
+    <meta name="description" content="Toronto Revolver Club: Canada’s oldest sport pistol club, est. 1905.">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -32,274 +29,62 @@
             }
         }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="redesign.css?v=20261123zc">
     <style>
-        body { background-color: #FFFFFF; color: #0F172A; }
-        .architectural-bg {
-            background-color: #FFFFFF;
-            background-image:
-                radial-gradient(circle at 82% 30%, rgba(212, 175, 55, 0.16) 0%, transparent 48%),
-                radial-gradient(circle at 12% 80%, rgba(0, 20, 137, 0.06) 0%, transparent 50%),
-                linear-gradient(to right, rgba(0, 20, 137, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 20, 137, 0.04) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-        }
-        .trc-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 20, 137, 0.14);
-            border-top: 3px solid #001489;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .trc-card:hover {
-            border-top-color: #D4AF37;
-            transform: translateY(-3px);
-            box-shadow: 0 18px 34px -14px rgba(0, 20, 137, 0.16), 0 4px 12px -2px rgba(212, 175, 55, 0.16);
-        }
-
-        .toc-link.active { color: #001489; border-color: #D4AF37; background: #F0F4FF; font-weight: 600; }
-        .toc-link.active .toc-num { color: #B45309; }
-        .toc-link.done .toc-check { display: inline-block; }
-        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease-out, transform .6s ease-out; }
-        .reveal.visible { opacity: 1; transform: none; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        details[open] .chev { transform: rotate(180deg); }
-        @media print {
-            header, #toc, #progressBar, .no-print { display: none !important; }
-            .reveal { opacity: 1 !important; transform: none !important; }
-            details { display: block; }
-            details > *:not(summary) { display: block !important; }
-            section { break-inside: avoid-page; }
-            body { font-size: 11pt; }
-        }
-    </style>
-    <link rel="stylesheet" href="mobile.css?v=20261119162915">
+.trc-card{background:#fff;border:1px solid rgba(0,20,137,.14);border-top:3px solid #001489;border-radius:.75rem}
+details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}details[open] .chev{transform:rotate(180deg)}
+.rbody{padding-top:1.25rem;padding-bottom:3rem}
+.rpick{display:grid;gap:.55rem;background:#F8FAFC;border:1px solid rgba(0,20,137,.1);border-radius:.7rem;padding:.9rem 1rem}
+.rg-row{display:grid;grid-template-columns:6.5rem 1fr;gap:.75rem;align-items:center}
+.rg-l{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.rg-c{display:flex;flex-wrap:wrap;gap:.4rem}
+.rpick button{font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;color:#334155;background:#fff;border:1px solid rgba(0,20,137,.18);border-radius:999px;padding:.38rem .85rem;cursor:pointer}
+.rpick button:hover{border-color:var(--gold)}
+.rpick button.qz{color:var(--amber);border-color:rgba(212,175,55,.7)}
+.rpick button.on{background:var(--royal);color:#fff;border-color:var(--royal)}
+.rsel{display:none}
+.rstage{margin-top:1.75rem;min-height:18rem}
+.rlab{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.35rem}
+.ess{border:1px solid var(--gold);background:#FEF9E7;border-radius:.8rem;padding:1.4rem 1.6rem}
+.ess h2{font-family:var(--display);font-weight:700;text-transform:uppercase;color:var(--royal);font-size:1.9rem}
+.ess p{color:var(--muted);margin:.2rem 0 1rem}
+.ess ol{list-style:none;counter-reset:e;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem}
+.ess li{counter-increment:e;display:flex;gap:.7rem;align-items:flex-start}
+.ess li:before{content:counter(e);flex-shrink:0;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--royal);color:var(--gold-b);font-family:var(--mono);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ess li a{color:var(--ink);padding-top:.12rem;border-bottom:1px dotted rgba(0,20,137,.3)}
+.ess li a:hover{color:var(--royal);border-color:var(--gold)}
+.rpager{display:flex;justify-content:space-between;gap:.75rem;margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(0,20,137,.1)}
+.rpager button{font-family:var(--display);font-weight:600;font-size:.92rem;letter-spacing:.05em;text-transform:uppercase;border-radius:.3rem;padding:.65rem 1.1rem;cursor:pointer;border:1px solid rgba(0,20,137,.25);color:var(--royal);background:#fff}
+.rpager button.nx{background:var(--royal);color:#fff;border-color:var(--royal);margin-left:auto}
+.rpager button[hidden]{display:none}
+.rgov{margin-top:1.5rem;font-size:.82rem;color:var(--muted)}
+.rgov a{color:var(--royal);font-weight:600;text-decoration:underline}
+@media (max-width:640px){.rpick{display:none}.rsel{display:flex;flex-direction:column;gap:.3rem}.rsel span{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.rsel select{font-family:var(--display);font-size:1rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--royal);padding:.7rem .8rem;border:1px solid rgba(0,20,137,.25);border-radius:.4rem;background:#fff}
+.rstage{margin-top:1.1rem}.ess{padding:1.1rem}.ess h2{font-size:1.5rem}.ess ol{grid-template-columns:1fr}.rpager button{font-size:.8rem;padding:.6rem .8rem}}
+</style>
 </head>
-<body class="font-sans antialiased selection:bg-royal selection:text-white">
-
-    <!-- Reading progress -->
-    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-royal via-gold to-gold-warm z-[60] w-0 transition-[width] duration-150"></div>
-
-    <!-- HEADER -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-royal/10 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0" aria-label="Toronto Revolver Club home">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                    <img src="trc-crest.svg?v=202611162231" alt="Toronto Revolver Club Crest" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <span class="font-display font-bold text-royal text-base sm:text-2xl tracking-wide sm:tracking-wider uppercase block leading-none whitespace-nowrap">Toronto Revolver Club</span>
-                    <span class="font-mono text-[10px] font-semibold tracking-[0.24em] text-amber-700 uppercase mt-1 block">TRC Safety Rules</span>
-                </div>
-            </a>
-            <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-[0.14em] text-slate-700">
-                <a href="range.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">The Range</a>
-                <a href="heritage.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Heritage</a>
-                <a href="competition.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Competition</a>
-                <a href="index.html#calendar" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Calendar</a>
-            </nav>
-            <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
-                <a href="index.html#contact" class="hidden md:inline-flex items-center px-4 py-2.5 rounded border border-royal/25 hover:border-royal hover:bg-royal-tint text-royal font-display font-semibold text-sm uppercase tracking-wider transition">Contact</a>
-                <a href="members.html" aria-label="Member Portal" class="px-3 min-[420px]:px-4 sm:px-5 py-2.5 rounded bg-royal hover:bg-royal-light text-white border border-gold/60 font-display font-semibold text-sm uppercase tracking-wider transition shadow-md shadow-royal/20 inline-flex items-center">
-                    <i class="fa-solid fa-lock min-[420px]:mr-2 text-gold-bright text-xs"></i><span class="hidden sm:inline">Member&nbsp;</span><span class="hidden min-[420px]:inline">Portal</span>
-                </a>
-                <button id="mobileToggle" class="lg:hidden p-2.5 rounded border border-royal/20 text-royal hover:bg-royal-tint" aria-label="Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-royal/10 px-6 py-5 space-y-3 shadow-lg">
-            <a href="range.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">The Range</a>
-            <a href="heritage.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Heritage</a>
-            <a href="competition.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Competition</a>
-            <a href="index.html#calendar" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-regular fa-calendar mr-2 text-gold-warm"></i> Calendar</a>
-            <a href="index.html#contact" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-solid fa-paper-plane mr-2 text-gold-warm"></i> Contact</a>
-            <button onclick="window.print()" class="block w-full text-left py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-solid fa-print mr-2 text-gold-warm"></i> Print this summary</button>
-            <div class="md:hidden pt-3 mt-2 border-t border-royal/10 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider">
-                <span class="text-muted">&copy; 2026 Toronto Revolver Club</span>
-                <a href="https://mail.google.com/a/torontorevolverclub.com" target="_blank" rel="noopener" class="text-amber-700 font-bold"><i class="fa-solid fa-envelope mr-1.5"></i>Board Email</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="architectural-bg border-b border-royal/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-14 lg:py-20 grid lg:grid-cols-12 gap-6 md:gap-10 items-center">
-            <div class="lg:col-span-8">
-                <h1 class="font-display font-bold text-[2.6rem] min-[400px]:text-5xl sm:text-6xl lg:text-7xl text-slateink uppercase tracking-tight leading-[0.98]">
-                    Safety First.<br><span class="text-royal">Every Shot.</span>
-                    <span class="block h-1.5 w-40 bg-gradient-to-r from-gold to-royal rounded-full mt-4"></span>
-                </h1>
-                <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mt-6">
-                    This page is your reference and refresher, so you can feel welcome, comfortable and safe on the TRC firing line.
-                </p>
-                <div class="flex flex-wrap items-center gap-4 mt-8 no-print">
-                    <a href="#purpose" class="px-7 py-4 rounded bg-royal hover:bg-royal-light text-white font-display font-semibold text-base uppercase tracking-wider transition shadow-lg shadow-royal/25 inline-flex items-center border border-gold/50">
-                        Read the Rules <i class="fa-solid fa-arrow-down ml-2.5 text-gold-bright text-xs"></i>
-                    </a>
-                    <a href="#quiz" class="px-7 py-4 rounded bg-white hover:bg-royal-tint border-2 border-royal/25 hover:border-royal text-royal font-display font-semibold text-base uppercase tracking-wider transition inline-flex items-center">
-                        <i class="fa-solid fa-circle-question mr-2.5 text-amber-600"></i> Test Your Knowledge
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Club documents + governing bodies -->
-        <div class="bg-slate-50/95 border-t border-royal/10">
-            <div id="docs" class="scroll-mt-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 grid sm:grid-cols-[8.5rem_minmax(0,1fr)] items-center gap-x-5 gap-y-2 sm:gap-y-3">
-                <span class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700">Club documents</span>
-                <div class="grid sm:grid-cols-2 gap-2 no-print">
-                    <a href="docs/trc-safety-familiarization-course.pdf?v=202611171206" target="_blank" rel="noopener" class="m-doc flex items-center gap-2.5 rounded-lg bg-gold-pale/70 border border-gold/60 hover:border-royal px-3 py-2 transition min-w-0">
-                        <i class="fa-solid fa-file-pdf text-lg text-royal shrink-0"></i>
-                        <span class="min-w-0 truncate"><span class="font-display font-bold uppercase tracking-wide text-royal">Safety &amp; Familiarization Course</span><span class="font-mono text-[10px] uppercase tracking-wider text-amber-800 ml-2">PDF<span class="hidden md:inline"> · word for word</span></span></span>
-                    </a>
-                    <a href="docs/trc-range-regulations.pdf?v=202611191550" target="_blank" rel="noopener" class="m-doc flex items-center gap-2.5 rounded-lg bg-gold-pale/70 border border-gold/60 hover:border-royal px-3 py-2 transition min-w-0">
-                        <i class="fa-solid fa-file-pdf text-lg text-royal shrink-0"></i>
-                        <span class="min-w-0 truncate"><span class="font-display font-bold uppercase tracking-wide text-royal">Range Regulations</span><span class="font-mono text-[10px] uppercase tracking-wider text-amber-800 ml-2">PDF<span class="hidden md:inline"> · amended July 2, 2025</span></span></span>
-                    </a>
-                </div>
-                <span class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700 mt-1 sm:mt-0">Aligned with</span>
-                <div class="grid grid-cols-4 gap-2">
-                    <span class="rounded-md bg-white border border-royal/20 px-2 sm:px-3 py-1.5 flex items-baseline justify-center md:justify-start min-w-0" title="Shooting Federation of Canada"><span class="font-display font-bold text-royal">SFC</span><span class="hidden md:block font-mono text-[10px] uppercase tracking-wider text-muted ml-2 truncate min-w-0">Shooting Fed. of Canada</span></span>
-                    <span class="rounded-md bg-white border border-royal/20 px-2 sm:px-3 py-1.5 flex items-baseline justify-center md:justify-start min-w-0" title="National Rifle Association"><span class="font-display font-bold text-royal">NRA</span><span class="hidden md:block font-mono text-[10px] uppercase tracking-wider text-muted ml-2 truncate min-w-0">Nat’l Rifle Assoc.</span></span>
-                    <span class="rounded-md bg-white border border-royal/20 px-2 sm:px-3 py-1.5 flex items-baseline justify-center md:justify-start min-w-0" title="International Shooting Sport Federation"><span class="font-display font-bold text-royal">ISSF</span><span class="hidden md:block font-mono text-[10px] uppercase tracking-wider text-muted ml-2 truncate min-w-0">Int’l Shooting Sport</span></span>
-                    <span class="rounded-md bg-white border border-royal/20 px-2 sm:px-3 py-1.5 flex items-baseline justify-center md:justify-start min-w-0" title="International Practical Shooting Confederation"><span class="font-display font-bold text-royal">IPSC</span><span class="hidden md:block font-mono text-[10px] uppercase tracking-wider text-muted ml-2 truncate min-w-0">Int’l Practical Shooting</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BODY: TOC + CONTENT -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-14 grid lg:grid-cols-12 gap-10">
-
-        <!-- Sticky TOC -->
-        <aside id="toc" class="hidden lg:block lg:col-span-3">
-            <nav class="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-1">
-                <div class="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-amber-700">Detailed Safety</div>
-                <div class="font-display font-bold text-lg uppercase tracking-wide text-royal leading-tight mt-0.5">Information &amp; Rules</div>
-                <div class="flex items-center gap-2 mt-3 mb-4 font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                    <span class="whitespace-nowrap"><span id="tocCount">0</span> of 10 read</span>
-                    <div class="flex-1 h-[3px] rounded-full bg-slate-200 overflow-hidden"><div id="tocBar" class="h-full bg-gold w-0 transition-all duration-300"></div></div>
-                </div>
-                <ol class="border-l border-slate-200 space-y-0.5">
-                    <li><a href="#purpose" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">00</span>
-                        <span class="flex-1 leading-tight">Why These Rules Exist</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                </ol>
-                <div class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700 mt-4 mb-1.5">Part 1 · Firearm Safety</div>
-                <ol class="border-l border-slate-200 space-y-0.5">
-                    <li><a href="#acts" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">01</span>
-                        <span class="flex-1 leading-tight">ACTS</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#proving" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">02</span>
-                        <span class="flex-1 leading-tight">PROVE · Proving a Pistol Safe</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#handling" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">03</span>
-                        <span class="flex-1 leading-tight">Handling Pistols</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                </ol>
-                <div class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700 mt-4 mb-1.5">Part 2 · Range Safety</div>
-                <ol class="border-l border-slate-200 space-y-0.5">
-                    <li><a href="#commands" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">04</span>
-                        <span class="flex-1 leading-tight">Range Officer &amp; Commands</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#shooting" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">05</span>
-                        <span class="flex-1 leading-tight">On the Firing Line</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#equipment" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">06</span>
-                        <span class="flex-1 leading-tight">Targets &amp; Equipment</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                </ol>
-                <div class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700 mt-4 mb-1.5">Part 3 · Club Practices</div>
-                <ol class="border-l border-slate-200 space-y-0.5">
-                    <li><a href="#club" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">07</span>
-                        <span class="flex-1 leading-tight">Range Access by Members</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#guests" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">08</span>
-                        <span class="flex-1 leading-tight">Guests</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                    <li><a href="#never" class="toc-link flex items-center gap-3 pl-3 pr-2 py-2 -ml-px border-l-[3px] border-transparent text-sm text-slate-600 hover:text-royal hover:bg-slate-50 transition">
-                        <span class="toc-num font-mono text-[11px] text-slate-400 w-5">09</span>
-                        <span class="flex-1 leading-tight">Never, Ever</span>
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm toc-check hidden"></i>
-                    </a></li>
-                </ol>
-                <a href="#quiz" class="mt-5 flex items-center justify-between px-3 py-2.5 rounded-md border border-gold bg-gold-pale text-amber-900 font-display font-semibold uppercase tracking-wider text-sm hover:bg-gold hover:text-royal-deep transition">
-                    <span><span class="font-mono text-[11px] mr-1.5">10</span> Test Your Knowledge</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-                <button onclick="window.print()" class="mt-2.5 w-full px-4 py-2 rounded-md border border-slate-300 hover:border-royal text-royal font-mono text-[11px] font-bold uppercase tracking-wider transition">
-                    <i class="fa-solid fa-print mr-2 text-amber-600"></i> Print this summary
-                </button>
-                <a href="range.html#hours" class="mt-2.5 flex items-center justify-between px-3 py-2.5 rounded-md border border-royal text-royal font-display font-semibold uppercase tracking-wider text-sm hover:bg-royal hover:text-white transition">
-                    <span><i class="fa-regular fa-clock mr-2 text-amber-600"></i>Range Hours for Members</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-            </nav>
-        </aside>
-
-        <main id="rules" class="lg:col-span-9 space-y-12">
-
-            <!-- 0. RULES OVERVIEW -->
-            <section id="purpose" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">00 // Rules Overview</div>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Why These Rules Exist</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §1–2</a></p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="trc-card rounded-xl p-7">
-                        <i class="fa-solid fa-shield-halved text-2xl text-royal mb-4"></i>
-                        <h3 class="font-display font-bold text-xl uppercase tracking-wide text-slateink mb-2">Accident Prevention</h3>
-                        <p class="text-sm text-muted leading-relaxed">The main purpose of these rules is accident prevention. Taught in person at the club, they also help new and prospective members learn the club’s rules, feel welcome and comfortable on the firing line, and ensures every shooter follows the same procedures.</p>
-                    </div>
-                    <div class="trc-card rounded-xl p-7">
-                        <i class="fa-solid fa-handshake text-2xl text-royal mb-4"></i>
-                        <h3 class="font-display font-bold text-xl uppercase tracking-wide text-slateink mb-2">Taking Responsibility</h3>
-                        <p class="text-sm text-muted leading-relaxed">At TRC we keep the rules to the minimum consistent with good club management and safety. That only works when every member accepts responsibility for their own safety and that of others.</p>
-                    </div>
-                </div>
-                <div class="mt-6 rounded-xl bg-royal text-white p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5 border-l-4 border-gold">
-                    <div class="w-14 h-14 rounded-full bg-gold text-royal-deep flex items-center justify-center shrink-0"><i class="fa-solid fa-bullhorn text-xl"></i></div>
-                    <div>
-                        <div class="font-display text-2xl font-bold uppercase tracking-wide">See something unsafe? Say something.</div>
-                        <p class="text-sm text-white/80 mt-1">Most of us need a reminder once in a while. We’re proud of TRC’s safety record across more than 120 years — let’s keep it intact.</p>
-                    </div>
-                </div>
-                <div class="mt-6 grid sm:grid-cols-3 gap-4">
-                    <a href="#part-firearm" class="rounded-xl border border-royal/15 bg-white p-5 hover:border-gold transition block"><div class="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-700">Part 1 · Everywhere</div><div class="font-display text-xl font-bold uppercase tracking-wide text-royal mt-1">Firearm Safety</div><p class="text-xs text-muted mt-1">How to handle any firearm safely: ACTS and PROVE.</p></a>
-                    <a href="#part-range" class="rounded-xl border border-royal/15 bg-white p-5 hover:border-gold transition block"><div class="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-700">Part 2 · On the firing line</div><div class="font-display text-xl font-bold uppercase tracking-wide text-royal mt-1">Range Safety</div><p class="text-xs text-muted mt-1">How we shoot safely together: Range Officer, commands, the line.</p></a>
-                    <a href="#part-club" class="rounded-xl border border-royal/15 bg-white p-5 hover:border-gold transition block"><div class="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-700">Part 3 · At TRC</div><div class="font-display text-xl font-bold uppercase tracking-wide text-royal mt-1">Club Practices</div><p class="text-xs text-muted mt-1">How things work at our club: access, the clubhouse, facilities.</p></a>
-                </div>
-            </section>
-
-            <!-- PART 1 -->
-            <div id="part-firearm" class="m-part scroll-mt-28 flex items-center gap-3 border-b-2 border-gold pb-2 reveal">
-                <span class="w-7 h-7 rounded-md bg-royal text-gold-bright font-mono text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide text-royal leading-none">Firearm Safety</h2>
-                <span class="ml-auto font-mono text-[11px] font-bold uppercase tracking-wider text-amber-700 text-right">ACTS / PROVE</span>
-            </div>
-
-            <!-- 1. ACTS -->
-            <section id="acts" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">01 // Every Firearm, Every Time</div>
+<body>
+<div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
+<header class="hdr"><div class="in">
+  <a href="index.html" class="brand"><img src="trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="membership.html" class="join">Join the Club</a>
+  <a href="members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Member Portal</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="membership.html" class="mj">Join the Club</a><a href="members.html" class="mp">Member Portal</a></nav>
+</div></header>
+<main class="page rg sfp"><section class="ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / <a href="safety.html">Safety</a> / Rules</div><h1>Safety Rules</h1><p class="sub">Our rules exist to prevent accidents, and every member shares responsibility for safety. See something unsafe? Say something.</p></div></section>
+<div class="in rbody">
+<nav class="rpick" aria-label="Rule sections"><div class="rg-row"><span class="rg-l">Start</span><div class="rg-c"><button type="button" data-s="essentials">The essentials</button></div></div><div class="rg-row"><span class="rg-l">1 · Firearm</span><div class="rg-c"><button type="button" data-s="acts">ACTS</button><button type="button" data-s="proving">PROVE</button><button type="button" data-s="handling">Handling pistols</button></div></div><div class="rg-row"><span class="rg-l">2 · Range</span><div class="rg-c"><button type="button" data-s="commands">Range Officer &amp; commands</button><button type="button" data-s="shooting">Firing line</button><button type="button" data-s="equipment">Targets &amp; equipment</button></div></div><div class="rg-row"><span class="rg-l">3 · Club</span><div class="rg-c"><button type="button" data-s="club">Access</button><button type="button" data-s="guests">Guests</button><button type="button" data-s="never">Never, ever</button><button type="button" data-s="quiz" class="qz">Quiz</button></div></div></nav><label class="rsel"><span>Section</span><select id="rselect"><option value="essentials">The essentials</option><option value="acts">Firearm safety · ACTS</option><option value="proving">Firearm safety · PROVE</option><option value="handling">Firearm safety · Handling pistols</option><option value="commands">Range safety · Range Officer &amp; commands</option><option value="shooting">Range safety · Firing line</option><option value="equipment">Range safety · Targets &amp; equipment</option><option value="club">Club practices · Access</option><option value="guests">Club practices · Guests</option><option value="never">Club practices · Never, ever</option><option value="quiz">Quiz</option></select></label>
+<div class="rstage">
+<section id="essentials" class="rpanel" data-title="The essentials" hidden><div class="ess"><h2>The essentials</h2><p>The rules every shooter must know. Tap any rule for the details.</p><ol><li><a href="#proving" data-go="proving">Follow ACTS / PROVE with every firearm</a></li><li><a href="#commands" data-go="commands">Range Officer on the line at all times</a></li><li><a href="#commands" data-go="commands">Anyone can call cease fire</a></li><li><a href="#equipment" data-go="equipment">Eyes and ears on</a></li><li><a href="#handling" data-go="handling">Pistols are never passed hand to hand</a></li><li><a href="#club" data-go="club">Uncase pistols only at the firing line or Inspection Table</a></li><li><a href="#club" data-go="club">No ammunition at the Inspection Table</a></li><li><a href="#equipment" data-go="equipment">Approved paper targets only</a></li><li><a href="#guests" data-go="guests">Guests supervised within arm’s reach</a></li><li><a href="#club" data-go="club">.22 rimfire rifles only</a></li></ol></div></section>
+<section id="acts" class="rpanel" data-title="ACTS" hidden><div class="rlab">Firearm safety · 1 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-3">ACTS</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: Canadian Firearms Safety Course</p>
                 <p class="text-muted text-sm sm:text-base mb-7 max-w-3xl">The four basic firearm safety practices from the Canadian Firearms Safety Course. They apply to every firearm, everywhere, not just at the range.</p>
                 <div class="grid md:grid-cols-2 gap-5">
                     <div class="trc-card rounded-xl p-6 flex gap-4">
@@ -320,13 +105,8 @@
                     </div>
                 </div>
             </section>
-
-
-            <!-- 2. PROVING -->
-            <section id="proving" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">02 // The Core Skill</div>
+<section id="proving" class="rpanel" data-title="PROVE" hidden><div class="rlab">Firearm safety · 2 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-3">PROVE · Proving a Pistol Safe</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §4.3–4.5</a></p>
                 <p class="text-muted text-sm sm:text-base mb-7 max-w-3xl">“Proving” confirms a pistol is unloaded and safe. Remember it as <strong class="text-royal">PROVE</strong>. Do it every time a firearm changes hands — and don’t handle any firearm until you’re sure you know how to prove it.</p>
 
                 <!-- 5 general steps -->
@@ -340,7 +120,7 @@
 
                 <!-- Tabs -->
                 <div class="trc-card rounded-xl overflow-hidden">
-                    <div class="flex flex-wrap border-b border-slate-200 bg-slate-50 no-print" role="tablist">
+                    <div class="flex flex-wrap border-b border-slate-200 bg-slate-50" role="tablist">
                         <button class="prove-tab px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider border-b-2 transition" data-tab="selfloader" role="tab">Self-Loader</button>
                         <button class="prove-tab px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider border-b-2 transition" data-tab="revolver" role="tab">Revolver</button>
                         <button class="prove-tab px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider border-b-2 transition" data-tab="single" role="tab">Single-Action Revolver</button>
@@ -377,12 +157,8 @@
                     </div>
                 </div>
             </section>
-
-            <!-- 3. HANDLING -->
-            <section id="handling" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">03 // Handling Pistols</div>
+<section id="handling" class="rpanel" data-title="Handling pistols" hidden><div class="rlab">Firearm safety · 3 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Handling Pistols</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §4.1–4.6</a></p>
 
                 <div class="rounded-xl bg-royal-tint border border-royal/15 p-6 mb-6 flex gap-4">
                     <i class="fa-solid fa-compass text-2xl text-royal mt-1"></i>
@@ -502,19 +278,8 @@
                     </details>
                 </div>
             </section>
-
-            <!-- PART 2 -->
-            <div id="part-range" class="m-part scroll-mt-28 flex items-center gap-3 border-b-2 border-gold pb-2 reveal">
-                <span class="w-7 h-7 rounded-md bg-royal text-gold-bright font-mono text-xs font-bold flex items-center justify-center shrink-0">2</span>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide text-royal leading-none">Range Safety</h2>
-                <span class="ml-auto font-mono text-[11px] font-bold uppercase tracking-wider text-amber-700 text-right">On the firing line</span>
-            </div>
-
-            <!-- 4. RANGE OFFICER & COMMANDS -->
-            <section id="commands" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">04 // In Charge of the Line</div>
+<section id="commands" class="rpanel" data-title="Range Officer &amp; commands" hidden><div class="rlab">Range safety · 1 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Range Officer &amp; Commands</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §3.4, §4.2, §5.8</a> · <a href="docs/trc-range-regulations.pdf?v=202611191550" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Range Regulations #5, #11</a></p>
                 <div class="rounded-xl bg-royal-tint border border-royal/15 p-6 mb-6 flex gap-4">
                     <i class="fa-solid fa-user-shield text-2xl text-royal mt-1"></i>
                     <p class="text-sm text-slate-700 leading-relaxed"><strong class="text-royal">Range Officer on the line at all times.</strong> Whenever two or more shooters are on the range, one must be designated Range Officer. The RO is in charge of the range and responsible for safety on the firing line until they hand over to another shooter. Follow every RO command.</p>
@@ -548,12 +313,8 @@
                     </div>
                 </div>
             </section>
-
-            <!-- 5. FIRING LINE -->
-            <section id="shooting" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">05 // Shooting</div>
+<section id="shooting" class="rpanel" data-title="Firing line" hidden><div class="rlab">Range safety · 2 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">On the Firing Line</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §5.1–5.7</a> · <a href="docs/trc-range-regulations.pdf?v=202611191550" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Range Regulations #6, #7</a></p>
 
                 <div class="grid md:grid-cols-3 gap-5 mb-6">
                     <div class="trc-card rounded-xl p-6 flex flex-col">
@@ -653,12 +414,8 @@
                 </div>
 
             </section>
-
-            <!-- 6. TARGETS & EQUIPMENT -->
-            <section id="equipment" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">06 // On the Range</div>
+<section id="equipment" class="rpanel" data-title="Targets &amp; equipment" hidden><div class="rlab">Range safety · 3 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Targets &amp; Equipment</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §3.2, §3.5</a> · <a href="docs/trc-range-regulations.pdf?v=202611191550" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Range Regulations #1, #9, #10, #22</a></p>
                 <div class="grid md:grid-cols-2 gap-5">
                     <div class="trc-card rounded-xl p-6">
                         <div class="flex items-center gap-3 mb-3"><span class="w-10 h-10 rounded-lg bg-royal-tint text-royal flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></span><h3 class="font-display font-bold text-xl uppercase tracking-wide">Approved Targets Only</h3></div>
@@ -670,28 +427,12 @@
                     </div>
                 </div>
             </section>
-
-
-            <!-- PART 3 -->
-            <div id="part-club" class="m-part scroll-mt-28 flex items-center gap-3 border-b-2 border-gold pb-2 reveal">
-                <span class="w-7 h-7 rounded-md bg-royal text-gold-bright font-mono text-xs font-bold flex items-center justify-center shrink-0">3</span>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide text-royal leading-none">Club Practices</h2>
-                <span class="ml-auto font-mono text-[11px] font-bold uppercase tracking-wider text-amber-700 text-right">At TRC</span>
-            </div>
-            <!-- 7. ACCESS & THE CLUBHOUSE -->
-            <section id="club" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">07 // At TRC</div>
+<section id="club" class="rpanel" data-title="Access" hidden><div class="rlab">Club practices · 1 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Range Access by Members</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §3, §3.3, §3.6–3.7</a></p>
-                <div class="grid md:grid-cols-2 gap-5">
+                <div class="grid gap-5">
                     <div class="trc-card rounded-xl p-6">
                         <div class="flex items-center gap-3 mb-3"><span class="w-10 h-10 rounded-lg bg-royal-tint text-royal flex items-center justify-center"><i class="fa-solid fa-id-card"></i></span><h3 class="font-display font-bold text-xl uppercase tracking-wide">Your Access</h3></div>
                         <p class="text-sm text-muted leading-relaxed">Every member receives an access card for the clubhouse front door and a key for the target cupboard. Targets in the lock-up are free to members: please don’t waste them.</p>
-                    </div>
-                    <div class="trc-card rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-3"><span class="w-10 h-10 rounded-lg bg-royal-tint text-royal flex items-center justify-center"><i class="fa-regular fa-clock"></i></span><h3 class="font-display font-bold text-xl uppercase tracking-wide">Range Hours</h3></div>
-                        <p class="text-sm text-muted leading-relaxed">Members may use the range during posted hours. Other clubs rent the range on several evenings and have exclusive use. Closures appear on the club calendar.</p>
-                        <a href="range.html#hours" class="inline-flex items-center mt-3 font-mono text-xs font-bold uppercase tracking-wider text-amber-700 hover:text-royal">Range Hours for Members <i class="fa-solid fa-arrow-right ml-1.5"></i></a>
                     </div>
                 </div>
                 <div class="mt-5 rounded-xl border-2 border-royal overflow-hidden">
@@ -712,13 +453,8 @@
                     <p class="text-sm text-amber-900"><strong>Rifles:</strong> only .22 calibre rimfire rifles are permitted on the range.</p>
                 </div>
             </section>
-
-
-            <!-- 8. GUESTS -->
-            <section id="guests" class="scroll-mt-28 reveal">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">08 // At TRC</div>
+<section id="guests" class="rpanel" data-title="Guests" hidden><div class="rlab">Club practices · 2 of 3</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-3">Guests</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: Club practice</p>
                 <p class="text-muted text-sm sm:text-base mb-7 max-w-3xl">Guests are welcome provided that they are directly supervised by members at all times.</p>
                 <div class="trc-card rounded-xl overflow-hidden">
                     <div class="grid lg:grid-cols-[1fr_200px] gap-5 p-6 items-stretch">
@@ -758,14 +494,11 @@
                     </div>
                 </div>
             </section>
-
-            <!-- 9. NEVER -->
-            <section id="never" class="scroll-mt-28 reveal">
+<section id="never" class="rpanel" data-title="Never, ever" hidden><div class="rlab">Club practices · 3 of 3</div>
                 <div class="rounded-2xl border-2 border-red-600 overflow-hidden">
                     <div class="bg-red-600 text-white px-6 sm:px-8 py-5 flex items-center gap-3">
                         <i class="fa-solid fa-circle-xmark text-2xl"></i>
                         <h2 class="font-display font-bold text-3xl uppercase tracking-wide">Never, Ever</h2>
-                <p class="trc-src font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 -mt-1 mb-4"><i class="fa-solid fa-book-open mr-1"></i>Source: <a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="hover:text-royal underline decoration-dotted">Safety &amp; Familiarization Course §3–5</a> and club practice</p>
                     </div>
                     <ul class="bg-white grid sm:grid-cols-2 divide-y sm:divide-y-0 divide-red-100">
                         <li class="p-5 flex gap-3 sm:border-b sm:border-red-100"><i class="fa-solid fa-xmark text-red-600 mt-1"></i><span class="text-sm text-slate-700">Flip a revolver cylinder in or out with a flick of the wrist.</span></li>
@@ -781,10 +514,7 @@
                     </ul>
                 </div>
             </section>
-
-            <!-- 10. QUIZ -->
-            <section id="quiz" class="scroll-mt-28 reveal no-print">
-                <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">10 // Check Yourself</div>
+<section id="quiz" class="rpanel" data-title="Quiz" hidden><div class="rlab">Check yourself</div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight mb-6">Test Your Knowledge</h2>
                 <div class="trc-card rounded-xl p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-5">
@@ -794,43 +524,18 @@
                     <div id="quizBody"></div>
                 </div>
             </section>
+</div>
+<div class="rpager"><button type="button" id="rprev"></button><button type="button" id="rnext" class="nx"></button></div>
+<p class="rgov">Summary of the TRC Safety and Familiarization Course (<a href="docs/trc-safety-familiarization-course.pdf" target="_blank" rel="noopener">full course, PDF</a>) and the <a href="docs/trc-range-regulations.pdf" target="_blank" rel="noopener">TRC Range Regulations</a>. Those documents govern. Draft, pending board review.</p>
+</div>
+</main>
 
-            <!-- Source -->
-            <div class="rounded-xl bg-slate-50 border border-slate-200 p-5 text-xs text-muted flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <span><i class="fa-solid fa-file-shield text-royal mr-1.5"></i> Summary of the TRC Safety and Familiarization Course (<a href="docs/trc-safety-familiarization-course.pdf?v=202611171158" target="_blank" rel="noopener" class="text-royal font-bold underline">full course, PDF</a>) and the <a href="docs/trc-range-regulations.pdf?v=202611191550" target="_blank" rel="noopener" class="text-royal font-bold underline">TRC Range Regulations</a>. Those documents govern. Amended from time to time as governing-body rules change. <strong class="text-slateink">Draft — pending board review.</strong></span>
-                <span class="font-mono uppercase tracking-wider">Last reviewed: <span class="text-royal font-bold">Nov 2026</span></span>
-            </div>
-        </main>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="bg-royal text-white border-t-4 border-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-300 gap-3">
-            <p>&copy; 2026 TORONTO REVOLVER CLUB. ALL RIGHTS RESERVED.</p>
-            <a href="index.html" class="text-gold-bright hover:text-white transition uppercase tracking-wider"><i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Club Site</a>
-        </div>
-    </footer>
-
-    <script>
-        // ---------- Mobile menu ----------
-        // Mobile menu: toggle, close on link tap, outside tap or Escape
-        (function () {
-            const toggle = document.getElementById('mobileToggle');
-            const menu = document.getElementById('mobileMenu');
-            if (!toggle || !menu) return;
-            const icon = toggle.querySelector('i');
-            const setOpen = (open) => {
-                menu.classList.toggle('hidden', !open);
-                toggle.setAttribute('aria-expanded', open);
-                if (icon) { icon.classList.toggle('fa-bars', !open); icon.classList.toggle('fa-xmark', open); }
-            };
-            toggle.addEventListener('click', (e) => { e.stopPropagation(); setOpen(menu.classList.contains('hidden')); });
-            menu.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => setOpen(false)));
-            document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !toggle.contains(e.target)) setOpen(false); });
-            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-        })();
-
-        // ---------- Proving tabs ----------
+<footer class="ft"><div class="in">
+  <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
+  <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+</div></footer>
+<script src="site.js?v=20261123i"></script>
+<script>
         function setTab(name) {
             document.querySelectorAll('.prove-tab').forEach(b => {
                 const on = b.dataset.tab === name;
@@ -910,61 +615,33 @@
         }
         renderQuiz();
 
-        // ---------- TOC highlight, progress bar, reveal ----------
-        const sections = [...document.querySelectorAll('main section[id]')];
-        const links = [...document.querySelectorAll('.toc-link')];
-        const tocObs = new IntersectionObserver(entries => {
-            entries.forEach(en => {
-                if (en.isIntersecting) {
-                    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
-                }
-            });
-        }, { rootMargin: '-35% 0px -60% 0px' });
-        sections.forEach(s => tocObs.observe(s));
-
-        const reviewable = sections.filter(sec => sec.id !== 'quiz');
-        function markReviewed() {
-            let done = 0;
-            reviewable.forEach(sec => {
-                const atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40;
-                const passed = atEnd || sec.getBoundingClientRect().bottom < window.innerHeight * 0.6;
-                const link = document.querySelector('.toc-link[href="#' + sec.id + '"]');
-                if (passed && link) link.classList.add('done');
-                if (link && link.classList.contains('done')) done++;
-            });
-            document.getElementById('tocCount').textContent = done;
-            document.getElementById('tocBar').style.width = (done / reviewable.length * 100) + '%';
-        }
-        window.addEventListener('scroll', markReviewed, { passive: true });
-        markReviewed();
-
-        window.addEventListener('scroll', () => {
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            document.getElementById('progressBar').style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
-        }, { passive: true });
-
-        const revObs = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.08 });
-        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
-    </script>
-
-    <!-- Back to top -->
-    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"
-        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-royal hover:bg-royal-light text-gold-bright border-2 border-gold shadow-xl shadow-royal/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-3 transition-all duration-300">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-    <script>
-        (function () {
-            const b = document.getElementById('backToTop');
-            const onScroll = () => {
-                const show = window.scrollY > 600;
-                b.classList.toggle('opacity-0', !show);
-                b.classList.toggle('pointer-events-none', !show);
-                b.classList.toggle('translate-y-3', !show);
-            };
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
-        })();
-    </script>
-    <script src="mobile.js?v=20261123i"></script>
+        
+// ---------- One section at a time ----------
+(function(){
+  const panels=[...document.querySelectorAll('.rpanel')], ids=panels.map(p=>p.id);
+  const alias={'part-firearm':'acts','part-range':'commands','part-club':'club','purpose':'essentials','acts':'acts'};
+  const btns=[...document.querySelectorAll('.rpick button')], sel=document.getElementById('rselect');
+  const prev=document.getElementById('rprev'), next=document.getElementById('rnext'), pick=document.querySelector('.rbody');
+  function show(id,scroll){
+    id=alias[id]||id; if(!ids.includes(id)) id='essentials';
+    const i=ids.indexOf(id);
+    panels.forEach(p=>p.hidden=p.id!==id);
+    btns.forEach(b=>b.classList.toggle('on',b.dataset.s===id)); sel.value=id;
+    prev.hidden=i===0; next.hidden=i===ids.length-1;
+    if(i>0) prev.textContent='\u2190 '+panels[i-1].dataset.title;
+    if(i<ids.length-1) next.textContent=panels[i+1].dataset.title+' \u2192';
+    prev.dataset.s=ids[i-1]||''; next.dataset.s=ids[i+1]||'';
+    if(history.replaceState) history.replaceState(null,'',id==='essentials'?location.pathname:'#'+id);
+    if(scroll){const y=pick.getBoundingClientRect().top+window.scrollY-90; if(window.scrollY>y) window.scrollTo({top:y,behavior:'smooth'});}
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>show(b.dataset.s,true)));
+  sel.addEventListener('change',()=>show(sel.value,true));
+  [prev,next].forEach(b=>b.addEventListener('click',()=>show(b.dataset.s,true)));
+  document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.go,true);}));
+  window.addEventListener('hashchange',()=>show(location.hash.slice(1),true));
+  show(location.hash.slice(1),false);
+  window.scrollTo(0,0);
+})();
+</script>
 </body>
 </html>
