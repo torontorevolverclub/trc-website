@@ -413,3 +413,4 @@ html,body{overflow-x:hidden}
  .exp .cards{gap:.55rem}.exp .card{padding:.75rem .9rem}
 }
 @media (max-width:640px){.hero-crest{top:4.2rem;right:-1rem}}
+@media (max-width:640px){.hero-crest{top:1.4rem;right:-1.4rem;width:13.5rem;height:13.5rem}}
