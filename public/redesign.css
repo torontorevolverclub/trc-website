@@ -419,3 +419,14 @@ html,body{overflow-x:hidden}
 @media (max-width:640px){.hero-crest{top:4.2rem;right:-1rem}}
 @media (max-width:640px){.hero-crest{top:1.4rem;right:-1.4rem;width:13.5rem;height:13.5rem}}
 @media (max-width:640px){.wm{white-space:nowrap!important;max-width:none!important;font-size:.9rem!important;letter-spacing:.03em!important}} @media (max-width:370px){.wm{display:block!important;font-size:.78rem!important;letter-spacing:.01em!important}}
+
+/* Safety hub: phone quiz button + documents drop-down */
+.qz-m{display:none}
+.docdd>summary{list-style:none;cursor:default}.docdd>summary::-webkit-details-marker{display:none}.dd-chev{display:none}
+@media (max-width:640px){
+ .qz-m{display:flex;justify-content:center;width:100%;margin-top:1rem}
+ .sfp .quizbox{display:none}
+ .docdd>summary{cursor:pointer;position:relative;padding-right:2rem}
+ .dd-chev{display:block;position:absolute;right:.2rem;bottom:.35rem;color:var(--amber);font-size:1.1rem;transition:transform .2s}
+ .docdd[open] .dd-chev{transform:rotate(180deg)}
+}

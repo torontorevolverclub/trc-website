@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="redesign.css?v=20261123zf">
+    <link rel="stylesheet" href="redesign.css?v=20261123zg">
 </head>
 <body>
 <div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
@@ -44,14 +44,15 @@
         <span class="sp"></span><span class="open-pg">Club Practices &rarr;</span></a>
     </div>
   </div>
+  <a href="safety-rules.html#quiz" class="btn btn-gold qz-m">Test your knowledge &rarr;</a>
 </div></section>
 <section class="blk pb"><div class="in">
   <div class="docs">
-    <div><div class="kicker">The official rules</div><h2 class="h3">Club documents</h2>
+    <details class="docdd" open><summary><div class="kicker">The official rules</div><h2 class="h3">Club documents</h2><span class="dd-chev" aria-hidden="true">&#9662;</span></summary>
       <div class="panel">
         <a href="docs/trc-safety-familiarization-course.pdf" target="_blank" rel="noopener" class="doc"><span class="pdf">PDF</span><div><h4>Safety &amp; Familiarization Course</h4><p>The full course, 6 pages</p></div><span class="lk">Open &rarr;</span></a>
         <a href="docs/trc-range-regulations.pdf" target="_blank" rel="noopener" class="doc"><span class="pdf">PDF</span><div><h4>TRC Range Regulations</h4><p>22 rules · amended July 2, 2025</p></div><span class="lk">Open &rarr;</span></a>
-      </div></div>
+      </div></details>
     <div><div class="kicker">Aligned with</div><h2 class="h3">Governing bodies</h2>
       <div class="chips"><span>SFC</span><span>NRA</span><span>ISSF</span><span>IPSC</span></div></div>
   </div>
@@ -64,6 +65,7 @@
   <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
   <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
 </div></footer>
+<script>(function(){var d=document.querySelector(".docdd");if(d&&window.matchMedia("(max-width:640px)").matches)d.open=false;})();</script>
 <script src="site.js?v=20261123i"></script>
 </body>
 </html>

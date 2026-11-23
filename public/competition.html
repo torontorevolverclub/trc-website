@@ -90,6 +90,15 @@
             font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; color: #001489; }
         .comp-pdf:hover { border-color: #D4AF37; }
         @media (min-width: 1024px) { .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: stretch; } .comp-list > * { margin-top: 0 !important; } .comp-list > details > summary { height: 100%; } .comp-list > details[open] { grid-column: 1 / -1; } }
+        .comp-short { display: none; }
+        @media (max-width: 640px) {
+            .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+            .comp-list > * { margin-top: 0 !important; }
+            .comp-sec:not([open]) .comp-head { flex-direction: column; justify-content: center; gap: .4rem; padding: .8rem .5rem; text-align: center; height: 100%; }
+            .comp-sec:not([open]) .comp-head h2, .comp-sec:not([open]) .comp-chev { display: none; }
+            .comp-sec:not([open]) .comp-short { display: block; font-family: Oswald, sans-serif; font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .03em; color: #0F172A; line-height: 1.15; }
+            .comp-sec[open] { grid-column: 1 / -1; }
+        }
         .path-steps li { position: relative; }
         .path-step { display: block; height: 100%; border-radius: .6rem; padding: .6rem .8rem; background: #fff; border: 1.5px solid #001489; color: #06125E; transition: all .2s; }
         .path-step:hover { border-color: #EAB308; box-shadow: 0 0 0 2px #EAB308; transform: translateY(-2px); }
@@ -178,43 +187,43 @@
         <div class="comp-list space-y-3">
 
         <details id="club-matches" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-calendar-week"></i></span><h2>Club Matches</h2><span class="comp-tag gold">Tue &amp; Wed</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-calendar-week"></i></span><h2>Club Matches</h2><span class="comp-short">Club Matches</span><span class="comp-tag gold">Tue &amp; Wed</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>Every Tuesday morning and Wednesday night. <strong>Tuesday morning</strong> matches are ISSF 600 matches, shot under ISSF rules and recognized by the Shooting Federation of Canada. <strong>Wednesday night</strong> matches combine ISSF and NRA-style events; the ISSF events are also SFC-recognized.</p></div>
         </details>
 
         <details id="bill-wood" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-medal"></i></span><h2>The Bill Wood ISSF 1200 Matches</h2><span class="comp-tag gold">ISSF 1200</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-medal"></i></span><h2>The Bill Wood ISSF 1200 Matches</h2><span class="comp-short">Bill Wood 1200</span><span class="comp-tag gold">ISSF 1200</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>Named in honour of TRC’s own Olympian and longtime team captain Bill Wood, these monthly matches follow International Shooting Sport Federation (ISSF) rules. Shooters compete across precision and rapid-fire stages, making this an ideal training ground for athletes preparing for provincial and national championships.</p></div>
         </details>
 
         <details id="mpl" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-trophy"></i></span><h2>Metro Pistol League (MPL)</h2><span class="comp-tag gold">2 Teams</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-trophy"></i></span><h2>Metro Pistol League (MPL)</h2><span class="comp-short">MPL</span><span class="comp-tag gold">2 Teams</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>TRC fields two teams in this longstanding Greater Toronto Area inter-club league. Matches are shot in the classic “Bullseye” style (one-handed and unsupported) using both .22 LR rimfire and centrefire handguns. It is a welcoming, handicap-accessible format that allows newer competitors to shoot alongside seasoned marksmen.</p></div>
         </details>
 
         <details id="free-pistol" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-crosshairs"></i></span><h2>Metro Free Pistol League</h2><span class="comp-tag">League</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-crosshairs"></i></span><h2>Metro Free Pistol League</h2><span class="comp-short">Free Pistol</span><span class="comp-tag">League</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>Often considered the purest test of marksmanship, “Free Pistol” is a classic international discipline shot one-handed with specialized single-shot .22 LR target pistols. Matches emphasize extreme precision, patience and trigger control.</p></div>
         </details>
 
         <details id="air-pistol" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-wind"></i></span><h2>10-Metre Air Pistol</h2><span class="comp-tag">10 M</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-wind"></i></span><h2>10-Metre Air Pistol</h2><span class="comp-short">Air Pistol</span><span class="comp-tag">10 M</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>Using .177 calibre compressed-air pistols, this Olympic discipline is one of the most accessible entry points into competitive target shooting. It requires minimal equipment, has virtually no recoil, and builds the exact foundational mechanics needed for all other ISSF pistol events.</p></div>
         </details>
 
         <details id="ipsc" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-person-running"></i></span><h2>IPSC</h2><span class="comp-tag">Practical</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-person-running"></i></span><h2>IPSC</h2><span class="comp-short">IPSC</span><span class="comp-tag">Practical</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>A small group of TRC members who have earned their IPSC Black Badge shoot a practical-shooting match about once a month. The Black Badge qualification is required before taking part.</p></div>
         </details>
 
         <details id="seminars" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-chalkboard-user"></i></span><h2>Seminars &amp; Training</h2><span class="comp-tag">Ongoing</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-chalkboard-user"></i></span><h2>Seminars &amp; Training</h2><span class="comp-short">Seminars</span><span class="comp-tag">Ongoing</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>TRC runs seminars on range safety, firearm handling and shooting technique, including the Safety Familiarization Course for new members.</p>
             <a href="docs/trc-safety-familiarization-course.pdf?v=202611171206" target="_blank" rel="noopener" class="comp-pdf"><i class="fa-solid fa-file-pdf text-royal"></i> Safety &amp; Familiarization Course (PDF)</a></div>
         </details>
 
         <details id="socials" class="comp-sec trc-card rounded-xl scroll-mt-28">
-            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-mug-hot"></i></span><h2>Club Socials &amp; Fun Shoots</h2><span class="comp-tag">Seasonal</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
+            <summary class="comp-head"><span class="comp-ico"><i class="fa-solid fa-mug-hot"></i></span><h2>Club Socials &amp; Fun Shoots</h2><span class="comp-short">Socials</span><span class="comp-tag">Seasonal</span><i class="fa-solid fa-chevron-down comp-chev" aria-hidden="true"></i></summary>
             <div class="comp-body"><p>Alongside formal leagues, TRC hosts seasonal club matches, such as the Annual Turkey Shoot, that blend friendly competition with club tradition, refreshments and community gathering.</p></div>
         </details>
 
