@@ -272,3 +272,4 @@ html,body{overflow-x:hidden}
 /* Homepage: cards follow the hero directly */
 .exp{padding-top:0!important}.exp .cards{margin-top:0}.hero .in{padding-bottom:2.5rem}
 @media (max-width:640px){.hero .in{padding-bottom:1.5rem}}
+@media (max-width:640px){.hdr .join{display:none}.burger{margin-left:auto}}
