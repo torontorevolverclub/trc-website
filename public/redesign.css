@@ -284,3 +284,35 @@ html,body{overflow-x:hidden}
 }
 @media (max-width:640px){.hero .renewin{display:none}.hero .ctas{margin-top:1.1rem}.hero .in{padding-top:1.5rem;padding-bottom:1.25rem}}
 @media (max-width:640px){.ft nav a:nth-child(1),.ft nav a:nth-child(4){display:none}.ft nav{justify-content:space-around}}
+/* Membership page */
+.mb-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:2.5rem;align-items:start}
+.mb-welcome{margin-top:.6rem;padding:.75rem 1rem;border-left:3px solid var(--gold);background:#FFFBEB;color:var(--ink);font-weight:500;border-radius:0 .4rem .4rem 0;font-size:.95rem}
+.mb-steps{list-style:none;margin-top:1.1rem;position:relative}
+.mb-steps li{display:flex;gap:.9rem;padding:.55rem 0;position:relative}
+.mb-steps li:not(:last-child):before{content:'';position:absolute;left:1rem;top:2.6rem;bottom:-.3rem;width:2px;background:rgba(0,20,137,.15)}
+.mb-steps .n{flex-shrink:0;width:2rem;height:2rem;border-radius:50%;background:var(--royal);color:var(--gold-b);font-family:var(--display);font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--tint);position:relative;z-index:1}
+.mb-steps h4{font-family:var(--display);font-weight:700;text-transform:uppercase;color:var(--ink);font-size:1.12rem;letter-spacing:.02em;line-height:1.2;margin-top:.25rem}
+.mb-steps p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-top:.15rem}
+.mb-paths{display:flex;flex-direction:column;gap:.7rem;margin-top:1.1rem}
+.mb-path{background:#fff;border:1px solid rgba(0,20,137,.12);border-left:3px solid var(--royal);border-radius:.5rem;padding:.8rem 1rem}
+.mb-path .tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.mb-path .tags span{font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.2rem .55rem}
+.mb-path .tags .y{background:var(--tint);color:var(--royal);border:1px solid rgba(0,20,137,.2)}
+.mb-path .tags .y:before{content:'✓ '}
+.mb-path .tags .x{background:#F8FAFC;color:#64748B;border:1px dashed #CBD5E1}
+.mb-path p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-top:.45rem}
+.mb-cta{margin-top:1.2rem;width:100%}
+.mb-mini{display:grid;grid-template-columns:1fr 1fr;gap:1rem;border-top:1px solid rgba(0,20,137,.1);padding-top:1.4rem}
+.mb-mini h4{font-family:var(--display);font-weight:700;text-transform:uppercase;color:var(--royal);font-size:1.05rem;letter-spacing:.03em}
+.mb-mini p{color:var(--muted);font-size:.9rem;margin-top:.2rem}
+.mb-mini a{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+@media (max-width:1024px){.mb-grid{grid-template-columns:1fr;gap:1.75rem}}
+@media (max-width:640px){
+ .mb-ph .sub{font-size:.92rem;margin-top:.6rem}
+ .mb-welcome{font-size:.86rem;padding:.6rem .8rem}
+ .mb-steps{margin-top:.8rem}.mb-steps li{gap:.7rem;padding:.4rem 0}
+ .mb-steps .n{width:1.7rem;height:1.7rem;font-size:.9rem}.mb-steps li:not(:last-child):before{left:.85rem;top:2.2rem}
+ .mb-steps h4{font-size:1rem;margin-top:.15rem}.mb-steps p{font-size:.84rem}
+ .mb-paths{gap:.5rem;margin-top:.8rem}.mb-path{padding:.6rem .8rem}.mb-path p{font-size:.84rem;margin-top:.35rem}
+ .mb-mini{grid-template-columns:1fr;gap:.8rem;padding-top:1rem}.mb-mini p{font-size:.84rem}
+}

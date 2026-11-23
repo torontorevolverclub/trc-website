@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="redesign.css?v=20261123k">
+    <link rel="stylesheet" href="redesign.css?v=20261123l">
 </head>
 <body>
 <div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
@@ -27,21 +27,36 @@
   <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
   <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="membership.html">Membership</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="members.html" class="mp">Member Portal</a></nav>
 </div></header>
-<main class="page"><section class="ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / Membership</div><h1>Membership</h1><p class="sub">Interested in joining Canada’s oldest sport pistol club? Here’s how it works.</p></div></section>
-<section class="blk"><div class="in">
-  <div class="kicker">New members</div><h2 class="h3" id="how-to-join" style="scroll-margin-top:6rem">How to join</h2>
-  <div class="steps">
-    <div class="step"><div class="n">1</div><h4>Get in touch</h4><p>Contact the Membership Secretary to learn about membership.</p><a href="#contact" onclick="openModal('contactModal');return false;" class="btn btn-gold" style="margin-top:1rem;padding:.7rem 1.1rem;font-size:.85rem">Contact &rarr;</a></div>
-    <div class="step"><div class="n">2</div><h4>Learn the safety rules</h4><p>Every new member is taught the club safety rules in person at the club.</p><a href="safety.html" class="lk mini" style="border:0;padding:0;background:none"><span style="font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)">Preview the rules &rarr;</span></a></div>
-    <div class="step"><div class="n">3</div><h4>Welcome to TRC</h4><p>Members receive an access card for the clubhouse and a key for the target cupboard.</p><a href="range.html#hours" class="lk" style="font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)">See range hours &rarr;</a></div>
+<main class="page">
+<section class="ph mb-ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / Membership</div><h1>Becoming a Member</h1><p class="sub">The Toronto Revolver Club welcomes people interested in target pistol sports. Joining takes a few steps, so every new member starts out safe, confident and comfortable on our range.</p></div></section>
+
+<section class="blk" id="how-to-join" style="scroll-margin-top:6rem"><div class="in mb-grid">
+  <div>
+    <div class="kicker">New members</div><h2 class="h3">How it works</h2>
+    <p class="mb-welcome">Shooting experience and pistol ownership are welcome, but not required. We’ll guide you every step of the way.</p>
+    <ol class="mb-steps">
+      <li><span class="n">1</span><div><h4>Contact us</h4><p>Get in touch with the Membership Secretary and tell us you’re interested. Questions are welcome at any stage.</p></div></li>
+      <li><span class="n">2</span><div><h4>Tell us a little about yourself</h4><p>Fill in a short form.</p></div></li>
+      <li><span class="n">3</span><div><h4>Visit the club</h4><p>Come to an information session, meet our members, see the range, and find out what pistol shooting is all about.</p></div></li>
+      <li><span class="n">4</span><div><h4>Learn the basics, safely</h4><p>Our safety course covers everything from the ground up: how to handle a pistol, how the range works, and what to expect on the firing line.</p></div></li>
+      <li><span class="n">5</span><div><h4>Shoot with a mentor</h4><p>Your first live-fire sessions are with an experienced club mentor beside you, at your own pace.</p></div></li>
+    </ol>
+  </div>
+  <div>
+    <div class="kicker">Your path</div><h2 class="h3">Where are you starting from?</h2>
+    <div class="mb-paths">
+      <div class="mb-path"><div class="tags"><span class="y">RPAL</span><span class="y">Pistol</span></div><p>You’re ready to begin at step 1.</p></div>
+      <div class="mb-path"><div class="tags"><span class="y">RPAL</span><span class="x">No pistol</span></div><p>You’re welcome to begin at step 1. We’ll talk with you about equipment at the information session.</p></div>
+      <div class="mb-path"><div class="tags"><span class="x">No RPAL yet</span></div><p>You’ll need a Restricted Possession and Acquisition Licence (RPAL) to take part in pistol shooting. We can help you get signed up and registered for the RPAL course.</p></div>
+    </div>
+    <a href="#contact" onclick="openModal('contactModal');return false;" class="btn btn-gold mb-cta">Contact the Membership Secretary &rarr;</a>
   </div>
 </div></section>
-<section class="blk pb"><div class="in">
-  <div class="split">
-    <div class="box" id="guests"><h4>Visiting as a guest?</h4><p>You’ll need a TRC member to host you.</p><a href="safety-rules.html#guests" class="lk">Guest rules &rarr;</a></div>
-    <div class="box royal" id="renew"><h4>Already a member?</h4><p>Renew your membership. Dues and payment options are in the Member Portal.</p><a href="members.html#renew" class="btn btn-gold">Go to Member Portal &rarr;</a></div>
-  </div>
-</div></section>
+
+<section class="blk pb"><div class="in"><div class="mb-mini">
+  <div id="guests"><h4>Visiting as a guest?</h4><p>You’ll need a TRC member to host you. <a href="safety-rules.html#guests">Guest rules &rarr;</a></p></div>
+  <div id="renew"><h4>Already a member?</h4><p>Dues and payment options are in the Member Portal. <a href="members.html#renew">Renew &rarr;</a></p></div>
+</div></div></section>
 </main>
 
 <footer class="ft"><div class="in">
