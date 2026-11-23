@@ -342,3 +342,10 @@ html,body{overflow-x:hidden}
 .cal-btn i{color:var(--amber);font-size:1.1rem}
 .cal-btn:hover{border-color:var(--gold);background:var(--tint)}
 @media (max-width:640px){.cal-btn span{display:none}.cal-btn{padding:.55rem .7rem}.cal-btn i{font-size:1.2rem}}
+@media (min-width:1025px){
+ .mb-grid{align-items:stretch}
+ .mb-right{display:flex;flex-direction:column}
+ .mb-right .mb-paths{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-evenly;gap:1rem;margin-bottom:1rem}
+ .mb-right .mb-path{flex:0 0 auto}
+ .mb-right .mb-cta{margin-top:0}
+}
