@@ -349,3 +349,25 @@ html,body{overflow-x:hidden}
  .mb-right .mb-path{flex:0 0 auto}
  .mb-right .mb-cta{margin-top:0}
 }
+/* Range page: compact */
+.rg .ph{padding:2.25rem 0 .5rem}
+.rg .ph h1{font-size:3rem}
+.rg .ph .sub{margin-top:.6rem}
+.rg .jump{margin-top:1rem}
+.rg .blk{padding:1.25rem 0}
+.rg .blk.pb{padding-bottom:2.25rem}
+.rg .h3{font-size:1.6rem}
+.rg .kicker{margin-bottom:.15rem}
+.rg .open{margin-top:.5rem}
+.rg .panel,.rg .trio,.rg .duo{margin-top:.8rem}
+.rg .hours{padding:1rem 1.2rem .9rem}
+.rg .hrow{margin:.25rem 0}.rg .htrack{height:1.7rem}
+.rg .stat{padding:1rem}.rg .stat b{font-size:2.2rem}
+.rg .mini{padding:1rem 1.1rem}
+.rg .lcard{padding:1rem 1.2rem}
+.rg .note{margin-top:.35rem}
+@media (max-width:640px){
+ .rg .ph{padding:1.25rem 0 .25rem}.rg .ph h1{font-size:2.1rem}
+ .rg .blk{padding:.9rem 0}.rg .h3{font-size:1.3rem}
+ .rg .trio,.rg .duo{gap:.5rem}
+}
