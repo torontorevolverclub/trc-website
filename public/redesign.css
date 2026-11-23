@@ -336,3 +336,4 @@ html,body{overflow-x:hidden}
  .mb-right .mb-path{padding:1rem 1.1rem}
  .mb-right .mb-cta{margin-top:0}
 }
+@media (min-width:1025px){.mb-mini{grid-template-columns:1.45fr 1fr;gap:3rem}}
