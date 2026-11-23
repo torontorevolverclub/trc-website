@@ -330,3 +330,9 @@ html,body{overflow-x:hidden}
  .mb-right .mb-cta{margin-top:.4rem}
  .mb-right .mb-paths{margin-bottom:1rem}
 }
+@media (min-width:1025px){
+ .mb-grid{grid-template-columns:1.45fr 1fr;gap:3rem}
+ .mb-right .mb-paths{gap:1rem;margin-bottom:1.4rem}
+ .mb-right .mb-path{padding:1rem 1.1rem}
+ .mb-right .mb-cta{margin-top:0}
+}
