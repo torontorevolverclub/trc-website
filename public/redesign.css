@@ -324,3 +324,9 @@ html,body{overflow-x:hidden}
  .mb-right .mb-path{flex:1;display:flex;flex-direction:column;justify-content:center}
 }
 @media (max-width:640px){.mb-top{margin-bottom:1rem}}
+@media (min-width:1025px){
+ .mb-right .mb-paths{flex:0 0 auto;justify-content:flex-start}
+ .mb-right .mb-path{flex:0 0 auto;display:block}
+ .mb-right .mb-cta{margin-top:auto}
+ .mb-right .mb-paths{margin-bottom:1rem}
+}
