@@ -426,8 +426,8 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
 (function () {
     const btn = document.querySelector('.burger'), panel = document.getElementById('mnav');
     if (!btn || !panel) return;
-    btn.addEventListener('click', () => { const open = panel.classList.toggle('open'); btn.setAttribute('aria-expanded', open); });
-    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('open')));
+    btn.addEventListener('click', () => { const open = panel.classList.toggle('is-open'); btn.setAttribute('aria-expanded', open); });
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('is-open')));
 })();
 
 // Open calendar or contact form when arriving from another page
