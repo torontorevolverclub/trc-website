@@ -1,0 +1,22 @@
+# Publishes the "redesign" branch to a temporary Firebase preview link (30 days from each update).
+# The live site is not affected.
+name: Redesign preview
+on:
+  push:
+    branches: [redesign]
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/320410494022/locations/global/workloadIdentityPools/github/providers/trc-repo
+          service_account: github-deploy@trc-website-106a9.iam.gserviceaccount.com
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npx -y firebase-tools@latest hosting:channel:deploy redesign --expires 30d --project trc-website-106a9 --non-interactive

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>The Range | Toronto Revolver Club</title>
+    <meta name="description" content="Toronto Revolver Club: Canada’s oldest sport pistol club, est. 1905.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{royal:{DEFAULT:'#001489',deep:'#06125E',light:'#162EB8',tint:'#F0F4FF'},gold:{DEFAULT:'#D4AF37',bright:'#EAB308',pale:'#FEF9E7'},slateink:'#0F172A',muted:'#475569'},fontFamily:{display:['Oswald','sans-serif'],sans:['"Plus Jakarta Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="redesign.css?v=20261123a">
+</head>
+<body>
+<div class="pv">Redesign preview · not the live site<a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
+<header class="hdr"><div class="in">
+  <a href="index.html" class="brand"><img src="trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="membership.html">Membership</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="membership.html#how-to-join" class="join">Join the Club</a>
+  <a href="members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Member Portal</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="membership.html">Membership</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="members.html" class="mp">Member Portal</a></nav>
+</div></header>
+<main class="page"><section class="ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / The Range</div><h1>The Range</h1><p class="sub">TRC owns its building and land in central Toronto, and has one of the most complete range facilities available to any private club.</p><div class="jump"><a href="#facility">Facility</a><a href="#hours">Hours</a><a href="#access">Access</a><a href="competition.html">Competition</a><a href="safety.html">Safety</a></div></div></section>
+<section class="blk" id="facility"><div class="in">
+  <div class="kicker">The facility</div><h2 class="h3">Built for bullseye</h2>
+  <p class="note">Timers turn the targets on either or both carriers, hiding and presenting them for all the standard Bullseye competition formats.</p>
+  <div class="panel stats">
+    <div class="stat"><b>8</b><span>Shooting positions</span></div>
+    <div class="stat"><b>2</b><span>Motorized target carriers</span></div>
+    <div class="stat"><b>20<small>yd</small></b><span>Bullseye range</span></div>
+    <div class="stat"><b>10<small>m</small></b><span>Air pistol distance</span></div>
+  </div>
+</div></section>
+<section class="blk" id="hours"><div class="in">
+  <div class="kicker">Range hours</div><h2 class="h3">When members can shoot</h2>
+  <span class="open" id="openNow"><span class="dot"></span>Range hours</span>
+  <div class="panel hours">
+    <div class="haxis"><span></span><div><span>6 AM</span><span>9</span><span>12 PM</span><span>3</span><span>6</span><span>9</span><span>12 AM</span></div></div>
+    <div id="hoursRows"></div>
+    <div class="legend"><span><i style="background:#001489"></i>TRC members</span><span><i style="background:#001489;box-shadow:inset 0 0 0 2px #D4AF37"></i>TRC club night</span><span><i style="background:repeating-linear-gradient(135deg,#E2E8F0 0 3px,#EEF2F6 3px 6px)"></i>Rental club (not available)</span></div>
+  </div>
+  <p class="note" style="font-size:.85rem">Check the <a href="#calendar" onclick="openCalendar();return false;" style="color:var(--royal);text-decoration:underline">calendar</a> for special events and closures.</p>
+</div></section>
+<section class="blk" id="access"><div class="in">
+  <div class="kicker">Access</div><h2 class="h3">Good to know</h2>
+  <div class="trio">
+    <div class="mini"><h4>Your access</h4><p>Every member receives an access card for the clubhouse front door and a key for the target cupboard.</p></div>
+    <div class="mini"><h4>Other clubs</h4><p>Other clubs rent the range on several evenings from 5:00 PM to midnight and have exclusive use during those hours.</p></div>
+    <div class="mini"><h4>Check first</h4><p>Closures and maintenance days appear on the club calendar. Check it before heading to the range.</p><a href="#calendar" onclick="openCalendar();return false;" class="lk">Open calendar &rarr;</a></div>
+  </div>
+</div></section>
+<section class="blk pb"><div class="in">
+  <div class="kicker">More at the range</div><h2 class="h3">Shoot, compete, stay safe</h2>
+  <div class="duo">
+    <a href="competition.html" class="lcard"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3a1 1 0 011 1v2a5 5 0 01-4.2 4.9A5 5 0 0113 15.9V18h3v2H8v-2h3v-2.1a5 5 0 01-3.8-3A5 5 0 013 8V6a1 1 0 011-1h3V3zm0 4H5v1a3 3 0 002 2.8V7zm10 0v3.8A3 3 0 0019 8V7h-2z"/></svg></span><div><h4>Competition</h4><p>Club matches, leagues, ISSF and IPSC.</p></div><span class="arr">&rarr;</span></a>
+    <a href="safety.html" class="lcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><div><h4>Safety</h4><p>ACTS / PROVE, range commands and club practices.</p></div><span class="arr">&rarr;</span></a>
+  </div>
+</div></section>
+</main>
+
+<footer class="ft"><div class="in">
+  <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
+  <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+</div></footer>
+<script src="site.js?v=20261123a"></script>
+</body>
+</html>
