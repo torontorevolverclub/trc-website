@@ -385,3 +385,21 @@ html,body{overflow-x:hidden}
 .mbp .blk.pb{padding-top:.5rem}
 /* Shared: tighter header-to-content on inner pages */
 .rg .ph .crumbs{font-size:.65rem}
+.duo2{grid-template-columns:1fr 1fr!important}
+@media (max-width:640px){.duo2{grid-template-columns:1fr!important}}
+.rg .duo{margin-top:0}
+/* Safety hub compact */
+.sfp .layers{margin-top:.4rem}
+.sfp .layers .top{padding:1.3rem 1.6rem .3rem}
+.sfp .lgrid{padding:1rem 1.6rem 1.4rem}
+.sfp .layer{padding:1.1rem}
+.sfp .docs{margin-top:0}.sfp .quizbox{margin-top:1rem;padding:1rem 1.3rem}
+.sfp .govern{margin-top:1rem}
+/* Range: facility + good-to-know side by side on desktop */
+@media (min-width:1025px){
+ .rg-pair{max-width:76rem;margin:0 auto;padding:0 1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+ .rg-pair>.blk>.in{padding:0}
+ .rg-pair .stats{grid-template-columns:1fr 1fr}
+ .rg-pair .stat:nth-child(2){border-right:0}.rg-pair .stat:nth-child(-n+2){border-bottom:1px solid rgba(0,20,137,.08)}
+ .rg-pair .duo2{grid-template-columns:1fr!important;gap:.8rem}
+}
