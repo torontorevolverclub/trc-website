@@ -247,6 +247,8 @@
 .docs{display:grid;grid-template-columns:1.4fr 1fr;gap:1.25rem;margin-top:1.25rem}
 .doc{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid rgba(0,20,137,.08)}
 .doc:last-child{border-bottom:0}
+a.doc{transition:background .15s}a.doc:hover{background:#F8FAFC}a.doc:hover h4{color:var(--royal)}
+a.quizbox{transition:border-color .15s,transform .15s}a.quizbox:hover{border-color:var(--gold);transform:translateY(-1px)}
 .pdf{width:2.6rem;height:3.1rem;border-radius:.3rem;background:#FEF2F2;border:1px solid #FECACA;color:#B91C1C;font-family:var(--mono);font-size:.6rem;font-weight:700;display:flex;align-items:flex-end;justify-content:center;padding-bottom:.35rem;flex-shrink:0}
 .doc h4{font-family:var(--display);font-weight:600;text-transform:uppercase;color:var(--ink);font-size:1.05rem;letter-spacing:.03em}
 .doc p{color:var(--muted);font-size:.82rem;margin-top:.1rem}
