@@ -371,3 +371,9 @@ html,body{overflow-x:hidden}
  .rg .blk{padding:.9rem 0}.rg .h3{font-size:1.3rem}
  .rg .trio,.rg .duo{gap:.5rem}
 }
+/* Heritage compact (uses .rg spacing) */
+.hg .founders,.hg .eras{margin-top:.8rem;gap:1rem}
+.hg .fd .tx{padding:1rem 1.1rem}.hg .fd .pic{min-height:11rem}
+.hg .era{padding:1rem .8rem .9rem}.hg .era img{width:6.5rem;height:6.5rem}
+.hg .era .tag{margin-top:.6rem}
+@media (max-width:640px){.hg .era img{width:4.5rem;height:4.5rem}.hg .founders,.hg .eras{gap:.6rem}}
