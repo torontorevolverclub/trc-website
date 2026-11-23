@@ -89,7 +89,7 @@
         .comp-pdf { display: inline-flex; align-items: center; gap: .5rem; margin-top: .9rem; padding: .5rem .8rem; border-radius: .5rem; border: 1px solid rgba(0,20,137,.15);
             font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; color: #001489; }
         .comp-pdf:hover { border-color: #D4AF37; }
-        @media (min-width: 1024px) { .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: start; } .comp-list > * { margin-top: 0 !important; } .comp-list > details[open] { grid-column: 1 / -1; } }
+        @media (min-width: 1024px) { .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: stretch; } .comp-list > * { margin-top: 0 !important; } .comp-list > details > summary { height: 100%; } .comp-list > details[open] { grid-column: 1 / -1; } }
         .path-steps li { position: relative; }
         .path-step { display: block; height: 100%; border-radius: .6rem; padding: .6rem .8rem; background: #fff; border: 1.5px solid #001489; color: #06125E; transition: all .2s; }
         .path-step:hover { border-color: #EAB308; box-shadow: 0 0 0 2px #EAB308; transform: translateY(-2px); }
