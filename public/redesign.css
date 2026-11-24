@@ -460,3 +460,11 @@ html,body{max-width:100%;overflow-x:clip}
  .ft .ft2{display:flex;justify-content:space-between;gap:1rem;width:100%;margin-top:1.3rem;padding-top:.75rem;border-top:1px solid rgba(212,175,55,.75);font-size:.72rem;color:#AEB8D0}
  .ft .ft2 a:hover{color:var(--gold-b)}
 }
+/* Phone footer option 1 (2026-11-24): light footer, no white gap above the tab bar */
+@media (max-width:640px){
+ body{padding-bottom:0!important}
+ #mTabBar{box-shadow:none}
+ .ft{background:#F7F5EE;color:#001489;border-top:2px solid #D4AF37;padding-bottom:calc(58px + env(safe-area-inset-bottom))!important}
+ .ft>.in{border-top:0}
+ .ft .fb{color:#64748B;opacity:1}
+}
