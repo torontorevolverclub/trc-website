@@ -470,3 +470,48 @@ html,body{max-width:100%;overflow-x:clip}
 }
 /* Competition/Gallery: old mobile.css hid the footer on phones; show the light footer there too */
 @media (max-width:640px){footer.ft{display:block!important}}
+/* Applicant questionnaire (questionnaire.html) */
+.qf{max-width:52rem;display:flex;flex-direction:column;gap:1.25rem}
+.qf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.qf-card{border:1px solid rgba(0,20,137,.12);border-top:3px solid var(--royal);border-radius:.6rem;background:#fff;padding:1.3rem 1.5rem 1.4rem;box-shadow:0 10px 24px -20px rgba(15,23,42,.4);display:flex;flex-direction:column;gap:1rem;min-width:0}
+.qf-card legend{float:left;width:100%;display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin-bottom:.1rem}
+.qf-card legend+*{clear:both}
+.qf-n{width:2rem;height:2rem;border-radius:50%;background:var(--royal);color:var(--gold-b);display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.qf label{display:flex;flex-direction:column;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--ink);line-height:1.45}
+.qf b{color:var(--amber);font-weight:700}
+.qf small{font-weight:400;font-size:.82rem;color:var(--muted)}
+.qf input[type=text],.qf input[type=email],.qf input[type=tel],.qf textarea{font:inherit;font-weight:400;font-size:1rem;color:var(--ink);border:1px solid #CBD5E1;border-radius:.4rem;padding:.65rem .8rem;background:#fff;width:100%}
+.qf textarea{resize:vertical;min-height:4.5rem}
+.qf input:focus,.qf textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--royal)}
+.qf .qf-row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.qf-q{display:flex;flex-direction:column;gap:.5rem}
+.qf-q>p,.qf-intro{font-weight:600;font-size:.95rem;color:var(--ink);line-height:1.45}
+.qf-intro{font-weight:400;color:var(--muted)}
+.qf .qf-radio,.qf .qf-check{flex-direction:row;align-items:flex-start;gap:.65rem;font-weight:400;border:1px solid rgba(0,20,137,.12);border-radius:.45rem;padding:.65rem .8rem;cursor:pointer;background:#fff}
+.qf .qf-radio:has(input:checked),.qf .qf-check:has(input:checked){border-color:var(--royal);background:var(--tint)}
+.qf .qf-radio input,.qf .qf-check input{margin-top:.2rem;width:1.1rem;height:1.1rem;accent-color:var(--royal);flex-shrink:0}
+.qf-more{font-weight:400!important}
+.qf-costs{background:var(--tint);border-radius:.5rem;padding:.9rem 1rem}
+.qf-costs-h{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
+.qf-costs ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.qf-costs li{display:grid;grid-template-columns:7.5rem 1fr;gap:.75rem;font-size:.92rem;color:var(--ink);line-height:1.4}
+.qf-costs li span{font-family:var(--display);font-weight:700;color:var(--royal);font-size:1rem}
+.qf-privacy{display:flex;gap:.6rem;align-items:flex-start;font-size:.85rem;color:var(--muted);line-height:1.5;background:#FEF9E7;border:1px solid rgba(212,175,55,.5);border-radius:.5rem;padding:.8rem 1rem}
+.qf-privacy i{color:var(--amber);margin-top:.2rem}
+.qf-err{color:#B91C1C;font-weight:600;font-size:.92rem;background:#FEF2F2;border:1px solid #FECACA;border-radius:.45rem;padding:.7rem .9rem}
+.qf .qf-bad{border-color:#DC2626!important;background:#FEF2F2}
+.qf-send{align-self:flex-start;border:0;cursor:pointer}
+.qf-send[disabled]{opacity:.6;cursor:wait}
+.qf-done{max-width:52rem;border:1px solid rgba(0,20,137,.12);border-top:3px solid var(--gold);border-radius:.6rem;background:#fff;padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.qf-done h2{font-family:var(--display);font-weight:700;font-size:1.8rem;text-transform:uppercase;color:var(--royal)}
+@media (max-width:640px){
+ .qf{gap:.9rem}.qf-card{padding:1rem 1rem 1.1rem;gap:.8rem}.qf-card legend{font-size:1.1rem}.qf-n{width:1.7rem;height:1.7rem;font-size:.9rem}
+ .qf .qf-row2{grid-template-columns:1fr;gap:.8rem}
+ .qf label,.qf-q>p{font-size:.9rem}
+ .qf-costs li{grid-template-columns:1fr;gap:0}
+ .qf-send{width:100%}
+}
+.qf label{display:block}.qf label>input,.qf label>textarea{display:block;margin-top:.4rem}.qf label>small{display:block;margin-top:.25rem}
+.qf .qf-radio,.qf .qf-check{display:block;position:relative;padding-left:2.5rem}
+.qf .qf-radio input,.qf .qf-check input{position:absolute;left:.8rem;top:.7rem;margin:0}
+.qf [hidden],.qf-done[hidden],.qf[hidden]{display:none!important}

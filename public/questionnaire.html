@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Applicant Questionnaire | Toronto Revolver Club</title>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Toronto Revolver Club">
+    <meta property="og:title" content="Applicant Questionnaire | Toronto Revolver Club">
+    <meta property="og:description" content="Toronto Revolver Club: Canada’s oldest sport pistol club, est. 1905.">
+    <meta property="og:image" content="https://trc-website-106a9.web.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Toronto Revolver Club crest">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Toronto Revolver Club: Canada’s oldest sport pistol club, est. 1905.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{royal:{DEFAULT:'#001489',deep:'#06125E',light:'#162EB8',tint:'#F0F4FF'},gold:{DEFAULT:'#D4AF37',bright:'#EAB308',pale:'#FEF9E7'},slateink:'#0F172A',muted:'#475569'},fontFamily:{display:['Oswald','sans-serif'],sans:['"Plus Jakarta Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="redesign.css?v=20261124f">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <a href="index.html" class="brand"><img src="trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="membership.html" class="join">Join the Club</a>
+  <a href="members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Members’ Area</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="membership.html" class="mj">Join the Club</a><a href="members.html" class="mp">Members</a></nav>
+</div></header>
+<main class="page rg qfp">
+<section class="ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / <a href="membership.html">Membership</a> / Questionnaire</div><h1>Applicant Questionnaire</h1><p class="sub">Target Pistol Development Program. Tell us a little about yourself. It takes about 10 minutes, and your answers go by email to the club’s President and Membership Secretary.</p></div></section>
+
+<section class="blk pb"><div class="in">
+<form id="qForm" class="qf" novalidate>
+  <input type="hidden" name="_subject" value="New applicant questionnaire – TRC website">
+  <input type="hidden" name="_template" value="table">
+  <input type="text" name="_honey" class="qf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <fieldset class="qf-card">
+    <legend><span class="qf-n">1</span>About you</legend>
+    <div class="qf-row2">
+      <label>Full name <b>*</b><input type="text" name="Full name" autocomplete="name" required></label>
+      <label>City / neighbourhood <b>*</b><input type="text" name="City / neighbourhood" autocomplete="address-level2" required><small>Our range is in East York, Toronto.</small></label>
+    </div>
+    <div class="qf-row2">
+      <label>Email <b>*</b><input type="email" name="email" autocomplete="email" required></label>
+      <label>Phone <b>*</b><input type="tel" name="Phone" autocomplete="tel" required></label>
+    </div>
+    <label class="qf-check"><input type="checkbox" name="18 or older" value="Yes" required> I am 18 or older. <b>*</b></label>
+    <div class="qf-q">
+      <p>Weekly club nights and scheduled 1-on-1 training sessions take place in East York. Can you attend consistently for the full 12-month program? <b>*</b></p>
+      <label class="qf-radio"><input type="radio" name="Transportation and attendance" value="Yes – reliable transportation, can commit weekly" required> Yes, I have reliable transportation and can commit to weekly attendance.</label>
+      <label class="qf-radio"><input type="radio" name="Transportation and attendance" value="No / unsure"> No / unsure</label>
+      <label class="qf-more" id="qTravelMore" hidden>Please explain any scheduling or travel constraints<textarea name="Travel / scheduling constraints" rows="2"></textarea></label>
+    </div>
+  </fieldset>
+
+  <fieldset class="qf-card">
+    <legend><span class="qf-n">2</span>Licensing &amp; costs</legend>
+    <p class="qf-intro">The program starts with mentor-supplied firearms and requires progressive licensing under Canadian law.</p>
+    <div class="qf-q">
+      <p>Do you currently hold a Canadian PAL or Restricted PAL (RPAL)? <b>*</b></p>
+      <label class="qf-radio"><input type="radio" name="Licence" value="Neither – will take the Canadian Restricted Firearms Safety Course" required> Neither (I will take the Canadian Restricted Firearms Safety Course)</label>
+      <label class="qf-radio"><input type="radio" name="Licence" value="Non-restricted PAL only – will upgrade to RPAL"> Non-restricted PAL only (I will upgrade to RPAL)</label>
+      <label class="qf-radio"><input type="radio" name="Licence" value="Valid RPAL"> Valid RPAL</label>
+    </div>
+    <div class="qf-costs">
+      <p class="qf-costs-h">Main costs over the 12 months</p>
+      <ul>
+        <li><span>About $450</span>Canadian Restricted Firearms Safety Course (RPAL) and exam fees</li>
+        <li><span>$600</span>12-month Target Pistol Development Program fee</li>
+        <li><span>$600 – $4,000</span>Your own competition target pistol, if and when you are eligible under current federal handgun rules (we’ll explain these)</li>
+      </ul>
+    </div>
+    <div class="qf-q">
+      <p>Are you prepared to meet these costs on schedule? <b>*</b></p>
+      <label class="qf-radio"><input type="radio" name="Costs" value="Yes – understand and prepared" required> Yes, I understand and am prepared for these costs.</label>
+      <label class="qf-radio"><input type="radio" name="Costs" value="Would like to discuss timing"> I would like to discuss the timing of these costs.</label>
+    </div>
+  </fieldset>
+
+  <fieldset class="qf-card">
+    <legend><span class="qf-n">3</span>Goals &amp; learning</legend>
+    <label>What draws you to Olympic-style precision target pistol, rather than other shooting disciplines or sports? <b>*</b><textarea name="Motivation" rows="3" required></textarea></label>
+    <label>Precision shooting needs a lot of independent practice (dry-fire drills at home, studying match rules, tracking your progress). Tell us about a skill, sport or discipline you worked hard to improve. How did you balance instruction with practice on your own? <b>*</b><textarea name="Learning and independent practice" rows="4" required></textarea></label>
+    <label>Target shooting is regulated and detail-oriented. How do you usually respond when a coach or range officer corrects your technique or habits? <b>*</b><textarea name="Handling feedback and safety" rows="3" required></textarea></label>
+    <label>Where do you hope to be in the sport by the end of your first year? <b>*</b><small>For example: mastering the fundamentals, shooting regularly in club matches, or aiming for provincial events.</small><textarea name="12-month outlook" rows="3" required></textarea></label>
+  </fieldset>
+
+  <fieldset class="qf-card">
+    <legend><span class="qf-n">4</span>Open house &amp; confirmation</legend>
+    <label>Qualified applicants are invited to a Range Open House in East York to meet the mentors and watch a live match. Are there evenings or weekends you are usually unavailable?<textarea name="Unavailable evenings / weekends" rows="2"></textarea></label>
+    <label class="qf-check"><input type="checkbox" name="Understands selection" value="Yes" required> I understand that applying does not guarantee acceptance, and that spots are limited to 10 beginners, chosen for commitment, safety mindset and program fit. <b>*</b></label>
+    <label class="qf-check"><input type="checkbox" name="Privacy consent" value="Yes" required> I agree that my answers will be emailed to the club’s President and Membership Secretary and used only to consider my application. <b>*</b></label>
+  </fieldset>
+
+  <p class="qf-privacy"><i class="fa-solid fa-lock"></i> <span><b>Your privacy:</b> answers are not stored on this website. They are sent by email (through the FormSubmit form service) to the club’s President and Membership Secretary, used only for applicant selection, and not shared outside the club.</span></p>
+
+  <p class="qf-err" id="qErr" role="alert" hidden></p>
+  <button type="submit" class="btn btn-gold qf-send" id="qSend">Send my answers <span aria-hidden="true">&rarr;</span></button>
+</form>
+
+<div class="qf-done" id="qDone" hidden tabindex="-1">
+  <h2>Thank you!</h2>
+  <p>Your answers have been sent to the club. The Membership Secretary will be in touch about next steps.</p>
+  <a href="membership.html" class="btn btn-gold">Back to Membership</a>
+</div>
+</div></section>
+</main>
+
+<footer class="ft"><div class="in">
+  <span class="fb"><img src="trc-crest.svg?v=202611162231" alt=""><span class="fbt"><span class="fbn">Toronto Revolver Club</span><span class="fbg">Canada’s oldest sport pistol club</span></span><span class="fbc">© 2026 Toronto Revolver Club</span></span>
+  <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+  <div class="ft2"><span>© 2026 Toronto Revolver Club</span><span><a href="membership.html">Join the Club</a> · <a href="members.html">Members’ Area</a></span></div>
+</div></footer>
+<script src="site.js?v=20261124m"></script>
+<script src="questionnaire-config.js?v=20261124a"></script>
+<script>
+(function(){
+  var f=document.getElementById('qForm'),err=document.getElementById('qErr'),btn=document.getElementById('qSend'),done=document.getElementById('qDone');
+  var more=document.getElementById('qTravelMore');
+  f.addEventListener('change',function(e){
+    if(e.target.name==='Transportation and attendance') more.hidden=e.target.value.indexOf('No')!==0;
+    var l=e.target.closest('label,.qf-q'); if(l) l.querySelectorAll('.qf-bad').forEach(function(x){x.classList.remove('qf-bad')});
+    e.target.classList.remove('qf-bad');
+  });
+  function addr(p){return Array.isArray(p)?p[0]+'@'+p[1]:p}
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    f.querySelectorAll('.qf-bad').forEach(function(x){x.classList.remove('qf-bad')});
+    var bad=[];
+    f.querySelectorAll('[required]').forEach(function(el){
+      var ok = el.type==='radio' ? !!f.querySelector('input[name="'+el.name+'"]:checked')
+             : el.type==='checkbox' ? el.checked : el.value.trim()!=='' && (el.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()));
+      if(!ok){ var t=(el.type==='radio'||el.type==='checkbox')?el.closest('label'):el; if(bad.indexOf(t)<0) bad.push(t); }
+    });
+    if(bad.length){
+      bad.forEach(function(x){x.classList.add('qf-bad')});
+      err.textContent='Please complete the '+bad.length+' highlighted '+(bad.length===1?'item':'items')+' (marked *).'; err.hidden=false;
+      bad[0].scrollIntoView({behavior:'smooth',block:'center'}); return;
+    }
+    var c=window.TRC_QUESTIONNAIRE;
+    if(!c||!c.to){ err.textContent='This form isn’t connected yet. It’s coming soon.'; err.hidden=false; return; }
+    var data=new FormData(f);
+    if(data.get('_honey')) return;
+    if(c.cc&&c.cc.length) data.append('_cc',c.cc.map(addr).join(','));
+    btn.disabled=true; btn.firstChild.textContent='Sending… ';
+    fetch('https://formsubmit.co/ajax/'+addr(c.to),{method:'POST',headers:{'Accept':'application/json'},body:data})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+      .then(function(res){
+        if(res.ok && String(res.j.success)==='true'){ f.hidden=true; done.hidden=false; done.focus(); window.scrollTo({top:0,behavior:'smooth'}); }
+        else throw new Error(res.j&&res.j.message||'send failed');
+      })
+      .catch(function(){ err.textContent='Sorry, your answers couldn’t be sent. Please try again in a few minutes.'; err.hidden=false; })
+      .then(function(){ btn.disabled=false; btn.firstChild.textContent='Send my answers '; });
+  });
+})();
+</script>
+
+</body>
+</html>
