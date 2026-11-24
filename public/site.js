@@ -279,7 +279,8 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
             const groups = Object.keys(CAL_CATEGORIES).filter(calShown).map(cat => {
                 const recurring = CAL_RECURRING.filter(ev => ev.cat === cat)
                     .map(ev => calEventCard(ev, WEEKDAYS[ev.weekday].toUpperCase() + 'S // ' + calTimeLabel(ev)));
-                const dated = CAL_DATED.filter(ev => ev.cat === cat && (!ev.date || ev.date >= today))
+                const horizon = calKey(new Date(Date.now() + 60 * 864e5));
+                const dated = CAL_DATED.filter(ev => ev.cat === cat && (!ev.date || (ev.date >= today && (!calLive || ev.date <= horizon))))
                     .sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'))
                     .map(ev => {
                         let label = 'DATE TBA';
@@ -342,6 +343,67 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
             calState.selected = calKey(t);
             calRender();
         })();
+
+// ---------- Live events from the club's public Google Calendars ----------
+// Needs calendar-config.js (window.TRC_GCAL_KEY). Without it, the hand-copied events above are used.
+const GCAL_IDS = { trc: 'webmaster@torontorevolverclub.com', mpl: 'pfspehu6fdsnkaod9vvj6puht8@group.calendar.google.com' };
+let calLive = false;
+function calGuessCat(title, src) {
+    if (src === 'mpl') return 'mpl';
+    const t = (title || '').toLowerCase();
+    if (/turkey/.test(t)) return 'turkey';
+    if (/closed|closure|maintenance|no shooting|cancel/.test(t)) return 'closed';
+    if (/rental|golden mile|durham|maple leaf|pape/.test(t)) return 'rental';
+    return 'trc';
+}
+function calPlain(html) {
+    const d = document.createElement('div'); d.innerHTML = (html || '').replace(/<br\s*\/?>/gi, ' ');
+    return (d.textContent || '').replace(/\s+/g, ' ').trim();
+}
+function calFromGoogle(item, src) {
+    const title = item.summary || 'Club event';
+    const cat = calGuessCat(title, src);
+    const allDay = !!(item.start && item.start.date);
+    const date = allDay ? item.start.date : String(item.start.dateTime).slice(0, 10);
+    let start = allDay ? null : String(item.start.dateTime).slice(11, 16);
+    let end = allDay || !item.end || !item.end.dateTime ? null : String(item.end.dateTime).slice(11, 16);
+    if (end === '00:00' && String(item.end.dateTime).slice(0, 10) !== date) end = '24:00';
+    if (end === start) end = null;
+    return { cat, date, start, end, allDay, short: title.length > 22 ? title.slice(0, 21) + '…' : title, title,
+        badge: CAL_CATEGORIES[cat].label.toUpperCase(),
+        desc: [calPlain(item.description), item.location ? 'Location: ' + item.location : ''].filter(Boolean).join(' ') || CAL_CATEGORIES[cat].label + '.' };
+}
+async function calLoadGoogle() {
+    const key = window.TRC_GCAL_KEY;
+    if (!key || /PASTE_KEY/.test(key)) return;
+    const from = new Date(); from.setDate(from.getDate() - 62);
+    const to = new Date(); to.setDate(to.getDate() + 400);
+    const get = async (src) => {
+        const url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(GCAL_IDS[src]) + '/events?singleEvents=true&orderBy=startTime&maxResults=2500&timeZone=America%2FToronto' +
+            '&timeMin=' + encodeURIComponent(from.toISOString()) + '&timeMax=' + encodeURIComponent(to.toISOString()) + '&key=' + encodeURIComponent(key);
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(src + ' ' + r.status);
+        return ((await r.json()).items || []).filter(i => i.status !== 'cancelled' && i.start).map(i => calFromGoogle(i, src));
+    };
+    const res = await Promise.allSettled([get('trc'), get('mpl')]);
+    const live = res.filter(r => r.status === 'fulfilled').flatMap(r => r.value);
+    res.filter(r => r.status === 'rejected').forEach(r => console.warn('Google Calendar:', r.reason));
+    if (!live.length && res.every(r => r.status === 'rejected')) return;
+    const cats = new Set(live.map(e => e.cat));
+    // Keep a hand-entered weekly item only if Google has nothing of that kind (e.g. rentals may not be on Google)
+    for (let i = CAL_RECURRING.length - 1; i >= 0; i--) if (cats.has(CAL_RECURRING[i].cat)) CAL_RECURRING.splice(i, 1);
+    const tba = CAL_DATED.filter(e => !e.date && !cats.has(e.cat));
+    CAL_DATED.splice(0, CAL_DATED.length, ...live, ...tba);
+    calLive = true;
+    calRender();
+    document.dispatchEvent(new Event('trc:calendar'));
+}
+(function () {
+    const sc = document.createElement('script');
+    sc.src = 'calendar-config.js';
+    sc.onload = () => calLoadGoogle().catch(e => console.warn('Google Calendar:', e));
+    document.head.appendChild(sc);
+})();
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') ['calendarModal', 'contactModal'].forEach(closeModal);

@@ -116,7 +116,7 @@
   <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
   <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
 </div></footer>
-<script src="site.js?v=20261124a"></script>
+<script src="site.js?v=20261124c"></script>
 <script>
 (function(){
   var rows=document.getElementById('mHoursRows'); if(!rows||typeof HOURS==='undefined') return;
@@ -132,7 +132,7 @@
 })();
 </script>
 <script>
-(function(){
+function trcComingUp(){
   var ul=document.getElementById('comingUp'); if(!ul||typeof calEventsOn!=='function'){ if(ul) ul.innerHTML='<li class="none">See the full calendar for upcoming events.</li>'; return; }
   var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'], out=[], d=new Date(); d.setHours(0,0,0,0);
   for(var i=0;i<90&&out.length<3;i++){
@@ -144,7 +144,8 @@
     var t=(typeof calTimeLabel==='function')?calTimeLabel(o.ev):'';
     return '<li><span class="d">'+M[o.day.getMonth()]+' '+o.day.getDate()+'</span><span>'+(o.ev.short||o.ev.title)+'</span><span class="t">'+t+'</span></li>';
   }).join('');
-})();
+}
+trcComingUp(); document.addEventListener('trc:calendar',trcComingUp);
 </script>
 </body>
 </html>
