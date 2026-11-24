@@ -276,11 +276,12 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
 
         function calRenderList() {
             const today = calKey(new Date());
-            const groups = Object.keys(CAL_CATEGORIES).filter(calShown).map(cat => {
+            const inTrc = cat => cat === 'turkey' && calState.filter === 'trc';
+            const groups = Object.keys(CAL_CATEGORIES).filter(c => calShown(c) && !inTrc(c)).map(cat => {
                 const recurring = CAL_RECURRING.filter(ev => ev.cat === cat)
                     .map(ev => calEventCard(ev, WEEKDAYS[ev.weekday].toUpperCase() + 'S // ' + calTimeLabel(ev)));
                 const horizon = calKey(new Date(Date.now() + 60 * 864e5));
-                const dated = CAL_DATED.filter(ev => ev.cat === cat && (!ev.date || (ev.date >= today && (!calLive || ev.date <= horizon))))
+                const dated = CAL_DATED.filter(ev => (ev.cat === cat || (cat === 'trc' && inTrc(ev.cat))) && (!ev.date || (ev.date >= today && (!calLive || ev.date <= horizon))))
                     .sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'))
                     .map(ev => {
                         let label = 'DATE TBA';
