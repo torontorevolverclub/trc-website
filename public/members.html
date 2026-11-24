@@ -77,7 +77,7 @@
     <ul class="mn">
       <li><h4>Annual dues renewal now open</h4><p>Renew by Interac e-Transfer, or in person at the Annual Turkey Shoot. Please include your full name in the memo.</p></li>
       <li><h4>Range Officer volunteers wanted</h4><p>Certified ROs: please let the Board know your availability so every firing line stays supervised.</p></li>
-      <li><h4>Turkey Shoot date coming soon</h4><p>The Board will confirm this year’s date shortly. Watch this space and the club calendar.</p></li>
+      <li id="turkeyNotice"><h4>Turkey Shoot date coming soon</h4><p>The Board will confirm this year’s date shortly. Watch this space and the club calendar.</p></li>
     </ul>
     <p class="mnl">The TRC newsletter is sent by email to members. Not receiving it? <a href="#contact">Contact us</a></p>
   </div>
@@ -95,7 +95,7 @@
   </div>
   <div class="mcard mcu"><div class="mk">Coming up</div>
     <ul class="mev" id="comingUp"><li class="none">Loading the club calendar…</li></ul>
-    <p class="mfoot"><a href="#calendar" class="mlink">Full calendar &rarr;</a></p>
+    <p class="mfoot" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><a href="#calendar" class="mlink">Full calendar &rarr;</a><a href="#calendar" onclick="openCalendarSubscribe();return false;" class="mlink">Add to my calendar &rarr;</a></p>
   </div>
   </div>
   <div class="mcard gold" id="renew"><div class="mk">Renew your dues</div>
@@ -116,7 +116,7 @@
   <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
   <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
 </div></footer>
-<script src="site.js?v=20261124d"></script>
+<script src="site.js?v=20261124e"></script>
 <script>
 (function(){
   var rows=document.getElementById('mHoursRows'); if(!rows||typeof HOURS==='undefined') return;
@@ -146,6 +146,16 @@ function trcComingUp(){
   }).join('');
 }
 trcComingUp(); document.addEventListener('trc:calendar',trcComingUp);
+function trcTurkey(){
+  var li=document.getElementById('turkeyNotice'); if(!li||typeof CAL_DATED==='undefined') return;
+  var t=calKey(new Date()), ev=CAL_DATED.filter(function(e){return e.cat==='turkey'&&e.date&&e.date>=t;}).sort(function(a,b){return a.date.localeCompare(b.date);})[0];
+  if(!ev) return;
+  var p=ev.date.split('-').map(Number), d=new Date(p[0],p[1]-1,p[2]);
+  var W=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], Mo=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  li.innerHTML='<h4>Turkey Shoot: '+W[d.getDay()]+', '+Mo[d.getMonth()]+' '+d.getDate()+'</h4><p>'+(ev.start?'Starts at '+calFmtTime(ev.start)+'. ':'')+'Annual dues can also be paid in person (cash or cheque). <a href="#calendar" class="mlink">See the calendar</a></p>';
+}
+trcTurkey(); document.addEventListener('trc:calendar',trcTurkey);
+
 </script>
 </body>
 </html>
