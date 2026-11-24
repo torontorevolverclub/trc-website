@@ -38,8 +38,7 @@
 .mdocs a:last-child{border-bottom:0}
 .mdocs .pdf{width:2rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:.3rem;background:#FEF2F2;color:#B91C1C;font-family:var(--mono);font-size:.6rem;font-weight:700}
 .mdocs .ar{margin-left:auto;color:var(--amber)}
-.mhr .open{margin:0 0 .2rem}
-.mhr details{margin-top:.8rem}
+.mhr details{margin-top:.2rem}
 .mhr summary{list-style:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.55rem .75rem;background:var(--tint);border:1px solid rgba(0,20,137,.15);border-radius:.4rem;color:var(--royal);font-weight:600;font-size:.88rem}
 .mhr summary::-webkit-details-marker{display:none}
 .mhr summary .hide,.mhr details[open] summary .show{display:none}.mhr details[open] summary .hide{display:inline}
@@ -57,6 +56,8 @@
 .mhl i{display:inline-block;width:.75rem;height:.75rem;border-radius:.15rem;margin-right:.3rem;vertical-align:-.1rem}
 .mhn{margin-top:.5rem;font-size:.8rem;color:var(--muted)}
 .mhr .mfoot{margin-top:.7rem}
+.mcol{display:flex;flex-direction:column;gap:1rem}
+.mcu{flex:1;display:flex;flex-direction:column}.mcu .mfoot{margin-top:auto;padding-top:.9rem}
 @media (max-width:760px){.mbr .mgrid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -80,8 +81,8 @@
     </ul>
     <p class="mnl">The TRC newsletter is sent by email to members. Not receiving it? <a href="#contact">Contact us</a></p>
   </div>
+  <div class="mcol">
   <div class="mcard mhr" id="hours"><div class="mk">Range hours</div>
-    <span class="open" id="mOpenNow"><span class="dot"></span>Range hours</span>
     <details><summary><span><span class="show">Show weekly hours</span><span class="hide">Hide weekly hours</span></span><i class="fa-solid fa-chevron-down"></i></summary>
       <div class="mhb">
         <div class="mhx"><span></span><div><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div></div>
@@ -92,9 +93,10 @@
       </div>
     </details>
   </div>
-  <div class="mcard"><div class="mk">Coming up</div>
+  <div class="mcard mcu"><div class="mk">Coming up</div>
     <ul class="mev" id="comingUp"><li class="none">Loading the club calendar…</li></ul>
     <p class="mfoot"><a href="#calendar" class="mlink">Full calendar &rarr;</a></p>
+  </div>
   </div>
   <div class="mcard gold" id="renew"><div class="mk">Renew your dues</div>
     <p class="b">Send annual dues by Interac e-Transfer to the Club Treasurer, or pay by cash or cheque at the Annual Turkey Shoot. Include your full name in the memo.</p>
@@ -127,12 +129,6 @@
       return '<div class="sg '+cls+'" style="left:'+((sg[0]-6)/18*100)+'%;width:'+((sg[1]-sg[0])/18*100)+'%" title="'+tip+': '+fmt(sg[0])+' – '+fmt(sg[1])+'"></div>';
     }).join('')+'</div></div>';
   }).join('');
-  var el=document.getElementById('mOpenNow'); if(!el) return;
-  var now=new Date(), h=now.getHours()+now.getMinutes()/60;
-  var seg=HOURS[today].segs.find(function(x){return h>=x[0]&&h<x[1];});
-  if(seg&&seg[2]==='member') el.innerHTML='<span class="dot"></span>Open now · TRC members until '+fmt(seg[1]);
-  else if(seg&&seg[2]==='club') el.innerHTML='<span class="dot"></span>TRC club night now · until '+fmt(seg[1]);
-  else { el.classList.add('shut'); el.innerHTML=seg?'Rental club has the range now':'Range closed now'; }
 })();
 </script>
 <script>
