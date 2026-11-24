@@ -333,7 +333,20 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
             calRender();
         }
 
-        document.querySelectorAll('.cal-filter').forEach(btn => btn.addEventListener('click', () => { calState.filter = btn.dataset.filter; calRender(); }));
+        function calJumpToNext(cat) {
+            // Show the month of the next event in this category and select that day
+            const today = calKey(new Date());
+            const next = CAL_DATED.filter(ev => ev.cat === cat && ev.date && ev.date >= today).sort((a, b) => a.date.localeCompare(b.date))[0];
+            let d = null;
+            if (next) { const [y, m, dd] = next.date.split('-').map(Number); d = new Date(y, m - 1, dd); }
+            else {
+                const rec = CAL_RECURRING.filter(ev => ev.cat === cat);
+                if (rec.length) { d = new Date(); for (let i = 0; i < 7 && !rec.some(ev => ev.weekday === d.getDay()); i++) d.setDate(d.getDate() + 1); }
+            }
+            if (!d) return;
+            calState.year = d.getFullYear(); calState.month = d.getMonth(); calState.selected = calKey(d);
+        }
+        document.querySelectorAll('.cal-filter').forEach(btn => btn.addEventListener('click', () => { calState.filter = btn.dataset.filter; if (calState.filter !== 'all') calJumpToNext(calState.filter); calRender(); }));
         document.querySelectorAll('.cal-view').forEach(btn => btn.addEventListener('click', () => { calState.view = btn.dataset.view; calRender(); }));
 
         (function () {
@@ -392,6 +405,7 @@ async function calLoadGoogle() {
     const cats = new Set(live.map(e => e.cat));
     // Keep a hand-entered weekly item only if Google has nothing of that kind (e.g. rentals may not be on Google)
     for (let i = CAL_RECURRING.length - 1; i >= 0; i--) if (cats.has(CAL_RECURRING[i].cat)) CAL_RECURRING.splice(i, 1);
+    CAL_DATED.filter(e => !e.date).forEach(t => live.forEach(e => { if (e.cat === t.cat && e.cat !== 'trc' && e.desc === CAL_CATEGORIES[e.cat].label + '.') { e.desc = t.desc; e.badge = t.badge; } }));
     const tba = CAL_DATED.filter(e => !e.date && !cats.has(e.cat));
     CAL_DATED.splice(0, CAL_DATED.length, ...live, ...tba);
     calLive = true;
