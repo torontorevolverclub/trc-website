@@ -276,7 +276,7 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
 
         function calRenderList() {
             const today = calKey(new Date());
-            const inTrc = cat => cat === 'turkey' && calState.filter === 'trc';
+            const inTrc = cat => cat === 'turkey' && (calState.filter === 'trc' || calState.filter === 'all');
             const groups = Object.keys(CAL_CATEGORIES).filter(c => calShown(c) && !inTrc(c)).map(cat => {
                 const recurring = CAL_RECURRING.filter(ev => ev.cat === cat)
                     .map(ev => calEventCard(ev, WEEKDAYS[ev.weekday].toUpperCase() + 'S // ' + calTimeLabel(ev)));
