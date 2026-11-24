@@ -231,7 +231,7 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
             const firstDow = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             let html = '';
-            for (let i = 0; i < firstDow; i++) html += '<div class="hidden sm:block rounded-lg bg-slate-50/60"></div>';
+            for (let i = 0; i < firstDow; i++) html += '<div class="rounded-lg bg-slate-50/60" aria-hidden="true"></div>';
             for (let day = 1; day <= daysInMonth; day++) {
                 const d = new Date(year, month, day);
                 const key = calKey(d);
