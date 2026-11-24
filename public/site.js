@@ -481,9 +481,8 @@ async function calLoadGoogle() {
             e.preventDefault();
             const feedback = document.getElementById('inquiryFeedback');
             const to = (e.target.querySelector('select')?.selectedOptions[0]?.text || 'Membership Secretary').replace(/\s*\(.*\)$/, '');
-            feedback.textContent = 'MESSAGE SENT: Your inquiry has been routed to the ' + to + '.';
+            feedback.textContent = 'THIS FORM ISN’T CONNECTED YET. IT’S COMING SOON.';
             feedback.classList.remove('hidden');
-            e.target.reset();
         }
 
         
