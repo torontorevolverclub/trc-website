@@ -146,7 +146,7 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
             { cat: 'mpl', date: null, start: null, short: 'MPL Div. 6', badge: 'DIVISION 6 · 2025–26', title: 'Metro Pistol League Division 6 Matches',
               desc: 'No Division 6 matches are posted for November. Note: the maximum dummy score allowed for .22 or CF is 250.' },
             { cat: 'turkey', date: null, start: null, short: 'Turkey Shoot', badge: 'SIGNATURE EVENT', title: 'TRC Annual Turkey Shoot',
-              desc: 'One of the Toronto Revolver Club’s longest-standing traditions, with novelty targets, camaraderie and seasonal prizes. Annual dues may be paid in person (cash or cheque).' }
+              desc: 'A long-standing TRC tradition: members shoot at colourful paper novelty targets and compete for prizes. The name dates back to when the winners took home a turkey. Annual dues may also be paid in person (cash or cheque).' }
         ];
 
         const calState = { filter: 'all', view: 'month', year: 0, month: 0, selected: null };
