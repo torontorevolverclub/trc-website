@@ -270,7 +270,7 @@ a.quizbox{transition:border-color .15s,transform .15s}a.quizbox:hover{border-col
 }
 .era img{display:block;margin:0 auto}
 
-html,body{overflow-x:hidden}
+html,body{max-width:100%;overflow-x:clip}
 @media (max-width:640px){.pv{font-size:.58rem;letter-spacing:.06em;padding:.4rem .6rem}.pv .long{display:none}}
 
 /* Homepage: cards follow the hero directly */
