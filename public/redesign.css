@@ -468,3 +468,5 @@ html,body{max-width:100%;overflow-x:clip}
  .ft>.in{border-top:0}
  .ft .fb{color:#64748B;opacity:1}
 }
+/* Competition/Gallery: old mobile.css hid the footer on phones; show the light footer there too */
+@media (max-width:640px){footer.ft{display:block!important}}
