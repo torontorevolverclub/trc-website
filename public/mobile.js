@@ -18,12 +18,15 @@
         { id: 'portal', icon: 'fa-users',        label: 'Members', href: 'members.html' }
     ];
     const active = isSafety ? 'safety' : isPortal ? 'portal' : 'home';
-    const bar = document.createElement('nav');
+    const existingBar = document.getElementById('mTabBar'); // new pages: site.js already made it
+    const bar = existingBar || document.createElement('nav');
+    if (!existingBar) {
     bar.id = 'mTabBar';
     bar.setAttribute('aria-label', 'Quick navigation');
     bar.innerHTML = tabs.map(t =>
         `<a href="${t.href}" data-tab="${t.id}" class="${t.id === active ? 'on' : ''}"><i class="fa-solid ${t.icon}"></i>${t.label}</a>`).join('');
     document.body.appendChild(bar);
+    }
     bar.querySelector('[data-tab="home"]').addEventListener('click', (e) => {
         if (onHome) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     });

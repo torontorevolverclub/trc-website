@@ -447,3 +447,16 @@ html,body{max-width:100%;overflow-x:clip}
  .mm-a{margin-left:auto;color:var(--amber)}
  .mm-n{margin-top:.55rem;font-size:.72rem;color:var(--muted);text-align:center}
 }
+
+/* Footer option B (desktop/tablet); phone keeps the slim footer */
+.ft .fbt,.ft .ft2{display:none}
+@media (min-width:641px){
+ .ft .in{flex-wrap:wrap;padding-top:1.6rem;padding-bottom:.9rem;column-gap:1.5rem;row-gap:0}
+ .ft .fb{gap:1rem}.ft .fb img{width:4rem;height:4rem}.ft .fbc{display:none}
+ .ft .fbt{display:flex;flex-direction:column;gap:.3rem}
+ .ft .fbn{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+ .ft .fbg{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-b)}
+ .ft nav{font-size:.78rem;color:#E2E8F0}
+ .ft .ft2{display:flex;justify-content:space-between;gap:1rem;width:100%;margin-top:1.3rem;padding-top:.75rem;border-top:1px solid rgba(212,175,55,.75);font-size:.72rem;color:#AEB8D0}
+ .ft .ft2 a:hover{color:var(--gold-b)}
+}

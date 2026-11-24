@@ -392,7 +392,10 @@ function calPlain(html) {
     return (d.textContent || '').replace(/\s+/g, ' ').trim();
 }
 function calFromGoogle(item, src) {
-    const title = item.summary || 'Club event';
+    let title = (item.summary || 'Club event').trim();
+    // ALL-CAPS titles (e.g. "DURHAM SPORT") → normal capitals; short codes like ISSF, IPSC, MPL stay as typed
+    if (title === title.toUpperCase() && /[A-Z]{4,}/.test(title))
+        title = title.toLowerCase().replace(/\b([a-z])/g, c => c.toUpperCase()).replace(/\b(Issf|Ipsc|Mpl|Nra|Trc|Ro|Rpal|Cf|Ii|Iii)\b/g, w => w.toUpperCase());
     const cat = calGuessCat(title, src);
     const allDay = !!(item.start && item.start.date);
     const date = allDay ? item.start.date : String(item.start.dateTime).slice(0, 10);
@@ -401,8 +404,8 @@ function calFromGoogle(item, src) {
     if (end === '00:00' && String(item.end.dateTime).slice(0, 10) !== date) end = '24:00';
     if (end === start) end = null;
     return { cat, date, start, end, allDay, short: title.length > 22 ? title.slice(0, 21) + '…' : title, title,
-        badge: CAL_CATEGORIES[cat].label.toUpperCase(),
-        desc: [calPlain(item.description), item.location ? 'Location: ' + item.location : ''].filter(Boolean).join(' ') };
+        badge: cat === 'rental' ? 'RANGE RENTAL' : CAL_CATEGORIES[cat].label.toUpperCase(),
+        desc: [calPlain(item.description), item.location ? 'Location: ' + item.location : ''].filter(Boolean).join(' ') || (cat === 'rental' ? RENTAL_DESC : '') };
 }
 async function calLoadGoogle() {
     const key = window.TRC_GCAL_KEY;
@@ -432,7 +435,7 @@ async function calLoadGoogle() {
 }
 (function () {
     const sc = document.createElement('script');
-    sc.src = 'calendar-config.js';
+    sc.src = '/calendar-config.js';
     sc.onload = () => calLoadGoogle().catch(e => console.warn('Google Calendar:', e));
     document.head.appendChild(sc);
 })();
@@ -543,11 +546,11 @@ async function calLoadGoogle() {
     if (document.getElementById('mTabBar')) return;
     const page = location.pathname.split('/').pop() || 'index.html';
     const tabs = [
-        ['home', 'fa-house', 'Home', 'index.html'],
-        ['hours', 'fa-clock', 'Hours', 'range.html#hours'],
-        ['safety', 'fa-shield-halved', 'Safety', 'safety.html'],
+        ['home', 'fa-house', 'Home', '/index.html'],
+        ['hours', 'fa-clock', 'Hours', '/range.html#hours'],
+        ['safety', 'fa-shield-halved', 'Safety', '/safety.html'],
         ['events', 'fa-calendar-days', 'Events', '#calendar'],
-        ['portal', 'fa-users', 'Members', 'members.html']
+        ['portal', 'fa-users', 'Members', '/members.html']
     ];
     const active = page.startsWith('safety') ? 'safety' : page === 'range.html' ? 'hours' : page === 'index.html' ? 'home' : '';
     const bar = document.createElement('nav');

@@ -5,150 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow, noarchive">
     <title>Page Not Found | Toronto Revolver Club</title>
-    <link rel="icon" href="/favicon.ico" sizes="any">
+        <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{royal:{DEFAULT:'#001489',deep:'#06125E',light:'#162EB8',tint:'#F0F4FF'},gold:{DEFAULT:'#D4AF37',bright:'#EAB308',pale:'#FEF9E7'},slateink:'#0F172A',muted:'#475569'},fontFamily:{display:['Oswald','sans-serif'],sans:['"Plus Jakarta Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Self-contained styles (no Tailwind/Font Awesome) so this page always loads fast -->
-    <style>
-        :root {
-            --royal: #001489; --royal-deep: #06125E; --royal-light: #162EB8; --royal-tint: #F0F4FF;
-            --gold: #D4AF37; --gold-bright: #EAB308; --amber: #B45309;
-            --ink: #0F172A; --muted: #475569;
-            --display: 'Oswald', 'DejaVu Sans Condensed', 'Arial Narrow', sans-serif;
-            --sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
-            --mono: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { height: 100%; }
-        body {
-            font-family: var(--sans); color: var(--ink); background: #fff;
-            display: flex; flex-direction: column; min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-        a { color: inherit; text-decoration: none; }
-
-        /* Header */
-        .bar { background: rgba(255,255,255,.96); border-bottom: 1px solid rgba(0,20,137,.1); box-shadow: 0 1px 2px rgba(15,23,42,.05); }
-        .bar-in { max-width: 80rem; margin: 0 auto; padding: 0 1rem; height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
-        .brand { display: flex; align-items: center; gap: .7rem; min-width: 0; }
-        .crest-sm { width: 2.75rem; height: 2.75rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #0B0D80; box-shadow: 0 8px 18px -6px rgba(0,20,137,.35); }
-        .crest-sm img, .crest-lg img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; }
-        .wordmark { font-family: var(--display); font-weight: 700; color: var(--royal); text-transform: uppercase; letter-spacing: .06em; font-size: 1.05rem; line-height: 1; white-space: nowrap; display: block; }
-        .est { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .24em; color: var(--amber); text-transform: uppercase; margin-top: .3rem; display: block; }
-        .home-btn { flex-shrink: 0; font-family: var(--display); font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--royal); border: 1px solid rgba(212,175,55,.6); border-radius: .3rem; padding: .6rem .9rem; box-shadow: 0 4px 10px -4px rgba(0,20,137,.4); }
-        .home-btn:hover { background: var(--royal-light); }
-
-        /* Main */
-        main {
-            flex: 1; display: flex; align-items: center; justify-content: center;
-            padding: 2.5rem 1rem 3rem;
-            background-color: #fff;
-            background-image:
-                radial-gradient(circle at 78% 30%, rgba(212,175,55,.14) 0%, transparent 46%),
-                radial-gradient(circle at 18% 78%, rgba(0,20,137,.06) 0%, transparent 50%),
-                linear-gradient(to right, rgba(0,20,137,.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,20,137,.04) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-        }
-        .wrap { width: 100%; max-width: 40rem; text-align: center; }
-        .crest-lg { width: 14rem; height: 14rem; margin: 0 auto 1.75rem; border-radius: 50%; overflow: hidden; background: #0B0D80;
-            box-shadow: 0 0 40px rgba(212,175,55,.32), 0 24px 46px -14px rgba(0,20,137,.4);
-            display: block; transition: transform .25s ease, box-shadow .25s ease; }
-        .crest-lg:hover { transform: scale(1.03); box-shadow: 0 0 52px rgba(212,175,55,.45), 0 28px 50px -14px rgba(0,20,137,.45); }
-        h1 { margin-top: .6rem; font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--royal-deep); font-size: 2.1rem; line-height: 1.15; }
-        .lead { margin: .9rem auto 0; max-width: 30rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-
-        .actions { margin-top: 1.9rem; display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
-        .btn { font-family: var(--display); font-weight: 600; font-size: .95rem; letter-spacing: .08em; text-transform: uppercase; border-radius: .3rem; padding: .8rem 1.4rem; transition: all .2s; display: inline-flex; align-items: center; gap: .55rem; }
-        .btn-primary { background: var(--royal); color: #fff; border: 1px solid rgba(212,175,55,.6); box-shadow: 0 8px 18px -8px rgba(0,20,137,.45); }
-        .btn-primary:hover { background: var(--royal-light); }
-        .btn-outline { color: var(--royal); border: 1px solid rgba(0,20,137,.25); background: #fff; }
-        .btn-outline:hover { border-color: var(--royal); background: var(--royal-tint); }
-        .btn svg { width: 1em; height: 1em; }
-
-        .quick { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,20,137,.12); display: flex; justify-content: center; gap: 1.6rem; font-family: var(--mono); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-        .quick a { border-bottom: 2px solid transparent; padding-bottom: 2px; }
-        .quick a:hover { color: var(--royal); border-bottom-color: var(--gold); }
-
-        /* Footer */
-        footer { background: var(--royal); color: #fff; border-top: 4px solid var(--gold); }
-        .foot { max-width: 80rem; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--mono); font-size: .72rem; color: #cbd5e1; }
-        .foot .tag { color: var(--gold-bright); letter-spacing: .12em; }
-        /* Phones */
-        @media (max-width: 640px) {
-            .bar-in { height: 4rem; padding: 0 .85rem; }
-            .crest-sm { width: 2.4rem; height: 2.4rem; }
-            .wordmark { font-size: .92rem; letter-spacing: .04em; }
-            .est { font-size: 9px; letter-spacing: .2em; }
-            .home-btn { padding: .5rem .7rem; font-size: .78rem; }
-            main { padding: 1.75rem 1rem 2.25rem; align-items: flex-start; }
-            .crest-lg { width: 10rem; height: 10rem; margin-bottom: 1.25rem; }
-            h1 { font-size: 1.3rem; letter-spacing: .03em; white-space: nowrap; }
-            .lead { font-size: .9rem; }
-            .actions { flex-direction: column; gap: .6rem; margin-top: 1.4rem; }
-            .btn { justify-content: center; width: 100%; padding: .75rem 1rem; }
-            .quick { gap: 0; justify-content: space-between; font-size: .62rem; letter-spacing: .08em; margin-top: 1.5rem; }
-            .foot { font-size: .62rem; }
-            .foot .tag { display: none; }
-        }
-        @media (max-width: 360px) {
-            .wordmark { font-size: .82rem; }
-            .home-btn span { display: none; }
-            h1 { font-size: 1.15rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/redesign.css?v=20261124c">
+<style>
+.nf{flex:1;display:flex;align-items:center;justify-content:center;padding:2.5rem 1rem 3rem;background-color:#fff;background-image:radial-gradient(circle at 78% 30%,rgba(212,175,55,.14) 0%,transparent 46%),radial-gradient(circle at 18% 78%,rgba(0,20,137,.06) 0%,transparent 50%),linear-gradient(to right,rgba(0,20,137,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,20,137,.04) 1px,transparent 1px);background-size:100% 100%,100% 100%,48px 48px,48px 48px}
+.nf-wrap{width:100%;max-width:40rem;text-align:center}
+.nf-crest{width:14rem;height:14rem;margin:0 auto 1.75rem;border-radius:50%;overflow:hidden;background:#0B0D80;box-shadow:0 0 40px rgba(212,175,55,.32),0 24px 46px -14px rgba(0,20,137,.4);display:block;transition:transform .25s ease}
+.nf-crest:hover{transform:scale(1.03)}.nf-crest img{width:100%;height:100%;display:block}
+.nf h1{margin-top:.6rem;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--royal-deep);font-size:2.1rem;line-height:1.15}
+.nf-lead{margin:.9rem auto 0;max-width:30rem;color:var(--muted);font-size:1rem;line-height:1.6}
+.nf-act{margin-top:1.9rem;display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.nf-btn{font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;border-radius:.3rem;padding:.8rem 1.4rem;display:inline-flex;align-items:center;gap:.55rem;transition:all .2s}
+.nf-btn svg{width:1em;height:1em}
+.nf-p{background:var(--royal);color:#fff;border:1px solid rgba(212,175,55,.6)}.nf-p:hover{background:var(--royal-light)}
+.nf-o{color:var(--royal);border:1px solid rgba(0,20,137,.25);background:#fff}.nf-o:hover{border-color:var(--royal);background:var(--tint)}
+.nf-quick{margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(0,20,137,.12);display:flex;justify-content:center;flex-wrap:wrap;gap:1rem 1.6rem;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nf-quick a:hover{color:var(--royal)}
+body.nfp{display:flex;flex-direction:column;min-height:100vh}
+@media (max-width:640px){.nf-crest{width:10rem;height:10rem}.nf h1{font-size:1.6rem}}
+</style>
 </head>
-<body>
+<body class="nfp">
+<div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
+<header class="hdr"><div class="in">
+  <a href="/index.html" class="brand"><img src="/trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="/range.html">The Range</a><a href="/heritage.html">Heritage</a><a href="/competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="/membership.html" class="join">Join the Club</a>
+  <a href="/members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Members’ Area</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="/range.html">The Range</a><a href="/heritage.html">Heritage</a><a href="/competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="/membership.html" class="mj">Join the Club</a><a href="/members.html" class="mp">Members</a></nav>
+</div></header>
+<main class="nf"><div class="nf-wrap">
+  <a href="/" class="nf-crest" aria-label="Toronto Revolver Club home" title="Back to home"><img src="/trc-crest.svg?v=202611162231" alt="Toronto Revolver Club crest"></a>
+  <h1>This page has moved</h1>
+  <p class="nf-lead">Please use the links below to get back on track.</p>
+  <div class="nf-act">
+    <a href="/" class="nf-btn nf-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Back to Home</a>
+    <a href="/safety.html" class="nf-btn nf-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Range Safety</a>
+  </div>
+  <nav class="nf-quick" aria-label="Popular pages"><a href="/range.html">The Range</a><a href="/competition.html">Competition</a><a href="/gallery.html">Gallery</a><a href="/membership.html">Membership</a></nav>
+</div></main>
 
-    <header class="bar">
-        <div class="bar-in">
-            <a href="/" class="brand" aria-label="Toronto Revolver Club home">
-                <span class="crest-sm"><img src="/trc-crest.svg?v=202611162231" alt=""></span>
-                <span>
-                    <span class="wordmark">Toronto Revolver Club</span>
-                    <span class="est">Est. 1905 &bull; Ontario</span>
-                </span>
-            </a>
-            <a href="/" class="home-btn">&larr; <span>Home</span></a>
-        </div>
-    </header>
-
-    <main>
-        <div class="wrap">
-            <a href="/" class="crest-lg" aria-label="Toronto Revolver Club home" title="Back to home"><img src="/trc-crest.svg?v=202611162231" alt="Toronto Revolver Club crest"></a>
-
-            <h1>This page has moved</h1>
-            <p class="lead">Please use the links below to get back on track.</p>
-
-            <div class="actions">
-                <a href="/" class="btn btn-primary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
-                    Back to Home
-                </a>
-                <a href="/safety.html" class="btn btn-outline">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
-                    Range Safety
-                </a>
-            </div>
-
-            <nav class="quick" aria-label="Popular pages">
-                <a href="/range.html">The Range</a>
-                <a href="/competition.html">Competition</a>
-                <a href="/gallery.html">Gallery</a>
-                <a href="/membership.html">Membership</a>
-            </nav>
-        </div>
-    </main>
-
-    <footer>
-        <div class="foot">
-            <span>&copy; 2026 Toronto Revolver Club</span>
-            <span class="tag">PRECISION &bull; HERITAGE &bull; MARKSMANSHIP</span>
-        </div>
-    </footer>
-
+<footer class="ft"><div class="in">
+  <span class="fb"><img src="/trc-crest.svg?v=202611162231" alt=""><span class="fbt"><span class="fbn">Toronto Revolver Club</span><span class="fbg">Canada’s oldest sport pistol club</span></span><span class="fbc">© 2026 Toronto Revolver Club</span></span>
+  <nav><a href="/safety.html">Safety</a><a href="/competition.html">Competition</a><a href="/gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+  <div class="ft2"><span>© 2026 Toronto Revolver Club</span><span><a href="/membership.html">Join the Club</a> · <a href="/members.html">Members’ Area</a></span></div>
+</div></footer>
+<script src="/site.js?v=20261124h"></script>
 </body>
 </html>

@@ -80,9 +80,10 @@
         #lb .cap { color: #fff; font: 700 12px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .12em; margin-top: .9rem; text-align: center; }
         #lb button { position: absolute; width: 2.75rem; height: 2.75rem; border-radius: 9999px; border: 1px solid rgba(212,175,55,.7); color: #EAB308; background: rgba(255,255,255,.06); }
         #lb button:hover { background: #D4AF37; color: #06125E; }
-        #lb .x { top: 1rem; right: 1rem; } #lb .pv { left: 1rem; top: 50%; transform: translateY(-50%); } #lb .nx { right: 1rem; top: 50%; transform: translateY(-50%); }
+        #lb .x { top: 1rem; right: 1rem; } #lb .lbp { left: 1rem; top: 50%; transform: translateY(-50%); } #lb .nx { right: 1rem; top: 50%; transform: translateY(-50%); }
     </style>
     <link rel="stylesheet" href="mobile.css?v=20261119162915">
+    <link rel="stylesheet" href="redesign.css?v=20261124c">
 </head>
 <body class="font-sans antialiased selection:bg-royal selection:text-white">
 
@@ -90,45 +91,15 @@
     <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-royal via-gold to-gold-warm z-[60] w-0 transition-[width] duration-150"></div>
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-royal/10 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0" aria-label="Toronto Revolver Club home">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                    <img src="trc-crest.svg?v=202611162231" alt="Toronto Revolver Club Crest" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <span class="font-display font-bold text-royal text-base sm:text-2xl tracking-wide sm:tracking-wider uppercase block leading-none whitespace-nowrap">Toronto Revolver Club</span>
-                    <span class="font-mono text-[10px] font-semibold tracking-[0.24em] text-amber-700 uppercase mt-1 block">Inside the Club</span>
-                </div>
-            </a>
-            <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-[0.14em] text-slate-700">
-                <a href="range.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">The Range</a>
-                <a href="heritage.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Heritage</a>
-                <a href="competition.html" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Competition</a>
-                <a href="index.html#calendar" class="hover:text-royal transition py-1 border-b-2 border-transparent hover:border-gold">Calendar</a>
-            </nav>
-            <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
-                <a href="index.html#contact" class="hidden md:inline-flex items-center px-4 py-2.5 rounded border border-royal/25 hover:border-royal hover:bg-royal-tint text-royal font-display font-semibold text-sm uppercase tracking-wider transition">Contact</a>
-                <a href="members.html" aria-label="Members’ Area" class="px-3 min-[420px]:px-4 sm:px-5 py-2.5 rounded bg-royal hover:bg-royal-light text-white border border-gold/60 font-display font-semibold text-sm uppercase tracking-wider transition shadow-md shadow-royal/20 inline-flex items-center">
-                    <i class="fa-solid fa-users min-[420px]:mr-2 text-gold-bright text-xs"></i><span class="hidden min-[420px]:inline sm:hidden">Members</span><span class="hidden sm:inline">Members’ Area</span>
-                </a>
-                <button id="mobileToggle" class="lg:hidden p-2.5 rounded border border-royal/20 text-royal hover:bg-royal-tint" aria-label="Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-royal/10 px-6 py-5 space-y-3 shadow-lg">
-            <a href="range.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">The Range</a>
-            <a href="heritage.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Heritage</a>
-            <a href="competition.html" class="block py-2 text-sm font-bold uppercase tracking-wider text-slate-800 hover:text-royal">Competition</a>
-            <a href="index.html#calendar" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-regular fa-calendar mr-2 text-gold-warm"></i> Calendar</a>
-            <a href="index.html#contact" class="block py-2 text-sm font-bold uppercase tracking-wider text-royal"><i class="fa-solid fa-paper-plane mr-2 text-gold-warm"></i> Contact</a>
-            <div class="md:hidden pt-3 mt-2 border-t border-royal/10 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider">
-                <span class="text-muted">&copy; 2026 Toronto Revolver Club</span>
-                <a href="https://mail.google.com/a/torontorevolverclub.com" target="_blank" rel="noopener" class="text-amber-700 font-bold"><i class="fa-solid fa-envelope mr-1.5"></i>Board Email</a>
-            </div>
-        </div>
-    </header>
+    <div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
+<header class="hdr"><div class="in">
+  <a href="index.html" class="brand"><img src="trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="membership.html" class="join">Join the Club</a>
+  <a href="members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Members’ Area</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="membership.html" class="mj">Join the Club</a><a href="members.html" class="mp">Members</a></nav>
+</div></header>
 
     <!-- HERO -->
     <section class="architectural-bg border-b border-royal/10">
@@ -155,18 +126,17 @@
 
     <div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
         <button class="x" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-        <button class="pv" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lbp" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="text-center"><img alt=""><div class="cap"></div></div>
         <button class="nx" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-royal text-white border-t-4 border-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-300 gap-3">
-            <p>&copy; 2026 TORONTO REVOLVER CLUB. ALL RIGHTS RESERVED.</p>
-            <a href="index.html" class="text-gold-bright hover:text-white transition uppercase tracking-wider"><i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Club Site</a>
-        </div>
-    </footer>
+    <footer class="ft"><div class="in">
+  <span class="fb"><img src="trc-crest.svg?v=202611162231" alt=""><span class="fbt"><span class="fbn">Toronto Revolver Club</span><span class="fbg">Canada’s oldest sport pistol club</span></span><span class="fbc">© 2026 Toronto Revolver Club</span></span>
+  <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+  <div class="ft2"><span>© 2026 Toronto Revolver Club</span><span><a href="membership.html">Join the Club</a> · <a href="members.html">Members’ Area</a></span></div>
+</div></footer>
 
 
     <script>
@@ -201,7 +171,7 @@
             const close = () => { lb.classList.remove('on'); document.body.style.overflow = ''; };
             figs.forEach((f, k) => f.addEventListener('click', () => open(k)));
             lb.querySelector('.x').addEventListener('click', close);
-            lb.querySelector('.pv').addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
+            lb.querySelector('.lbp').addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
             lb.querySelector('.nx').addEventListener('click', (e) => { e.stopPropagation(); show(i + 1); });
             lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
             document.addEventListener('keydown', (e) => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
@@ -228,6 +198,7 @@
             onScroll();
         })();
     </script>
-    <script src="mobile.js?v=20261124a"></script>
+    <script src="site.js?v=20261124h"></script>
+    <script src="mobile.js?v=20261124b"></script>
 </body>
 </html>
