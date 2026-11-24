@@ -4,553 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow, noarchive">
-    <title>Member Portal (Preview) | Toronto Revolver Club</title>
+    <title>Members’ Area | Toronto Revolver Club</title>
+    <meta name="description" content="Toronto Revolver Club: Canada’s oldest sport pistol club, est. 1905.">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{royal:{DEFAULT:'#001489',deep:'#06125E',light:'#162EB8',tint:'#F0F4FF'},gold:{DEFAULT:'#D4AF37',bright:'#EAB308',pale:'#FEF9E7'},slateink:'#0F172A',muted:'#475569'},fontFamily:{display:['Oswald','sans-serif'],sans:['"Plus Jakarta Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        royal: { DEFAULT: '#001489', deep: '#06125E', light: '#162EB8', tint: '#F0F4FF' },
-                        gold: { DEFAULT: '#D4AF37', bright: '#EAB308', warm: '#F59E0B', pale: '#FEFCE8' },
-                        slateink: '#0F172A',
-                        muted: '#475569'
-                    },
-                    fontFamily: {
-                        display: ['Oswald', 'sans-serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #F8FAFC; color: #0F172A; }
-        .architectural-bg {
-            background-color: #FFFFFF;
-            background-image:
-                radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.14) 0%, transparent 48%),
-                radial-gradient(circle at 15% 80%, rgba(0, 20, 137, 0.06) 0%, transparent 50%),
-                linear-gradient(to right, rgba(0, 20, 137, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 20, 137, 0.04) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-        }
-        .trc-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 20, 137, 0.14);
-            border-top: 3px solid #001489;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .trc-card:hover { border-top-color: #D4AF37; box-shadow: 0 16px 32px -14px rgba(0, 20, 137, 0.16); }
-        .member-card {
-            background:
-                radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.35) 0%, transparent 45%),
-                linear-gradient(135deg, #06125E 0%, #001489 55%, #162EB8 100%);
-        }
-    </style>
-    <link rel="stylesheet" href="mobile.css?v=20261119162915">
+    <link rel="stylesheet" href="redesign.css?v=20261123zi">
+<style>
+.mbr .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem}
+.mcard{background:#fff;border:1px solid rgba(0,20,137,.12);border-top:3px solid var(--royal);border-radius:.75rem;padding:1.15rem 1.3rem}
+.mcard.gold{border:1px solid var(--gold);background:#FEF9E7}
+.mk{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.mn{list-style:none;display:grid;gap:.7rem}
+.mn h4{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--royal);font-size:1rem}
+.mn p{font-size:.88rem;color:#475569;line-height:1.5}
+.mnl{margin-top:.9rem;padding-top:.8rem;border-top:1px solid rgba(0,20,137,.1);font-size:.85rem;color:#475569}
+.mnl a,.mlink{color:var(--royal);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold)}
+.mev{list-style:none;display:grid;gap:.55rem}
+.mev li{display:flex;align-items:center;gap:.7rem;font-size:.92rem;color:var(--ink)}
+.mev .d{flex-shrink:0;min-width:3.4rem;text-align:center;background:var(--royal);color:var(--gold-b);font-family:var(--mono);font-size:.72rem;font-weight:700;border-radius:.3rem;padding:.25rem .4rem}
+.mev .t{color:var(--muted);font-size:.8rem;margin-left:auto}
+.mev .none{color:var(--muted);font-size:.88rem}
+.mfoot{margin-top:.9rem}
+.mcard p.b{font-size:.9rem;color:#334155;line-height:1.55}
+.mem{display:inline-block;margin-top:.6rem;font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--royal);background:#fff;border:1px solid rgba(0,20,137,.2);border-radius:.35rem;padding:.4rem .7rem}
+.mdocs a{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid rgba(0,20,137,.08);font-size:.92rem;color:var(--ink)}
+.mdocs a:last-child{border-bottom:0}
+.mdocs .pdf{width:2rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:.3rem;background:#FEF2F2;color:#B91C1C;font-family:var(--mono);font-size:.6rem;font-weight:700}
+.mdocs .ar{margin-left:auto;color:var(--amber)}
+@media (max-width:760px){.mbr .mgrid{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="font-sans antialiased selection:bg-royal selection:text-white">
-
-    <!-- PREVIEW BANNER -->
-    <div class="bg-gold-pale border-b border-gold/50 text-amber-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-center gap-2 text-center font-mono text-[11px] font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-flask"></i>
-            <span>Concept preview: sign-in is simulated and all member data shown is sample data</span>
-        </div>
+<body>
+<div class="pv">Redesign preview<span class="long"> · not the live site</span><a href="https://trc-website-106a9.web.app/">View current site &rarr;</a></div>
+<header class="hdr"><div class="in">
+  <a href="index.html" class="brand"><img src="trc-crest.svg?v=202611162231" alt=""><span><span class="wm">Toronto Revolver Club</span><span class="est">EST. 1905 • ONTARIO</span></span></a>
+  <nav class="nav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a></nav>
+  <a href="membership.html" class="join">Join the Club</a>
+  <a href="members.html" class="portal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>Members’ Area</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="mnav" id="mnav"><a href="range.html">The Range</a><a href="heritage.html">Heritage</a><a href="competition.html">Competition</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="membership.html" class="mj">Join the Club</a><a href="members.html" class="mp">Members’ Area</a></nav>
+</div></header>
+<main class="page rg mbr"><section class="ph"><div class="in"><div class="crumbs"><a href="index.html">Home</a> / Members’ Area</div><h1>Members’ Area</h1><p class="sub">News and resources for TRC members.</p></div></section>
+<section class="blk pb"><div class="in"><div class="mgrid">
+  <div class="mcard"><div class="mk">Club notices</div>
+    <ul class="mn">
+      <li><h4>Annual dues renewal now open</h4><p>Renew by Interac e-Transfer, or in person at the Annual Turkey Shoot. Please include your full name in the memo.</p></li>
+      <li><h4>Range Officer volunteers wanted</h4><p>Certified ROs: please let the Board know your availability so every firing line stays supervised.</p></li>
+      <li><h4>Turkey Shoot date coming soon</h4><p>The Board will confirm this year’s date shortly. Watch this space and the club calendar.</p></li>
+    </ul>
+    <p class="mnl">The TRC newsletter is sent by email to members. Not receiving it? <a href="#contact">Contact us</a></p>
+  </div>
+  <div class="mcard"><div class="mk">Coming up</div>
+    <ul class="mev" id="comingUp"><li class="none">Loading the club calendar…</li></ul>
+    <p class="mfoot"><a href="#calendar" class="mlink">Full calendar &rarr;</a></p>
+  </div>
+  <div class="mcard gold" id="renew"><div class="mk">Renew your dues</div>
+    <p class="b">Send annual dues by Interac e-Transfer to the Club Treasurer, or pay by cash or cheque at the Annual Turkey Shoot. Include your full name in the memo.</p>
+    <span class="mem">dues@torontorevolverclub.com</span>
+  </div>
+  <div class="mcard"><div class="mk">Club documents</div>
+    <div class="mdocs">
+      <a href="docs/trc-safety-familiarization-course.pdf" target="_blank" rel="noopener"><span class="pdf">PDF</span><span>Safety &amp; Familiarization Course</span><span class="ar">&rarr;</span></a>
+      <a href="docs/trc-range-regulations.pdf" target="_blank" rel="noopener"><span class="pdf">PDF</span><span>TRC Range Regulations</span><span class="ar">&rarr;</span></a>
+      <a href="safety-rules.html"><span class="pdf" style="background:var(--tint);color:var(--royal)">WEB</span><span>Safety rules summary</span><span class="ar">&rarr;</span></a>
     </div>
+  </div>
+</div></div></section>
+</main>
 
-    <!-- HEADER -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-royal/10 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                    <img src="trc-crest.svg?v=202611162231" alt="Toronto Revolver Club Crest" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <span class="font-display font-bold text-royal text-base sm:text-2xl tracking-wide sm:tracking-wider uppercase block leading-none whitespace-nowrap">Toronto Revolver Club</span>
-                    <span class="font-mono text-[10px] font-semibold tracking-[0.24em] text-amber-700 uppercase mt-1 block">Member Portal</span>
-                </div>
-            </a>
-            <div class="flex items-center gap-2.5">
-                <a href="index.html" class="hidden sm:inline-flex items-center px-4 py-2.5 rounded border border-royal/20 text-royal hover:bg-royal-tint font-mono text-xs font-bold uppercase tracking-wider transition">
-                    <i class="fa-solid fa-arrow-left mr-2 text-amber-600"></i> Club Site
-                </a>
-                <button id="signOutBtn" onclick="signOut()" class="hidden px-4 py-2.5 rounded bg-royal hover:bg-royal-light text-white border border-gold/60 font-display font-semibold text-sm uppercase tracking-wider transition">
-                    Sign Out
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- ================================================================= -->
-    <!-- VIEW 1: SIGN IN                                                   -->
-    <!-- ================================================================= -->
-    <main id="signInView" class="architectural-bg md:min-h-[calc(100vh-7rem)] flex md:items-center justify-center px-4 pt-6 pb-10 md:py-16">
-        <div class="w-full max-w-md">
-            <div class="relative mt-9 bg-white rounded-xl border border-royal/15 border-t-4 border-t-royal shadow-xl shadow-royal/10 px-6 pb-6 pt-12 sm:px-8 sm:pb-8">
-                <div class="absolute -top-9 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full bg-white p-[3px]" style="box-shadow: 0 10px 22px rgba(0,20,137,0.25);">
-                    <img src="trc-crest.svg?v=202611162231" alt="TRC crest" class="w-full h-full rounded-full object-contain">
-                </div>
-
-                <!-- Step A: email -->
-                <div id="stepEmail">
-                    <div id="renewHint" class="hidden mb-5 p-3 rounded-lg bg-gold-pale border border-gold/50 font-mono text-[11px] font-bold uppercase tracking-wider text-amber-800 text-center"><i class="fa-solid fa-lock mr-1.5"></i> Sign in to renew your membership</div>
-                    <div class="text-center mb-5">
-                        <h1 class="font-display font-bold text-3xl text-royal uppercase tracking-wide">Member Sign-In</h1>
-                        <p class="text-sm text-muted mt-2 leading-relaxed">We’ll email you a one-time sign-in link.</p>
-                    </div>
-                    <form onsubmit="sendLink(event)" class="space-y-3">
-                        <div>
-                            <label for="emailInput" class="sr-only font-mono text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">Email Address</label>
-                            <input id="emailInput" type="email" required placeholder="Email on file with the club" class="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slateink text-sm focus:outline-none focus:border-royal focus:ring-2 focus:ring-royal/15">
-                        </div>
-                        <button type="submit" class="w-full px-6 py-3.5 rounded bg-royal hover:bg-royal-light text-white font-display font-semibold text-base uppercase tracking-wider transition shadow-lg shadow-royal/25 border border-gold/50 inline-flex items-center justify-center">
-                            <i class="fa-solid fa-envelope mr-2.5 text-gold-bright text-sm"></i> Email Me a Sign-In Link
-                        </button>
-                    </form>
-                    <button onclick="enterDemo()" class="w-full mt-3 px-6 py-3 rounded bg-white hover:bg-gold-pale border-2 border-dashed border-gold/70 text-amber-800 font-mono text-xs font-bold uppercase tracking-wider transition">
-                        <i class="fa-solid fa-eye mr-2"></i> Skip · View Demo
-                    </button>
-                </div>
-
-                <!-- Step B: check inbox -->
-                <div id="stepSent" class="hidden text-center">
-                    <div class="w-14 h-14 rounded-full bg-royal-tint border border-royal/20 text-royal flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-paper-plane text-xl"></i>
-                    </div>
-                    <h2 class="font-display font-bold text-2xl text-royal uppercase tracking-wide">Check Your Inbox</h2>
-                    <p class="text-sm text-muted mt-2 leading-relaxed">In the live portal, a sign-in link would now be on its way to <span id="sentTo" class="font-semibold text-slateink"></span>. For this preview, continue straight to the demo.</p>
-                    <button onclick="enterDemo()" class="w-full mt-6 px-6 py-3.5 rounded bg-royal hover:bg-royal-light text-white font-display font-semibold text-base uppercase tracking-wider transition border border-gold/50">
-                        Continue to Demo Dashboard <i class="fa-solid fa-arrow-right ml-2 text-gold-bright text-xs"></i>
-                    </button>
-                    <button onclick="resetSignIn()" class="mt-3 font-mono text-xs font-bold uppercase tracking-wider text-amber-700 hover:text-royal">Use a different email</button>
-                </div>
-
-            </div>
-            <p class="text-center text-xs text-muted mt-4"><span class="hidden sm:inline">New member or email changed? </span><a href="index.html#contact" class="font-mono font-bold uppercase tracking-wider text-royal hover:text-amber-700 ml-1">Contact the Membership Secretary <i class="fa-solid fa-arrow-right ml-0.5"></i></a></p>
-        </div>
-    </main>
-
-    <!-- ================================================================= -->
-    <!-- VIEW 2: DASHBOARD                                                 -->
-    <!-- ================================================================= -->
-    <main id="dashboardView" class="hidden">
-        <!-- Welcome band -->
-        <section class="architectural-bg border-b border-royal/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-12 grid lg:grid-cols-12 gap-5 md:gap-8 items-center">
-                <div class="lg:col-span-7">
-                    <div class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-700 mb-2">Member Dashboard</div>
-                    <h1 class="font-display font-bold text-4xl sm:text-5xl text-slateink uppercase tracking-tight leading-none">
-                        Welcome Back,<br><span class="text-royal">Demo Member</span>
-                    </h1>
-                    <p class="text-muted text-sm sm:text-base mt-4 max-w-xl leading-relaxed">Your membership, range schedule, documents and league standings — all in one place.</p>
-                </div>
-
-                <!-- Digital membership card -->
-                <div class="lg:col-span-5">
-                    <div class="max-w-md lg:ml-auto">
-                        <div class="member-card rounded-2xl p-6 text-white shadow-2xl shadow-royal/30 border-2 border-gold/60 relative overflow-hidden">
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-bright">Toronto Revolver Club</div>
-                                    <div class="font-display font-bold text-xl uppercase tracking-wider mt-0.5">Membership Card</div>
-                                </div>
-                                <img src="trc-crest.svg?v=202611162231" alt="TRC crest" class="w-20 h-20 rounded-full object-contain shrink-0 shadow-lg shadow-black/30">
-                            </div>
-                            <div class="mt-3">
-                                <div class="font-mono text-[10px] uppercase tracking-widest text-white/60">Member</div>
-                                <div class="font-display text-2xl font-semibold uppercase tracking-wide">Demo Member</div>
-                            </div>
-                            <div class="mt-4 flex flex-wrap items-end justify-between gap-3 font-mono">
-                                <div class="flex gap-6">
-                                    <div>
-                                        <div class="text-[9px] uppercase tracking-widest text-white/60">Member No.</div>
-                                        <div class="text-sm font-bold">TRC-0000</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-[9px] uppercase tracking-widest text-white/60">Valid To</div>
-                                        <div class="text-sm font-bold" id="validTo">Dec 31</div>
-                                    </div>
-                                </div>
-                                <span id="statusBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-display text-sm font-semibold uppercase tracking-wider"></span>
-                            </div>
-                        </div>
-                        <a href="#renew" id="renewStrip" class="mt-2 flex items-center justify-between gap-3 px-4 py-2 rounded-lg border font-mono text-[11px] font-bold uppercase tracking-wider transition"></a>
-                        <button onclick="toggleDemoStatus()" class="mt-2 w-full text-right font-mono text-[10px] uppercase tracking-wider text-muted hover:text-royal">Demo: <span id="demoToggleLabel">preview renewal reminder</span></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-
-            <!-- Quick-glance tiles -->
-            <div class="grid sm:grid-cols-3 gap-5 m-ptiles">
-                <div class="trc-card rounded-xl p-5">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-muted">Next Club Night</span>
-                        <i class="fa-solid fa-bullseye text-royal"></i>
-                    </div>
-                    <div class="font-display text-2xl font-bold uppercase text-royal" id="nextRangeDate">—</div>
-                    <div class="text-xs text-muted mt-1" id="nextRangeTitle">—</div>
-                </div>
-                <div class="trc-card rounded-xl p-5">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-muted">Metro Pistol League</span>
-                        <i class="fa-solid fa-trophy text-amber-600"></i>
-                    </div>
-                    <div class="font-display text-2xl font-bold uppercase text-royal">Division 6</div>
-                    <div class="text-xs text-muted mt-1">2025–26 season · see league schedule</div>
-                </div>
-                <div class="trc-card rounded-xl p-5">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-muted">Turkey Shoot</span>
-                        <i class="fa-solid fa-star text-amber-600"></i>
-                    </div>
-                    <div class="font-display text-2xl font-bold uppercase text-royal">Date TBA</div>
-                    <div class="text-xs text-muted mt-1">Annual tradition · Autumn</div>
-                </div>
-            </div>
-
-            <!-- Two aligned rows: Notices | Documents, Standings | RO roster -->
-            <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                    <!-- League standings -->
-                    <section class="trc-card rounded-xl p-6 sm:p-8 lg:col-span-2">
-                        <div class="flex items-center justify-between mb-5">
-                            <div>
-                                <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700">Metro Pistol League</div>
-                                <h2 class="font-display font-bold text-2xl text-slateink uppercase tracking-wide">TRC Standings</h2>
-                            </div>
-                            <span class="px-2.5 py-0.5 rounded bg-gold-pale border border-gold/40 font-mono text-[10px] font-bold text-amber-800">SAMPLE</span>
-                        </div>
-                        <div class="overflow-x-auto -mx-2">
-                            <table class="w-full text-sm min-w-[480px]">
-                                <thead>
-                                    <tr class="font-mono text-[10px] uppercase tracking-widest text-muted border-b border-slate-200">
-                                        <th class="text-left py-2.5 px-2">Rank</th>
-                                        <th class="text-left py-2.5 px-2">Shooter</th>
-                                        <th class="text-right py-2.5 px-2">Matches</th>
-                                        <th class="text-right py-2.5 px-2">Average</th>
-                                        <th class="text-right py-2.5 px-2">Best</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="font-mono">
-                                    <tr class="border-b border-slate-100 bg-gold-pale/60">
-                                        <td class="py-3 px-2"><span class="w-7 h-7 rounded-full bg-gold text-royal-deep font-bold text-xs inline-flex items-center justify-center">1</span></td>
-                                        <td class="py-3 px-2 font-sans font-semibold text-slateink">Member A</td>
-                                        <td class="py-3 px-2 text-right">8</td><td class="py-3 px-2 text-right font-bold text-royal">281.4</td><td class="py-3 px-2 text-right">289</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100">
-                                        <td class="py-3 px-2"><span class="w-7 h-7 rounded-full bg-slate-200 text-slateink font-bold text-xs inline-flex items-center justify-center">2</span></td>
-                                        <td class="py-3 px-2 font-sans font-semibold text-slateink">Member B</td>
-                                        <td class="py-3 px-2 text-right">8</td><td class="py-3 px-2 text-right font-bold text-royal">276.9</td><td class="py-3 px-2 text-right">284</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100">
-                                        <td class="py-3 px-2"><span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 font-bold text-xs inline-flex items-center justify-center">3</span></td>
-                                        <td class="py-3 px-2 font-sans font-semibold text-slateink">Member C</td>
-                                        <td class="py-3 px-2 text-right">7</td><td class="py-3 px-2 text-right font-bold text-royal">272.3</td><td class="py-3 px-2 text-right">280</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100 bg-royal-tint">
-                                        <td class="py-3 px-2"><span class="w-7 h-7 rounded-full bg-royal text-white font-bold text-xs inline-flex items-center justify-center">4</span></td>
-                                        <td class="py-3 px-2 font-sans font-semibold text-royal">Demo Member <span class="font-mono text-[10px] text-amber-700 ml-1">(YOU)</span></td>
-                                        <td class="py-3 px-2 text-right">6</td><td class="py-3 px-2 text-right font-bold text-royal">268.7</td><td class="py-3 px-2 text-right">277</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 px-2"><span class="w-7 h-7 rounded-full bg-slate-100 text-slateink font-bold text-xs inline-flex items-center justify-center">5</span></td>
-                                        <td class="py-3 px-2 font-sans font-semibold text-slateink">Member D</td>
-                                        <td class="py-3 px-2 text-right">8</td><td class="py-3 px-2 text-right font-bold text-royal">265.0</td><td class="py-3 px-2 text-right">273</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-
-                    <!-- Documents -->
-                    <section class="trc-card rounded-xl p-6 flex flex-col">
-                        <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700">Library</div>
-                        <h2 class="font-display font-bold text-2xl text-slateink uppercase tracking-wide mb-4">Club Documents</h2>
-                        <ul class="space-y-2" id="docList"></ul>
-                    </section>
-
-                    <!-- Board notices -->
-                    <section class="trc-card rounded-xl p-6 sm:p-8 lg:col-span-2">
-                        <div class="flex items-center justify-between mb-5">
-                            <div>
-                                <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700">From the Board</div>
-                                <h2 class="font-display font-bold text-2xl text-slateink uppercase tracking-wide">Club Notices</h2>
-                            </div>
-                            <span class="px-2.5 py-0.5 rounded bg-gold-pale border border-gold/40 font-mono text-[10px] font-bold text-amber-800">SAMPLE</span>
-                        </div>
-                        <div class="space-y-3">
-                            <article class="p-4 rounded-lg bg-[#F8FAFC] border border-royal/15 border-l-4 border-l-royal">
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <span class="font-mono text-xs font-bold text-royal">PINNED</span>
-                                    <span class="px-2 py-0.5 rounded bg-royal-tint font-mono text-[10px] font-bold text-royal">MEMBERSHIP</span>
-                                </div>
-                                <h3 class="font-display text-lg font-bold uppercase tracking-wide text-slateink">Annual Dues Renewal Now Open</h3>
-                                <p class="text-sm text-muted mt-1">Renew by Interac e-Transfer, by mail, or in person at the Annual Turkey Shoot. Please include your full name in the memo.</p>
-                            </article>
-                            <article class="p-4 rounded-lg bg-[#F8FAFC] border border-royal/15 border-l-4 border-l-gold-bright">
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <span class="font-mono text-xs font-bold text-royal">RANGE</span>
-                                    <span class="px-2 py-0.5 rounded bg-gold-pale font-mono text-[10px] font-bold text-amber-800">SAFETY</span>
-                                </div>
-                                <h3 class="font-display text-lg font-bold uppercase tracking-wide text-slateink">Range Officer Volunteers Wanted</h3>
-                                <p class="text-sm text-muted mt-1">Certified ROs: please add your availability to the duty roster so every firing line stays supervised.</p>
-                            </article>
-                            <article class="p-4 rounded-lg bg-[#F8FAFC] border border-royal/15 border-l-4 border-l-amber-600">
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <span class="font-mono text-xs font-bold text-royal">EVENTS</span>
-                                    <span class="px-2 py-0.5 rounded bg-gold-pale font-mono text-[10px] font-bold text-amber-800">TRADITION</span>
-                                </div>
-                                <h3 class="font-display text-lg font-bold uppercase tracking-wide text-slateink">Turkey Shoot Date Coming Soon</h3>
-                                <p class="text-sm text-muted mt-1">The board will confirm this year’s date shortly. Watch this space and the club calendar.</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <!-- RO roster -->
-                    <section class="trc-card rounded-xl p-6 flex flex-col">
-                        <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700">Supervision</div>
-                        <h2 class="font-display font-bold text-2xl text-slateink uppercase tracking-wide mb-4">RO Duty Roster</h2>
-                        <ul class="space-y-2 mb-4" id="roList"></ul>
-                        <button onclick="previewToast('RO sign-up would open here')" class="mt-auto pt-0 w-full px-4 py-2.5 rounded border-2 border-royal/25 hover:border-royal text-royal font-mono text-xs font-bold uppercase tracking-wider transition">
-                            <i class="fa-solid fa-hand mr-2 text-amber-600"></i> Volunteer for a Shift
-                        </button>
-                    </section>
-            </div>
-
-            <!-- Renew membership -->
-            <section id="renew" class="scroll-mt-28 rounded-xl bg-white border border-royal/10 border-t-4 border-t-gold p-6 sm:p-8">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
-                    <div>
-                        <div class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700">Annual Dues &amp; Administration</div>
-                        <h2 class="font-display font-bold text-3xl sm:text-4xl text-royal uppercase tracking-tight">Renew Your Membership</h2>
-                    </div>
-                    <span class="px-2.5 py-0.5 rounded bg-gold-pale border border-gold/40 font-mono text-[10px] font-bold text-amber-800 self-start sm:self-auto">MEMBERS ONLY</span>
-                </div>
-            <!-- Clean 2-Column Layout -->
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Left Column: Interac e-Transfer -->
-                <div class="trc-card rounded-xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-royal-tint border border-royal/15 text-royal font-mono text-xs font-bold uppercase mb-6">
-                            <i class="fa-solid fa-bolt text-amber-600"></i>
-                            <span>Option 01 &bull; Electronic Payment</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-slateink uppercase tracking-wide mb-3">
-                            Interac e-Transfer
-                        </h3>
-                        <p class="text-muted text-sm leading-relaxed mb-6">
-                            Send annual membership dues directly via Interac e-Transfer—or pay in person by cash or cheque at the <span class="text-royal font-semibold">Annual Turkey Shoot</span>.
-                        </p>
-
-                        <!-- Copyable e-Transfer Box -->
-                        <div class="p-4 rounded-lg bg-[#F8FAFC] border border-royal/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-                            <div>
-                                <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-muted">Club Treasurer e-Transfer</div>
-                                <div id="duesEmail" class="font-mono text-sm sm:text-base text-royal font-bold mt-0.5 select-all">
-                                    dues@torontorevolverclub.com
-                                </div>
-                            </div>
-                            <button id="copyBtn" onclick="copyDuesEmail()" class="px-4 py-2.5 rounded bg-royal hover:bg-royal-light text-white font-mono text-xs font-semibold uppercase tracking-wider transition inline-flex items-center justify-center shrink-0 border border-gold/50">
-                                <i class="fa-regular fa-copy mr-2 text-gold-bright"></i> Copy Email
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-muted">
-                        <span>INCLUDE FULL NAME IN MEMO</span>
-                        <span class="text-royal font-semibold">CASH / CHEQUE AT TURKEY SHOOT</span>
-                    </div>
-                </div>
-
-                <!-- Right Column: Renewal by Mail -->
-                <div class="trc-card rounded-xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-gold-pale border border-gold/40 text-amber-800 font-mono text-xs font-bold uppercase mb-6">
-                            <i class="fa-solid fa-envelope-open-text text-amber-700"></i>
-                            <span>Option 02 &bull; Postal Cheque</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-slateink uppercase tracking-wide mb-3">
-                            Renewal by Mail
-                        </h3>
-                        <p class="text-muted text-sm leading-relaxed mb-6">
-                            Post a cheque payable to <span class="text-slateink font-semibold">Toronto Revolver Club</span> to our official Scarborough mailing address below.
-                        </p>
-
-                        <div class="p-4 rounded-lg bg-[#F8FAFC] border border-royal/20 mb-6">
-                            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Official Mailing Address</div>
-                            <address class="not-italic font-mono text-sm text-slateink font-medium leading-relaxed">
-                                Toronto Revolver Club<br>
-                                PO Box 92042, Scarborough RPO Bridlewood Mall<br>
-                                Ontario, M1W 3Y8
-                            </address>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3">
-                        <a href="index.html#contact-treasurer" class="w-full sm:w-auto px-6 py-3.5 rounded bg-white hover:bg-royal-tint border-2 border-royal text-royal font-display font-semibold text-sm uppercase tracking-wider transition inline-flex items-center justify-center">
-                            <i class="fa-solid fa-paper-plane mr-2 text-amber-600"></i> Contact the Treasurer
-                        </a>
-                    </div>
-                </div>
-            </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-royal text-white border-t-4 border-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-300 gap-2">
-            <p>&copy; 2026 TORONTO REVOLVER CLUB · MEMBER PORTAL PREVIEW</p>
-            <p class="text-gold-bright">PRECISION &bull; HERITAGE &bull; MARKSMANSHIP</p>
-        </div>
-    </footer>
-
-    <!-- TOAST -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
-        <div class="bg-royal border-2 border-gold text-white px-5 py-3.5 rounded-lg shadow-2xl flex items-center space-x-3">
-            <i class="fa-solid fa-circle-info text-gold-bright"></i>
-            <span id="toastMsg" class="font-mono text-xs font-semibold uppercase tracking-wider"></span>
-        </div>
-    </div>
-
-    <script>
-        const DAY = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-        const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        const RANGE_NIGHTS = { 3: 'Wednesday club match · 5:00 PM' };
-
-        function fmt(d) { return DAY[d.getDay()] + ' ' + MON[d.getMonth()] + ' ' + d.getDate(); }
-        function nextDays(match, count) {
-            const out = []; const d = new Date(); d.setHours(0, 0, 0, 0);
-            for (let i = 0; i < 60 && out.length < count; i++) {
-                if (match(d.getDay())) out.push(new Date(d));
-                d.setDate(d.getDate() + 1);
-            }
-            return out;
-        }
-
-        function populateDashboard() {
-            const year = new Date().getFullYear();
-            document.getElementById('validTo').textContent = 'Dec 31, ' + String(year).slice(2);
-
-            const nr = nextDays(w => w in RANGE_NIGHTS, 1)[0];
-            document.getElementById('nextRangeDate').textContent = fmt(nr);
-            document.getElementById('nextRangeTitle').textContent = RANGE_NIGHTS[nr.getDay()];
-
-            const docs = [
-                ['fa-shield-halved', 'Club Safety Rules'],
-                ['fa-scale-balanced', 'Constitution & By-laws'],
-                ['fa-file-lines', 'AGM Minutes'],
-                ['fa-newspaper', 'Club Newsletter'],
-                ['fa-bullseye', 'MPL Rules & Scoring']
-            ];
-            document.getElementById('docList').innerHTML = docs.map(([icon, name]) => `
-                <li>
-                    <button onclick="previewToast('Documents are not available in the preview')" class="w-full flex items-center justify-between p-3 rounded-lg bg-[#F8FAFC] border border-royal/10 hover:border-gold hover:bg-gold-pale/40 transition text-left">
-                        <span class="flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-royal-tint text-royal flex items-center justify-center"><i class="fa-solid ${icon} text-sm"></i></span>
-                            <span class="text-sm font-semibold text-slateink">${name}</span>
-                        </span>
-                        <i class="fa-solid fa-download text-xs text-amber-700"></i>
-                    </button>
-                </li>`).join('');
-
-            const shifts = nextDays(w => w === 3 || w === 6, 3);
-            document.getElementById('roList').innerHTML = shifts.map((d, i) => `
-                <li class="flex items-center justify-between p-3 rounded-lg bg-[#F8FAFC] border border-royal/10">
-                    <span class="font-mono text-xs font-bold text-royal">${fmt(d)}</span>
-                    ${i % 2 === 0
-                        ? '<span class="px-2 py-0.5 rounded bg-royal-tint font-mono text-[10px] font-bold text-royal">RO ASSIGNED</span>'
-                        : '<span class="px-2 py-0.5 rounded bg-gold-pale border border-gold/40 font-mono text-[10px] font-bold text-amber-800">RO NEEDED</span>'}
-                </li>`).join('');
-        }
-
-        // Membership status (demo). In a real portal this would come from the member record.
-        let demoStatus = 'good';
-        function renderStatus() {
-            const year = new Date().getFullYear();
-            const badge = document.getElementById('statusBadge');
-            const strip = document.getElementById('renewStrip');
-            const good = demoStatus === 'good';
-            document.getElementById('validTo').textContent = 'Dec 31, ' + String(good ? year : year - 1).slice(2);
-            badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-display text-sm font-semibold uppercase tracking-wider ' +
-                (good ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800');
-            badge.innerHTML = good ? '<i class="fa-solid fa-circle-check"></i> In Good Standing' : '<i class="fa-solid fa-circle-exclamation"></i> Time to Renew';
-            strip.className = 'mt-2 flex items-center justify-between gap-3 px-4 py-2 rounded-lg border font-mono text-[11px] font-bold uppercase tracking-wider transition ' +
-                (good ? 'bg-royal-tint border-royal/20 text-royal hover:border-royal' : 'bg-gold-pale border-gold text-amber-800 hover:bg-gold hover:text-royal-deep');
-            strip.innerHTML = good
-                ? '<span><i class="fa-regular fa-calendar mr-1.5"></i> Renews Jan 1, ' + (year + 1) + '</span><span>Renewal options <i class="fa-solid fa-arrow-right ml-1"></i></span>'
-                : '<span><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Dues are due: renew to keep range access</span><span>Renew now <i class="fa-solid fa-arrow-right ml-1"></i></span>';
-            document.getElementById('demoToggleLabel').textContent = good ? 'preview renewal reminder' : 'preview good standing';
-        }
-        function toggleDemoStatus() { demoStatus = demoStatus === 'good' ? 'due' : 'good'; renderStatus(); }
-
-        function sendLink(e) {
-            e.preventDefault();
-            document.getElementById('sentTo').textContent = document.getElementById('emailInput').value;
-            document.getElementById('stepEmail').classList.add('hidden');
-            document.getElementById('stepSent').classList.remove('hidden');
-        }
-        function resetSignIn() {
-            document.getElementById('stepSent').classList.add('hidden');
-            document.getElementById('stepEmail').classList.remove('hidden');
-        }
-        function enterDemo() {
-            populateDashboard();
-            renderStatus();
-            document.getElementById('signInView').classList.add('hidden');
-            document.getElementById('dashboardView').classList.remove('hidden');
-            document.getElementById('signOutBtn').classList.remove('hidden');
-            if (location.hash === '#renew') {
-                setTimeout(() => document.getElementById('renew').scrollIntoView({ behavior: 'smooth' }), 60);
-            } else {
-                window.scrollTo(0, 0);
-            }
-        }
-        function signOut() {
-            resetSignIn();
-            document.getElementById('emailInput').value = '';
-            document.getElementById('dashboardView').classList.add('hidden');
-            document.getElementById('signInView').classList.remove('hidden');
-            document.getElementById('signOutBtn').classList.add('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        if (location.hash === '#renew') document.getElementById('renewHint').classList.remove('hidden');
-
-        function copyDuesEmail() {
-            const email = 'dues@torontorevolverclub.com';
-            const temp = document.createElement('input');
-            temp.value = email; document.body.appendChild(temp); temp.select();
-            document.execCommand('copy'); document.body.removeChild(temp);
-            const btn = document.getElementById('copyBtn'); const orig = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-check mr-2 text-gold-bright"></i> Copied!';
-            setTimeout(() => { btn.innerHTML = orig; }, 2200);
-            previewToast('Copied: ' + email);
-        }
-
-        function previewToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').textContent = message;
-            toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.remove('translate-y-4', 'opacity-0'), 10);
-            setTimeout(() => {
-                toast.classList.add('translate-y-4', 'opacity-0');
-                setTimeout(() => toast.classList.add('hidden'), 300);
-            }, 2600);
-        }
-    </script>
-    <script src="mobile.js?v=20261123i"></script>
+<footer class="ft"><div class="in">
+  <span class="fb"><img src="trc-crest.svg?v=202611162231" alt="">© 2026 Toronto Revolver Club</span>
+  <nav><a href="safety.html">Safety</a><a href="competition.html">Competition</a><a href="gallery.html">Gallery</a><a href="#calendar" onclick="openCalendar();return false;">Calendar</a><a href="#contact" onclick="openModal('contactModal');return false;">Contact</a></nav>
+</div></footer>
+<script src="site.js?v=20261124a"></script>
+<script>
+(function(){
+  var ul=document.getElementById('comingUp'); if(!ul||typeof calEventsOn!=='function'){ if(ul) ul.innerHTML='<li class="none">See the full calendar for upcoming events.</li>'; return; }
+  var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'], out=[], d=new Date(); d.setHours(0,0,0,0);
+  for(var i=0;i<90&&out.length<3;i++){
+    var day=new Date(d); day.setDate(d.getDate()+i);
+    calEventsOn(day).forEach(function(ev){ if(out.length<3 && ev.cat!=='rental') out.push({day:day,ev:ev}); });
+  }
+  if(!out.length){ ul.innerHTML='<li class="none">No upcoming events listed. See the full calendar.</li>'; return; }
+  ul.innerHTML=out.map(function(o){
+    var t=(typeof calTimeLabel==='function')?calTimeLabel(o.ev):'';
+    return '<li><span class="d">'+M[o.day.getMonth()]+' '+o.day.getDate()+'</span><span>'+(o.ev.short||o.ev.title)+'</span><span class="t">'+t+'</span></li>';
+  }).join('');
+})();
+</script>
 </body>
 </html>

@@ -15,7 +15,7 @@
         { id: 'hours',  icon: 'fa-clock',        label: 'Hours',  href: 'range.html#hours' },
         { id: 'safety', icon: 'fa-shield-halved', label: 'Safety', href: 'safety.html' },
         { id: 'events', icon: 'fa-calendar-days', label: 'Events', href: 'index.html#calendar' },
-        { id: 'portal', icon: 'fa-lock',         label: 'Portal', href: 'members.html' }
+        { id: 'portal', icon: 'fa-users',        label: 'Members', href: 'members.html' }
     ];
     const active = isSafety ? 'safety' : isPortal ? 'portal' : 'home';
     const bar = document.createElement('nav');

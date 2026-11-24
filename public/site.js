@@ -453,7 +453,7 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
         ['hours', 'fa-clock', 'Hours', 'range.html#hours'],
         ['safety', 'fa-shield-halved', 'Safety', 'safety.html'],
         ['events', 'fa-calendar-days', 'Events', '#calendar'],
-        ['portal', 'fa-lock', 'Portal', 'members.html']
+        ['portal', 'fa-users', 'Members', 'members.html']
     ];
     const active = page.startsWith('safety') ? 'safety' : page === 'range.html' ? 'hours' : page === 'index.html' ? 'home' : '';
     const bar = document.createElement('nav');
