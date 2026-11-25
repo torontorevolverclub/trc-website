@@ -519,3 +519,5 @@ html,body{max-width:100%;overflow-x:clip}
 .qbtn{display:inline-block;margin-top:.55rem;font-family:var(--display);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;color:#fff;background:var(--royal);border-radius:.3rem;padding:.5rem .9rem;box-shadow:0 6px 14px -8px rgba(0,20,137,.5)}
 .qbtn:hover{background:var(--royal-light)}
 @media (max-width:640px){.qbtn{font-size:.78rem;padding:.45rem .8rem}}
+.qf-soon{font-size:.92rem;color:var(--royal-deep);background:#FEF9E7;border:1px solid rgba(212,175,55,.6);border-left:4px solid var(--gold);border-radius:.45rem;padding:.75rem 1rem}
+.qf-send.qf-off{opacity:.55;cursor:not-allowed;box-shadow:none}
