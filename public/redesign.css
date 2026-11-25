@@ -521,3 +521,5 @@ html,body{max-width:100%;overflow-x:clip}
 @media (max-width:640px){.qbtn{font-size:.78rem;padding:.45rem .8rem}}
 .qf-soon{font-size:.92rem;color:var(--royal-deep);background:#FEF9E7;border:1px solid rgba(212,175,55,.6);border-left:4px solid var(--gold);border-radius:.45rem;padding:.75rem 1rem}
 .qf-send.qf-off{opacity:.55;cursor:not-allowed;box-shadow:none}
+/* Stop pages shifting sideways when one page needs a scrollbar and another doesn't */
+html{scrollbar-gutter:stable}
