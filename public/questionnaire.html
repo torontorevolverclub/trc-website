@@ -165,7 +165,7 @@
         if(res.ok && String(res.j.success)==='true'){ f.hidden=true; done.hidden=false; done.focus(); window.scrollTo({top:0,behavior:'smooth'}); }
         else throw new Error(res.j&&res.j.message||'send failed');
       })
-      .catch(function(){ err.textContent='Sorry, your answers couldn’t be sent. Please try again in a few minutes.'; err.hidden=false; })
+      .catch(function(e){ var m=(e&&e.message)||''; err.textContent=/activat/i.test(m)?'This form is waiting for activation by the club. Please try again later.':'Sorry, your answers couldn’t be sent. Please try again in a few minutes.'; err.hidden=false; if(m) console.warn('FormSubmit:',m); })
       .then(function(){ btn.disabled=false; btn.firstChild.textContent='Send my answers '; });
   });
 })();
