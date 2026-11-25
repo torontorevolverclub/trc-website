@@ -98,8 +98,14 @@
         .comp-pdf { display: inline-flex; align-items: center; gap: .5rem; margin-top: .9rem; padding: .5rem .8rem; border-radius: .5rem; border: 1px solid rgba(0,20,137,.15);
             font: 700 11px 'JetBrains Mono', monospace; text-transform: uppercase; color: #001489; }
         .comp-pdf:hover { border-color: #D4AF37; }
-        @media (min-width: 1024px) { .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: stretch; } .comp-list > * { margin-top: 0 !important; } .comp-list > details:not([open]) > summary { height: 100%; } .comp-list > details[open] { grid-column: 1 / -1; } }
+        @media (min-width: 641px) { .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: stretch; } .comp-list > * { margin-top: 0 !important; } .comp-list > details:not([open]) > summary { height: 100%; } .comp-list > details[open] { grid-column: 1 / -1; } }
         .comp-short { display: none; }
+        @media (min-width: 641px) and (max-width: 1023px) {
+            .comp-sec .comp-tag { display: none; }
+            .comp-sec:not([open]) .comp-head h2 { display: none; }
+            .comp-sec:not([open]) .comp-short { display: block; flex: 1; font-family: Oswald, sans-serif; font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .02em; color: #0F172A; line-height: 1.15; }
+            .comp-sec[open] { grid-column: 1 / -1; }
+        }
         @media (max-width: 640px) {
             .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
             .comp-list > * { margin-top: 0 !important; }
@@ -135,7 +141,7 @@
         }
     </style>
     <link rel="stylesheet" href="mobile.css?v=20261119162915">
-    <link rel="stylesheet" href="redesign.css?v=20261124i">
+    <link rel="stylesheet" href="redesign.css?v=20261124j">
 </head>
 <body class="font-sans antialiased selection:bg-royal selection:text-white">
 
