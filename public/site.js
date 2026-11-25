@@ -515,7 +515,8 @@ async function calLoadGoogle() {
     if (!el) return;
     const now = new Date(), h = now.getHours() + now.getMinutes() / 60;
     const seg = HOURS[today].segs.find(([s, e]) => h >= s && h < e);
-    if (seg && seg[2] === 'member') el.innerHTML = '<span class="dot"></span>Open now · TRC members until ' + fmt(seg[1]);
+    let trcEnd = seg ? seg[1] : 0; HOURS[today].segs.forEach(([s2, e2, t2]) => { if (s2 === trcEnd && t2 !== 'rental') trcEnd = e2; });
+    if (seg && seg[2] === 'member') el.innerHTML = '<span class="dot"></span>Open now · TRC members until ' + fmt(trcEnd);
     else if (seg && seg[2] === 'club') el.innerHTML = '<span class="dot"></span>TRC club night now · until ' + fmt(seg[1]);
     else { el.classList.add('shut'); el.innerHTML = seg ? (seg[3] || 'Rental club') + ' has the range now · not available to TRC members' : 'Range closed now'; }
 })();
