@@ -44,9 +44,13 @@
 .mcard p.b{font-size:.9rem;color:#334155;line-height:1.55}
 .mem{display:inline-block;margin-top:.6rem;font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--royal);background:#fff;border:1px solid rgba(0,20,137,.2);border-radius:.35rem;padding:.4rem .7rem}
 .mdocs a{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid rgba(0,20,137,.08);font-size:.92rem;color:var(--ink)}
-.mdocs a:last-child{border-bottom:0}
+.mdocs a:last-child,.mdocs>:last-child,.mdocs .mrow:last-child{border-bottom:0}
 .mdocs .pdf{width:2rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:.3rem;background:#FEF2F2;color:#B91C1C;font-family:var(--mono);font-size:.6rem;font-weight:700}
 .mdocs .ar{margin-left:auto;color:var(--amber)}
+.mdocs .mrow{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid rgba(0,20,137,.08);font-size:.92rem;color:var(--ink)}
+.mdocs .mrow a{display:inline;padding:0;border:0;margin-left:.9rem;color:var(--amber);font-size:.85rem;white-space:nowrap}
+.mdocs .mrow .alt{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end}
+#renew{display:flex;flex-direction:column}#renew .mem{margin-top:auto;align-self:flex-start}
 .mhr details{margin-top:.2rem}
 .mhr summary{list-style:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.55rem .75rem;background:var(--tint);border:1px solid rgba(0,20,137,.15);border-radius:.4rem;color:var(--royal);font-weight:600;font-size:.88rem}
 .mhr summary::-webkit-details-marker{display:none}
@@ -115,6 +119,7 @@
       <a href="docs/trc-safety-familiarization-course.pdf" target="_blank" rel="noopener"><span class="pdf">PDF</span><span>Safety &amp; Familiarization Course</span><span class="ar">&rarr;</span></a>
       <a href="docs/trc-range-regulations.pdf" target="_blank" rel="noopener"><span class="pdf">PDF</span><span>TRC Range Regulations</span><span class="ar">&rarr;</span></a>
       <a href="safety-rules.html"><span class="pdf" style="background:var(--tint);color:var(--royal)">WEB</span><span>Safety rules summary</span><span class="ar">&rarr;</span></a>
+      <div class="mrow"><span class="pdf">PDF</span><span>ISSF match commands</span><span class="alt"><a href="docs/trc-issf-rimfire-match-commands.pdf" target="_blank" rel="noopener">Rimfire &rarr;</a><a href="docs/trc-issf-centrefire-match-commands.pdf" target="_blank" rel="noopener">Centrefire &rarr;</a></span></div>
     </div>
   </div>
 </div></div></section>
