@@ -535,3 +535,6 @@ html{scrollbar-gutter:stable}
 /* Phone hero: slightly smaller crest + space above buttons so crest doesn't touch Safety box */
 @media (max-width:640px){.hero-crest{top:1.9rem;right:-1.2rem;width:12rem;height:12rem}.hero .ctas{margin-top:1.5rem}}
 @media (max-width:640px){.hero-crest{top:2.3rem;right:.5rem;width:10rem;height:10rem}}
+
+/* Desktop hero crest: centred over Range Hours card; raised halfway toward heading (Mike 11-27) */
+@media (min-width:1025px){.hero-crest{justify-self:end;margin-right:calc(40% - 10.1667rem);position:relative;top:-3rem}}
