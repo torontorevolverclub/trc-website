@@ -117,7 +117,7 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
         const CAL_RECURRING = [
             { cat: 'trc', weekday: 2, start: '09:00', short: 'ISSF 60', badge: 'WEEKLY MATCH',
               title: 'Tuesday Morning ISSF 60',
-              desc: 'Weekly morning ISSF precision match for TRC members.' },
+              desc: 'ISSF Standard Pistol half match (.22) and ISSF Centre-Fire Pistol half match, scored separately.' },
             { key: 'wed-night', cat: 'trc', weekday: 3, start: '17:00', end: '24:00', short: 'Club Night', badge: 'TRC CLUB NIGHT',
               title: 'TRC Club Night',
               desc: 'The weekly TRC club night on the range.' },
@@ -129,19 +129,19 @@ document.body.insertAdjacentHTML('beforeend', "<div id=\"toast\" class=\"fixed b
 
         const CAL_DATED = [
             // --- November 2026 ---
-            { cat: 'trc', date: '2026-11-04', start: '17:00', replaces: 'wed-night', short: 'ISSF .22 (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF .22 (30)', desc: 'Wednesday club night ISSF .22 match, 30 shots.' },
-            { cat: 'trc', date: '2026-11-07', start: '08:00', short: 'Air Pistol Match', badge: 'MATCH', title: 'Air Pistol Match', desc: '10m air pistol match.' },
+            { cat: 'trc', date: '2026-11-04', start: '17:00', replaces: 'wed-night', short: 'ISSF .22 (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF .22 (30)', desc: 'ISSF Standard Pistol half match (.22, 30 shots).' },
+            { cat: 'trc', date: '2026-11-07', start: '08:00', short: 'LSBA Air Pistol', badge: 'MATCH', title: 'LSBA Air Pistol Match', desc: 'Lakeshore Small Bore Association air pistol match, hosted by TRC (60 shots standing).' },
             { cat: 'closed', date: '2026-11-09', start: '18:00', short: 'Club Closed', badge: 'CLOSED', title: 'Club Closed: Executive Meeting', desc: 'The range is closed for the evening.' },
             { cat: 'closed', date: '2026-11-11', start: '07:00', short: 'Maintenance', badge: 'MAINTENANCE', title: 'Range Maintenance', desc: 'Scheduled range maintenance.' },
-            { cat: 'trc', date: '2026-11-11', start: '17:00', replaces: 'wed-night', short: 'ISSF .22 (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF .22 (30)', desc: 'Wednesday club night ISSF .22 match, 30 shots.' },
+            { cat: 'trc', date: '2026-11-11', start: '17:00', replaces: 'wed-night', short: 'ISSF .22 (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF .22 (30)', desc: 'ISSF Standard Pistol half match (.22, 30 shots).' },
             { cat: 'trc', date: '2026-11-14', start: '08:00', short: 'IPSC Invitational', badge: 'INVITATIONAL', title: 'IPSC Invitational Match', desc: 'Invitational practical shooting match.' },
-            { cat: 'trc', date: '2026-11-18', start: '17:00', replaces: 'wed-night', short: 'ISSF CF (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF Centrefire (30)', desc: 'Wednesday club night ISSF centrefire match, 30 shots.' },
+            { cat: 'trc', date: '2026-11-18', start: '17:00', replaces: 'wed-night', short: 'ISSF CF (30)', badge: 'CLUB NIGHT MATCH', title: 'ISSF Centrefire (30)', desc: 'ISSF Centre-Fire Pistol half match (30 shots).' },
             { cat: 'trc', date: '2026-11-21', start: '09:30', short: 'Bill Wood Memorial', badge: 'MEMORIAL MATCH', title: 'Bill Wood Memorial Match', desc: 'Annual memorial match.' },
             { cat: 'trc', date: '2026-11-25', start: '17:00', replaces: 'wed-night', short: 'ISSF .22 600', badge: 'CLUB NIGHT MATCH', title: 'ISSF .22 600 (60)', desc: 'Wednesday club night ISSF .22 600 match, 60 shots.' },
             { cat: 'trc', date: '2026-11-30', start: '18:00', short: 'Rifle Night', badge: 'RIFLE NIGHT', title: 'Rifle Night', desc: 'Rifle night. Only .22 calibre rimfire rifles are permitted on the range.' },
             // --- December 2026 ---
-            { cat: 'trc', date: '2026-12-02', start: '17:00', replaces: 'wed-night', short: 'ISSF 600 (60)', badge: 'CLUB NIGHT MATCH', title: 'ISSF 600 (60)', desc: 'Wednesday club night ISSF 600 match, 60 shots.' },
-            { cat: 'trc', date: '2026-12-05', start: '08:00', short: 'Air Pistol Match', badge: 'MATCH', title: 'Air Pistol Match', desc: '10m air pistol match.' },
+            { cat: 'trc', date: '2026-12-02', start: '17:00', replaces: 'wed-night', short: 'ISSF 600 (60)', badge: 'CLUB NIGHT MATCH', title: 'ISSF 600 (60)', desc: 'ISSF Standard Pistol half match plus ISSF Centre-Fire Pistol half match, scored separately (60 shots).' },
+            { cat: 'trc', date: '2026-12-05', start: '08:00', short: 'LSBA Air Pistol', badge: 'MATCH', title: 'LSBA Air Pistol Match', desc: 'Lakeshore Small Bore Association air pistol match, hosted by TRC (60 shots standing).' },
             // --- To be announced ---
             { cat: 'mpl', date: null, start: null, short: 'MPL Div. 6', badge: 'DIVISION 6 · 2025–26', title: 'Metro Pistol League Division 6 Matches',
               desc: 'No Division 6 matches are posted for November. Note: the maximum dummy score allowed for .22 or CF is 250.' },
@@ -533,6 +533,11 @@ async function calLoadGoogle() {
         function openFromHash() {
             if (location.hash === '#calendar') openCalendar();
             if (location.hash === '#contact') openModal('contactModal');
+            if (location.hash === '#contact-matchdirector') {
+                const sel = document.querySelector('#contactModal select');
+                if (sel) sel.selectedIndex = [...sel.options].findIndex(o => /Match Director/.test(o.text));
+                openModal('contactModal');
+            }
             if (location.hash === '#contact-treasurer') {
                 const sel = document.querySelector('#contactModal select');
                 if (sel) sel.selectedIndex = [...sel.options].findIndex(o => /Treasurer/.test(o.text));
